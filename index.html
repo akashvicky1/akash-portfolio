@@ -8,9 +8,21 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      position: relative;
+      color: #ffffff;
+    }
+    .background-overlay {
       background-image: url('https://cdn.pixabay.com/photo/2020/03/17/04/00/technology-4938921_1280.jpg');
       background-size: cover;
       background-attachment: fixed;
+      background-position: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      filter: brightness(0.4);
     }
     .icon {
       width: 20px;
@@ -21,7 +33,8 @@
     }
   </style>
 </head>
-<body class="text-white bg-opacity-90">  <!-- Header -->  <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md">
+<body>
+  <div class="background-overlay"></div>  <!-- Header -->  <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md">
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-4xl font-bold">Akash Prajapati</h1>
       <p class="text-lg mt-2">Senior IT Infrastructure System Engineer | Ahmedabad, India</p>
@@ -30,14 +43,14 @@
   </header>  <!-- About Section -->  <section class="py-10">
     <div class="container mx-auto px-4 flex flex-col items-center">
       <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 shadow-lg mb-6">
-      <h2 class="text-2xl font-semibold text-blue-100 mb-2">About Me</h2>
-      <p class="text-center max-w-2xl">
+      <h2 class="text-2xl font-semibold text-white mb-2">About Me</h2>
+      <p class="text-center max-w-2xl text-gray-200">
         Experienced IT professional with 11+ years in the industry including 6+ years as a System Administrator and 4 years in Desktop Support. Skilled in managing IT infrastructure, implementing monitoring systems, ensuring system security, and optimizing performance. Adept at troubleshooting complex issues and streamlining IT processes.
       </p>
     </div>
   </section>  <!-- Skills Section -->  <section class="py-10">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-semibold text-blue-100 mb-6 text-center">Key Skills</h2>
+      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
         <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="icon">Linux</span>
         <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" class="icon">Windows Server</span>
@@ -61,8 +74,8 @@
     </div>
   </section>  <!-- Experience Section -->  <section class="py-10">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-semibold text-blue-100 mb-6 text-center">Experience</h2>
-      <div class="max-w-3xl mx-auto space-y-6">
+      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
+      <div class="max-w-3xl mx-auto space-y-6 text-gray-200">
         <div><h3 class="text-lg font-semibold">Senior IT Infrastructure System Engineer — Webelight Solutions</h3><p class="text-sm">Dec 2024 – Present</p></div>
         <div><h3 class="text-lg font-semibold">Sr. IT Executive — Growexx</h3><p class="text-sm">Jul 2023 – Dec 2024</p></div>
         <div><h3 class="text-lg font-semibold">System Administrator — Xbyte</h3><p class="text-sm">Jul 2019 – Jul 2023</p></div>
