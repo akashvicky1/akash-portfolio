@@ -12,41 +12,52 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
       color: #ffffff;
       background-color: #0f172a;
-      background-image: url('https://cdn.pixabay.com/photo/2020/03/17/04/00/technology-4938921_1280.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      animation: bgScroll 60s linear infinite;
-      opacity: 0;
-      animation: fadeInBody 1s ease forwards;
+      margin: 0;
+      padding: 0;
     }
 
-    @keyframes bgScroll {
-      0% { background-position: center top; }
-      100% { background-position: center bottom; }
-    }
-
-    @keyframes fadeInBody {
-      to { opacity: 1; }
+    #tsparticles {
+      position: fixed;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
     }
 
     .overlay {
-      background-color: rgba(15, 23, 42, 0.8);
+      background-color: rgba(15, 23, 42, 0.85);
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: -1;
+      z-index: 0;
+    }
+
+    .profile-glow {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-glow:hover {
+      transform: scale(1.05);
+    }
+
+    .glass-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
     .icon {
@@ -73,30 +84,14 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-
-    .profile-glow {
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .profile-glow:hover {
-      transform: scale(1.05);
-    }
-
-    .glass-card {
-      background-color: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    }
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
   <div class="overlay"></div>
 
   <!-- Header -->
-  <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md" data-aos="fade-down">
+  <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md relative z-10" data-aos="fade-down">
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-4xl font-bold">
         Akash Prajapati<br />
@@ -134,7 +129,6 @@
     <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
-        <!-- Keep all skill tags here -->
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
@@ -177,10 +171,32 @@
     AOS.init({ duration: 1000, once: true });
 
     new Typed('#typed-text', {
-      strings: ['Senior IT Engineer', 'AWS' , 'Firewall Expert' , 'Network Expert'],
+      strings: ['Senior IT Engineer', 'AWS', 'Firewall Expert', 'Network Expert'],
       typeSpeed: 60,
       backSpeed: 30,
       loop: true
+    });
+
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: true },
+      particles: {
+        number: { value: 50 },
+        size: { value: 3 },
+        color: { value: "#00bfff" },
+        links: {
+          enable: true,
+          distance: 120,
+          color: "#00bfff",
+          opacity: 0.4
+        },
+        move: {
+          enable: true,
+          speed: 1
+        }
+      },
+      background: {
+        color: "#0f172a"
+      }
     });
   </script>
 </body>
