@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akash Prajapati | Senior IT Engineer</title>
 
-  <!-- ✅ Open Graph Meta Tags -->
   <meta property="og:title" content="Akash Prajapati | System Admin Portfolio" />
   <meta property="og:description" content="Explore my IT infrastructure projects, skills & certifications." />
   <meta property="og:image" content="https://akashvicky1.github.io/preview.jpg" />
@@ -15,6 +14,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -24,7 +25,20 @@
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
+      animation: bgScroll 60s linear infinite;
+      opacity: 0;
+      animation: fadeInBody 1s ease forwards;
     }
+
+    @keyframes bgScroll {
+      0% { background-position: center top; }
+      100% { background-position: center bottom; }
+    }
+
+    @keyframes fadeInBody {
+      to { opacity: 1; }
+    }
+
     .overlay {
       background-color: rgba(15, 23, 42, 0.8);
       position: absolute;
@@ -34,6 +48,7 @@
       bottom: 0;
       z-index: -1;
     }
+
     .icon {
       width: 20px;
       height: 20px;
@@ -41,65 +56,105 @@
       vertical-align: middle;
       margin-right: 8px;
     }
+
+    .skill-3d {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .skill-3d:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .profile-glow {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-glow:hover {
+      transform: scale(1.05);
+    }
+
+    .glass-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
   </style>
 </head>
 <body>
   <div class="overlay"></div>
 
-  <!-- ✅ Header with Resume Download -->
+  <!-- Header -->
   <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md" data-aos="fade-down">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold">Akash Prajapati</h1>
-      <p class="text-lg mt-2">Senior IT Infrastructure System Engineer | Ahmedabad, India</p>
-      <p class="text-sm mt-1">
+      <h1 class="text-4xl font-bold">
+        Akash Prajapati<br />
+        <span id="typed-text" class="text-blue-400 text-xl block mt-2 h-6"></span>
+      </h1>
+      <p class="text-sm mt-2">
         Email: prajapatiakash123@gmail.com |
         <a href="https://www.linkedin.com/in/akash-prajapati-b74905164" target="_blank" class="underline">LinkedIn</a>
       </p>
       <p class="text-sm mt-1">Mobile No: +91 9067825687</p>
-      <div class="mt-4">
+      <div class="mt-4 space-y-2">
         <a href="Akash_Resume.pdf" download class="inline-block px-6 py-2 bg-white text-blue-900 font-semibold rounded shadow hover:bg-gray-200 transition">
           📄 Download My Resume
+        </a><br>
+        <a href="A_professional_business_card_for_an_IT_network_exp.png" download class="inline-block px-6 py-2 bg-white text-blue-900 font-semibold rounded shadow hover:bg-gray-200 transition">
+          📄 Download Visiting Card
         </a>
       </div>
     </div>
   </header>
 
-  <!-- ✅ About Section -->
+  <!-- About -->
   <section class="py-10 relative z-10" data-aos="fade-up">
     <div class="container mx-auto px-4 flex flex-col items-center">
-      <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 shadow-lg mb-6" />
+      <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 profile-glow mb-6" />
       <h2 class="text-2xl font-semibold text-white mb-2">About Me</h2>
       <p class="text-center max-w-2xl text-white">
-        Experienced IT professional with 11+ years in the industry including 6+ years as a System Administrator and 4 years in Desktop Support. Skilled in managing IT infrastructure, implementing monitoring systems, ensuring system security, and optimizing performance. Adept at troubleshooting complex issues and streamlining IT processes.
+        IT & Network Expert with over 12 years of experience based in Ahmedabad, Gujarat. Proven track record in managing enterprise IT infrastructure, firewalls, cloud environments (AWS, OVH), email security, and network monitoring solutions. Passionate about driving performance, ensuring system security, and delivering reliable technical support.
       </p>
     </div>
   </section>
 
-  <!-- ✅ Skills Section -->
-  <section class="py-10 relative z-10" data-aos="fade-up">
-    <div class="container mx-auto px-4">
+  <!-- Skills -->
+  <section class="py-10 relative z-10" data-aos="zoom-in-up">
+    <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
-        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
+        <!-- Keep all skill tags here -->
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
       </div>
     </div>
   </section>
 
-  <!-- ✅ Experience Section -->
-  <section class="py-10 relative z-10" data-aos="fade-up">
-    <div class="container mx-auto px-4">
+  <!-- Experience -->
+  <section class="py-10 relative z-10" data-aos="flip-left">
+    <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
       <div class="max-w-3xl mx-auto space-y-6 text-white">
         <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="webelight logo.jpg" class="w-6 h-6 rounded" />Senior IT Infrastructure System Engineer — Webelight Solutions</h3><p class="text-sm">Dec 2024 – Present</p></div>
@@ -112,7 +167,7 @@
     </div>
   </section>
 
-  <!-- ✅ Footer -->
+  <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10" data-aos="fade-up">
     <p>&copy; 2025 Akash Prajapati. All rights reserved.</p>
   </footer>
@@ -120,6 +175,13 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    new Typed('#typed-text', {
+      strings: ['Senior IT Engineer', 'AWS' , 'Firewall Expert' , 'Network Expert'],
+      typeSpeed: 60,
+      backSpeed: 30,
+      loop: true
+    });
   </script>
 </body>
 </html>
