@@ -41,15 +41,6 @@
       vertical-align: middle;
       margin-right: 8px;
     }
-    .fade-up {
-      transition: transform 0.6s ease, opacity 0.6s ease;
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    .aos-animate.fade-up {
-      transform: translateY(0);
-      opacity: 1;
-    }
   </style>
 </head>
 <body>
@@ -89,8 +80,19 @@
     <div class="container mx-auto px-4">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
-        <!-- All skill icons remain unchanged -->
-        <!-- ... (unchanged code for skill icons) ... -->
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
+        <span class="bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
       </div>
     </div>
   </section>
@@ -100,8 +102,12 @@
     <div class="container mx-auto px-4">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
       <div class="max-w-3xl mx-auto space-y-6 text-white">
-        <!-- All experience blocks remain unchanged -->
-        <!-- ... (unchanged code for experience blocks) ... -->
+        <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="webelight logo.jpg" class="w-6 h-6 rounded" />Senior IT Infrastructure System Engineer — Webelight Solutions</h3><p class="text-sm">Dec 2024 – Present</p></div>
+        <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="growexx.svg" class="w-6 h-6 rounded" />Sr. IT Executive — Growexx</h3><p class="text-sm">Jul 2023 – Dec 2024</p></div>
+        <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="xbyte.jpg" class="w-6 h-6 rounded" />System Administrator — Xbyte</h3><p class="text-sm">Jul 2019 – Jul 2023</p></div>
+        <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="K R India.jpeg" class="w-6 h-6 rounded" />Desktop Support Engineer — KR India Pvt Ltd (IDSS)</h3><p class="text-sm">Mar 2018 – Jun 2019</p></div>
+        <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="N B Patel logo.png" class="w-6 h-6 rounded" />Desktop Support Engineer — NB Patel</h3><p class="text-sm">Mar 2017 – Mar 2018</p></div>
+        <div><h3 class="text-lg font-semibold flex items-center gap-2"><img src="LCIT logo.jpg" class="w-6 h-6 rounded" />Desktop Support Engineer — LCIT</h3><p class="text-sm">Mar 2015 – Mar 2017</p></div>
       </div>
     </div>
   </section>
@@ -113,10 +119,7 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
+    AOS.init({ duration: 1000, once: true });
   </script>
 </body>
 </html>
