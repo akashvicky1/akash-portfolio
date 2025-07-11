@@ -1,3 +1,4 @@
+<!-- CODE STARTS HERE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +26,12 @@
       margin: 0;
       padding: 0;
     }
-
     #tsparticles {
       position: fixed;
       z-index: -1;
       width: 100%;
       height: 100%;
     }
-
     .overlay {
       background-color: rgba(15, 23, 42, 0.85);
       position: absolute;
@@ -42,16 +41,13 @@
       bottom: 0;
       z-index: 0;
     }
-
     .profile-glow {
       box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
       transition: transform 0.3s ease;
     }
-
     .profile-glow:hover {
       transform: scale(1.05);
     }
-
     .glass-card {
       background-color: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(12px);
@@ -59,7 +55,6 @@
       padding: 2rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
-
     .icon {
       width: 20px;
       height: 20px;
@@ -67,19 +62,16 @@
       vertical-align: middle;
       margin-right: 8px;
     }
-
     .skill-3d {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       transform-style: preserve-3d;
       will-change: transform;
       animation: float 4s ease-in-out infinite;
     }
-
     .skill-3d:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
     }
-
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
@@ -129,19 +121,16 @@
     <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
+        <!-- Add your skill icons here -->
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="grafana.svg" class="icon">Grafana</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="prometheus.svg" class="icon">Prometheus</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
       </div>
     </div>
   </section>
@@ -166,17 +155,16 @@
     <p>&copy; 2025 Akash Prajapati. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
-
     new Typed('#typed-text', {
       strings: ['Senior IT Engineer', 'AWS', 'Firewall Expert', 'Network Expert'],
       typeSpeed: 60,
       backSpeed: 30,
       loop: true
     });
-
     tsParticles.load("tsparticles", {
       fullScreen: { enable: true },
       particles: {
@@ -201,3 +189,4 @@
   </script>
 </body>
 </html>
+<!-- CODE ENDS HERE -->
