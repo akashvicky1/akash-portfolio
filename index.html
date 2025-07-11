@@ -14,6 +14,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -24,11 +26,17 @@
       background-attachment: fixed;
       background-position: center;
       animation: bgScroll 60s linear infinite;
+      opacity: 0;
+      animation: fadeInBody 1s ease forwards;
     }
 
     @keyframes bgScroll {
       0% { background-position: center top; }
       100% { background-position: center bottom; }
+    }
+
+    @keyframes fadeInBody {
+      to { opacity: 1; }
     }
 
     .overlay {
@@ -53,11 +61,17 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       transform-style: preserve-3d;
       will-change: transform;
+      animation: float 4s ease-in-out infinite;
     }
 
     .skill-3d:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .profile-glow {
@@ -84,9 +98,11 @@
   <!-- Header -->
   <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md" data-aos="fade-down">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold">Akash Prajapati</h1>
-      <p class="text-lg mt-2">Senior IT Infrastructure System Engineer | Ahmedabad, India</p>
-      <p class="text-sm mt-1">
+      <h1 class="text-4xl font-bold">
+        Akash Prajapati<br />
+        <span id="typed-text" class="text-blue-400 text-xl block mt-2 h-6"></span>
+      </h1>
+      <p class="text-sm mt-2">
         Email: prajapatiakash123@gmail.com |
         <a href="https://www.linkedin.com/in/akash-prajapati-b74905164" target="_blank" class="underline">LinkedIn</a>
       </p>
@@ -111,11 +127,10 @@
   </section>
 
   <!-- Skills -->
-  <section class="py-10 relative z-10" data-aos="fade-up" data-aos-easing="ease-in-out">
+  <section class="py-10 relative z-10" data-aos="zoom-in-up">
     <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
-        <!-- Just change these span classes to include 'skill-3d' -->
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
         <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
@@ -134,7 +149,7 @@
   </section>
 
   <!-- Experience -->
-  <section class="py-10 relative z-10" data-aos="zoom-in-up">
+  <section class="py-10 relative z-10" data-aos="flip-left">
     <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
       <div class="max-w-3xl mx-auto space-y-6 text-white">
@@ -156,6 +171,13 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    new Typed('#typed-text', {
+      strings: ['Senior IT Engineer', 'AWS Certified', 'Firewall Expert'],
+      typeSpeed: 60,
+      backSpeed: 30,
+      loop: true
+    });
   </script>
 </body>
 </html>
