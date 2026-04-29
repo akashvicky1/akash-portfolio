@@ -243,13 +243,22 @@
 
     <div class="max-w-3xl mx-auto space-y-6 text-white">
 
-      <div class="experience-card">
-        <h3 class="text-lg font-semibold flex items-center gap-2">
-          <img src="https://n8n.io/favicon.ico" class="w-6 h-6 rounded" />
-          AI Monitoring System
-        </h3>
-        <p class="text-sm">Automated server monitoring with intelligent alerting using n8n, Slack & Email.</p>
-      </div>
+      <!-- 🔽 Automation Experience SECTION UPDATE -->
+<div class="experience-card">
+  <h3 class="text-lg font-semibold flex items-center gap-2">
+    <img src="https://n8n.io/favicon.ico" class="w-6 h-6 rounded" />
+    AI Monitoring System
+  </h3>
+
+  <p class="text-sm mb-3">
+    Automated server monitoring with intelligent alerting using n8n, Slack & Email.
+  </p>
+
+  <!-- 🔥 VIEW BUTTON -->
+  <button onclick="openModal('ai-server-monitoring-workflow.png')" class="btn-premium">
+    👁 View Workflow
+  </button>
+</div>
       
       <div class="experience-card">
   <h3 class="text-lg font-semibold flex items-center gap-2">
@@ -317,6 +326,24 @@
   </div>
 </section>
 
+<!-- 🔥 MODAL POPUP -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+  
+  <div class="relative max-w-4xl w-full px-4">
+    
+    <!-- CLOSE BUTTON -->
+    <span onclick="closeModal()" 
+      class="absolute top-2 right-4 text-white text-3xl cursor-pointer">
+      &times;
+    </span>
+
+    <!-- IMAGE -->
+    <img id="modalImage" src="" 
+      class="rounded-xl shadow-lg w-full max-h-[80vh] object-contain" />
+  
+  </div>
+</div>
+
   <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10 footer-glow" data-aos="fade-up">
     <p>&copy; 2026 Akash Prajapati. All rights reserved.</p>
@@ -366,6 +393,24 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    
+    // 🔥 MODAL FUNCTIONS
+function openModal(imageSrc) {
+  document.getElementById("modalImage").src = imageSrc;
+  document.getElementById("imageModal").classList.remove("hidden");
+  document.getElementById("imageModal").classList.add("flex");
+}
+
+function closeModal() {
+  document.getElementById("imageModal").classList.add("hidden");
+}
+
+// close on outside click
+document.getElementById("imageModal").addEventListener("click", function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
   </script>
 </body>
 </html>
