@@ -254,11 +254,24 @@
     Automated server monitoring with intelligent alerting using n8n, Slack & Email.
   </p>
 
-  <!-- 🔥 VIEW BUTTON -->
-  <button onclick="openModal('ai-server-monitoring-workflow.png')" class="btn-premium">
-    👁 View Workflow
-  </button>
+  <!-- 🔥 BUTTONS -->
+  <div class="mt-3 flex gap-3 flex-wrap">
+    <button onclick="openModal('ai-monitoring-workflow.png')" class="btn-premium">
+      👁 View Workflow
+    </button>
+
+    <button onclick="downloadWorkflow()" class="btn-premium">
+      🔐 Download Workflow
+    </button>
+  </div>
+
+  <!-- 🔥 YE LINE YAHAN DAALNI HAI -->
+  <p class="text-xs text-gray-400 mt-2 italic">
+    *Sanitized version available. Full working workflow shared on request.*
+  </p>
+
 </div>
+
       
       <div class="experience-card">
   <h3 class="text-lg font-semibold flex items-center gap-2">
@@ -404,6 +417,16 @@ function openModal(imageSrc) {
 
 function closeModal() {
   document.getElementById("imageModal").classList.add("hidden");
+}
+
+function downloadWorkflow() {
+  const pass = prompt("Enter password to download workflow:");
+
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/USERNAME/REPO/main/ai-monitoring-system-workflow.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 // close on outside click
