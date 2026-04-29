@@ -1,0 +1,96 @@
+{
+  "name": "BlueGuardian AI Threat Monitoring (Clean)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "blueguardian-alert"
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "name": "🚨 Receive Security Alert (Wazuh)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{$json.body.rule.level}}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "name": "🔍 Filter High Severity Alerts"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract log safely\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "name": "🧠 Extract & Prepare Log Data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://YOUR_AI_API_ENDPOINT",
+        "sendBody": true
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "name": "🤖 AI Threat Analysis"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "log",
+              "value": "={{$json.result.ai_summary}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "name": "🛠 Format Alert Data"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{$json.verdict}}",
+              "rightValue": "malicious",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "name": "⚠️ Check Threat Level"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.slack.com/services/REDACTED",
+        "sendBody": true
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "name": "📢 Send Alert to Slack"
+    }
+  ]
+}
