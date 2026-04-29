@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akash Prajapati | Senior IT Engineer</title>
 
+  <meta property="og:title" content="Akash Prajapati | System Admin Portfolio" />
+  <meta property="og:description" content="Explore my IT infrastructure projects, skills & certifications." />
+  <meta property="og:image" content="https://akashvicky1.github.io/preview.jpg" />
+  <meta property="og:url" content="https://akashvicky1.github.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
@@ -16,6 +22,8 @@
       font-family: 'Inter', sans-serif;
       color: #ffffff;
       background-color: #0f172a;
+      margin: 0;
+      padding: 0;
     }
 
     #tsparticles {
@@ -32,6 +40,12 @@
       left: 0;
       right: 0;
       bottom: 0;
+      z-index: 0;
+    }
+
+    .profile-glow {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
+      animation: slowRotate 20s linear infinite, float 6s ease-in-out infinite;
     }
 
     .glass-card {
@@ -39,96 +53,200 @@
       backdrop-filter: blur(12px);
       border-radius: 1rem;
       padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .skill-3d {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .skill-3d:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes slowRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .glow-border {
+      border: 2px solid rgba(0, 191, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
     }
 
     .experience-card:hover {
       transform: scale(1.02);
-      transition: 0.3s;
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e40af;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 50;
+      box-shadow: 0 0 10px rgba(0,191,255,0.6);
+      display: none;
+    }
+
+    .scroll-top-btn:hover {
+      background: #2563eb;
+    }
+
+    .footer-glow {
+      border-top: 2px solid rgba(255,255,255,0.1);
+      box-shadow: inset 0 2px 10px rgba(0, 191, 255, 0.3);
     }
   </style>
 </head>
-
 <body>
-<div id="tsparticles"></div>
-<div class="overlay"></div>
+  <div id="tsparticles"></div>
+  <div class="overlay"></div>
 
-<header class="bg-blue-900 text-center py-8">
-  <h1 class="text-4xl font-bold">Akash Prajapati</h1>
-  <span id="typed-text" class="text-blue-400"></span>
-</header>
-
-<!-- About -->
-<section class="py-10 text-center">
-  <h2 class="text-2xl">About Me</h2>
-  <p class="max-w-2xl mx-auto">
-    IT & Network Expert with 12+ years of experience in infrastructure, cloud, and security.
-  </p>
-</section>
-
-<!-- Skills -->
-<section class="py-10">
-  <h2 class="text-center text-2xl mb-6">Key Skills</h2>
-  <div class="flex flex-wrap justify-center gap-4">
-    <span class="bg-white text-blue-900 px-4 py-2 rounded-full">AWS</span>
-    <span class="bg-white text-blue-900 px-4 py-2 rounded-full">Zabbix</span>
-    <span class="bg-white text-blue-900 px-4 py-2 rounded-full">Grafana</span>
-    <span class="bg-white text-blue-900 px-4 py-2 rounded-full">Prometheus</span>
-    <span class="bg-white text-blue-900 px-4 py-2 rounded-full">Sophos</span>
-  </div>
-</section>
-
-<!-- Experience -->
-<section class="py-10">
-  <h2 class="text-center text-2xl mb-6">Experience</h2>
-  <div class="max-w-3xl mx-auto space-y-4">
-    <div class="experience-card p-4 bg-gray-800 rounded">
-      Senior IT Engineer — Webelight
+  <!-- Header -->
+  <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md relative z-10" data-aos="fade-down">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold">
+        Akash Prajapati<br />
+        <span id="typed-text" class="text-blue-400 text-xl block mt-2 h-6"></span>
+      </h1>
+      <p class="text-sm mt-2">
+        Email: prajapatiakash123@gmail.com |
+        <a href="https://www.linkedin.com/in/akash-prajapati-b74905164" target="_blank" class="underline">LinkedIn</a>
+      </p>
+      <p class="text-sm mt-1">Mobile No: +91 9067825687</p>
+      <div class="mt-4 space-y-2">
+        <a href="Akash_Resume.pdf" download class="inline-block px-6 py-2 bg-white text-blue-900 font-semibold rounded shadow hover:bg-gray-200 transition">
+          📄 Download My Resume
+        </a><br>
+        <a href="A_professional_business_card_for_an_IT_network_exp.png" download class="inline-block px-6 py-2 bg-white text-blue-900 font-semibold rounded shadow hover:bg-gray-200 transition">
+          📄 Download Visiting Card
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- 🚀 Automation Section -->
-<section class="py-10">
-  <div class="max-w-5xl mx-auto glass-card">
-    <h2 class="text-center text-2xl mb-6">🚀 Automation Projects (n8n)</h2>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <div class="p-4 bg-gray-800 rounded">
-        <h3>AI Monitoring System</h3>
-        <p>Server alerts using AI + n8n</p>
-      </div>
-
-      <div class="p-4 bg-gray-800 rounded">
-        <h3>HR Onboarding</h3>
-        <p>Automates employee onboarding</p>
-      </div>
-
-      <div class="p-4 bg-gray-800 rounded">
-        <h3>Patch Management</h3>
-        <p>Automates system updates</p>
-      </div>
-
-      <div class="p-4 bg-gray-800 rounded">
-        <h3>Sophos Summary</h3>
-        <p>Firewall log automation</p>
-      </div>
-
+  <!-- About -->
+  <section class="py-10 relative z-10" data-aos="fade-up">
+    <div class="container mx-auto px-4 flex flex-col items-center">
+      <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 profile-glow mb-6" />
+      <h2 class="text-2xl font-semibold text-white mb-2">About Me</h2>
+      <p class="text-center max-w-2xl text-white">
+        IT & Network Expert with over 12 years of experience based in Ahmedabad, Gujarat. Proven track record in managing enterprise IT infrastructure, firewalls, cloud environments (AWS, OVH), email security, and network monitoring solutions. Passionate about driving performance, ensuring system security, and delivering reliable technical support.
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="text-center py-6 bg-blue-900">
-  <p>© 2025 Akash Prajapati</p>
-</footer>
+  <!-- Skills -->
+  <section class="py-10 relative z-10" data-aos="zoom-in-up">
+    <div class="container mx-auto px-4 glass-card glow-border">
+      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <!-- Keep all your skill blocks same as before -->
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
+      </div>
+    </div>
+  </section>
 
-<script>
-new Typed('#typed-text', {
-  strings: ['IT Engineer', 'Automation Expert'],
-  typeSpeed: 60,
-  loop: true
-});
-</script>
+  <!-- Experience -->
+  <section class="py-10 relative z-10" data-aos="flip-left">
+    <div class="container mx-auto px-4 glass-card">
+      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
+      <div class="max-w-3xl mx-auto space-y-6 text-white">
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="webelight logo.jpg" class="w-6 h-6 rounded" />Senior IT Infrastructure System Engineer — Webelight Solutions</h3><p class="text-sm">Dec 2024 – Present</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="growexx.svg" class="w-6 h-6 rounded" />Sr. IT Executive — Growexx</h3><p class="text-sm">Jul 2023 – Dec 2024</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="xbyte.jpg" class="w-6 h-6 rounded" />System Administrator — Xbyte</h3><p class="text-sm">Jul 2019 – Jul 2023</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="K R India.jpeg" class="w-6 h-6 rounded" />Desktop Support Engineer — KR India Pvt Ltd (IDSS)</h3><p class="text-sm">Mar 2018 – Jun 2019</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="N B Patel logo.png" class="w-6 h-6 rounded" />Desktop Support Engineer — NB Patel</h3><p class="text-sm">Mar 2017 – Mar 2018</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="LCIT logo.jpg" class="w-6 h-6 rounded" />Desktop Support Engineer — LCIT</h3><p class="text-sm">Mar 2015 – Mar 2017</p></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10 footer-glow" data-aos="fade-up">
+    <p>&copy; 2025 Akash Prajapati. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button onclick="scrollToTop()" class="scroll-top-btn" id="scrollBtn">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    new Typed('#typed-text', {
+      strings: ['Senior IT Engineer', 'AWS', 'Firewall Expert', 'Network Expert'],
+      typeSpeed: 60,
+      backSpeed: 30,
+      loop: true
+    });
+
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: true },
+      particles: {
+        number: { value: 50 },
+        size: { value: 3 },
+        color: { value: "#00bfff" },
+        links: {
+          enable: true,
+          distance: 120,
+          color: "#00bfff",
+          opacity: 0.4
+        },
+        move: {
+          enable: true,
+          speed: 1
+        }
+      },
+      background: {
+        color: "#0f172a"
+      }
+    });
+
+    // Scroll-to-top button
+    const scrollBtn = document.getElementById('scrollBtn');
+    window.onscroll = () => {
+      scrollBtn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
