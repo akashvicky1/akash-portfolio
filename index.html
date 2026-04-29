@@ -329,7 +329,7 @@
 <!-- 🔥 MODAL POPUP -->
 <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
   
-  <div class="relative max-w-4xl w-full px-4">
+  <div class="relative w-full h-full overflow-auto flex items-center justify-center">
     
     <!-- CLOSE BUTTON -->
     <span onclick="closeModal()" 
@@ -339,7 +339,7 @@
 
     <!-- IMAGE -->
    <img id="modalImage" src="" 
-  class="rounded-xl shadow-lg w-full max-h-[95vh] object-contain cursor-zoom-in transition duration-300" 
+  class="rounded-xl shadow-lg max-w-none h-auto cursor-zoom-in transition duration-300" 
   onclick="zoomImage()" />
   
   </div>
