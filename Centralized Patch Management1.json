@@ -1,0 +1,166 @@
+{
+  "name": "Centralized Patch Management",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 13 * * 5"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -736,
+        64
+      ],
+      "id": "54f1d457-f353-45e6-a238-d74ca7c9566c",
+      "name": "Weekly Patch Scheduler"
+    },
+    {
+      "parameters": {
+        "command": "rm -f /home/web-h-003/ansible-prod/results_*.json && cd /home/web-h-003/ansible-prod && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory.ini patch.yml"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        64
+      ],
+      "id": "97d22f3d-73f4-4817-a4b1-64fa5287e780",
+      "name": "🚀 Run Patch Playbook (Ansible)",
+      "credentials": {
+        "sshPassword": {
+          "id": "N46mjaF3wEemWbj1",
+          "name": "SSH Password account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "cd /home/web-h-003/ansible-prod && ls results_*.json 2>/dev/null | xargs cat"
+      },
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        -304,
+        64
+      ],
+      "id": "30b7fe4c-4b10-49ab-83f5-2f75c4254fd5",
+      "name": "📂 Fetch Patch Results (JSON)",
+      "credentials": {
+        "sshPassword": {
+          "id": "N46mjaF3wEemWbj1",
+          "name": "SSH Password account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.stdout || \"\";\n\nconst fixed = raw.replace(/}{/g, \"}\\n{\");\n\nconst lines = fixed\n  .split(\"\\n\")\n  .map(l => l.trim())\n  .filter(l => l.length > 0);\n\nlet successHosts = [];\n\nfor (const line of lines) {\n  try {\n    const obj = JSON.parse(line);\n\n    if (obj.status === \"SUCCESS\") {\n      successHosts.push(obj.host);\n    }\n\n  } catch (e) {}\n}\n\nif (successHosts.length === 0) {\n  return [];\n}\n\nreturn [{\n  json: {\n    text: `✅ Patch Completed Successfully\\n\\nTotal Systems: ${successHosts.length}\\n\\n${successHosts.join(\"\\n\")}`\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -96,
+        64
+      ],
+      "id": "ef4ccc7d-7b8e-4c7c-946f-4ed217f58053",
+      "name": "🧠 Parse Results & Generate Report"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08J3ESK9B9",
+          "mode": "id"
+        },
+        "text": "=={{$json.text}}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        112,
+        64
+      ],
+      "id": "e078d42e-4c4f-4b1d-b151-73d95acac2f7",
+      "name": "💬 Send Patch Status to Slack",
+      "webhookId": "d669053f-c244-416a-acfc-5dc86feb9438",
+      "credentials": {
+        "slackApi": {
+          "id": "tqqF9HVdKVRoNvYl",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Weekly Patch Scheduler": {
+      "main": [
+        [
+          {
+            "node": "🚀 Run Patch Playbook (Ansible)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Run Patch Playbook (Ansible)": {
+      "main": [
+        [
+          {
+            "node": "📂 Fetch Patch Results (JSON)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📂 Fetch Patch Results (JSON)": {
+      "main": [
+        [
+          {
+            "node": "🧠 Parse Results & Generate Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧠 Parse Results & Generate Report": {
+      "main": [
+        [
+          {
+            "node": "💬 Send Patch Status to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "timezone": "Asia/Kolkata",
+    "callerPolicy": "workflowsFromSameOwner",
+    "binaryMode": "separate"
+  },
+  "versionId": "42d5eb06-6265-47b7-9428-577ec51165f9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b122253006f280a6d0523e4a432c82f6170a52c2c0cd1b36527e04397f98a22e"
+  },
+  "id": "G55O3N1_f02lMhdUDjdzu",
+  "tags": []
+}
