@@ -355,21 +355,33 @@
 
 </div>
       
-      <div class="experience-card">
-        <h3 class="text-lg font-semibold flex items-center gap-2">
-          <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" class="w-6 h-6" />
-          HR Onboarding Automation
-        </h3>
-        <p class="text-sm">Automated onboarding workflow (Trello → Google Workspace).</p>
-      </div>
 
-      <div class="experience-card">
-        <h3 class="text-lg font-semibold flex items-center gap-2">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" class="w-6 h-6" />
-          Centralized Patch Management
-        </h3>
-        <p class="text-sm">Automated patch deployment and update tracking.</p>
-      </div>
+     <div class="experience-card">
+
+  <h3 class="text-lg font-semibold flex items-center gap-2">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" class="w-6 h-6" />
+    🛠 Centralized Patch Management System
+  </h3>
+
+  <p class="text-sm">
+    Automated patch deployment system using Ansible with scheduled execution and real-time Slack notifications.
+  </p>
+
+  <div class="mt-3 flex gap-3 flex-wrap">
+    <button onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/centralized-patch-management-workflow.png')" class="btn-premium">
+      👁 View Workflow
+    </button>
+
+    <button onclick="downloadPatchWorkflow()" class="btn-premium">
+      🔐 Download Workflow
+    </button>
+  </div>
+
+  <p class="text-xs text-gray-400 mt-2 italic">
+    *Automated infrastructure patching system with reporting and alerting.*
+  </p>
+
+</div>
 
       <div class="experience-card">
         <h3 class="text-lg font-semibold flex items-center gap-2">
@@ -504,6 +516,15 @@ function downloadGCPWorkflow() {
   const pass = prompt("Enter password:");
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GCP_Project_Auto1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
+}
+
+function downloadPatchWorkflow() {
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Centralized%20Patch%20Management1.json");
   } else {
     alert("Access Denied ❌");
   }
