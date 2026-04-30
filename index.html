@@ -652,14 +652,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   }
 
+  changeText();
+  setInterval(changeText, 2500);
 
 });
-
-// initial
-changeText();
-
-// repeat
-setInterval(changeText, 2500);
 
 // close on outside click
 document.getElementById("imageModal").addEventListener("click", function(e) {
