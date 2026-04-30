@@ -1,0 +1,57 @@
+{
+  "name": "GLOBAL_CONFIG",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -496,
+        -32
+      ],
+      "id": "3e629121-b64a-466a-9fdd-893a476850c4",
+      "name": "🔗 Trigger from Parent Workflow"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{\n  json: {\n    base_url: \"https://herein-ecology-removable-survivors.trycloudflare.com\"\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        -32
+      ],
+      "id": "927a3bb3-f7c0-4a1e-b592-2602f2b066f7",
+      "name": "⚙️ Generate Base URL Config"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "🔗 Trigger from Parent Workflow": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Generate Base URL Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "9ddf7c8b-43f7-42bc-8edf-a4c491134d16",
+  "meta": {
+    "instanceId": "b122253006f280a6d0523e4a432c82f6170a52c2c0cd1b36527e04397f98a22e"
+  },
+  "id": "2ubtOcHiAyVOAa9b",
+  "tags": []
+}
