@@ -37,6 +37,14 @@
   line-height: 32px;
   overflow: hidden;
 }
+
+#fade-text {
+  display: inline-block;
+  min-width: 280px;
+  height: 32px;
+  line-height: 32px;
+  transition: opacity 0.5s ease;
+}
     .overlay {
       background-color: rgba(15, 23, 42, 0.85);
       position: absolute;
@@ -161,10 +169,7 @@
 
     <h1 class="text-4xl font-bold">
       Akash Prajapati<br />
-      <span id="typed-text"
-  class="text-blue-400 text-xl block mt-2"
-  style="display:inline-block; min-width:280px; height:32px;">
-</span>
+      <span id="fade-text" class="text-blue-400 text-xl block mt-2"></span>
     </h1>
 
     <p class="text-sm mt-2">
@@ -632,6 +637,31 @@ function downloadOnboardingWorkflow() {
   }
 }
 
+const roles = [
+  "Senior IT Infrastructure Engineer",
+  "Cloud & Automation Specialist",
+  "Firewall & Security Expert",
+  "n8n Workflow Developer"
+];
+
+let i = 0;
+const fadeText = document.getElementById("fade-text");
+
+function changeText() {
+  fadeText.style.opacity = 0;
+
+  setTimeout(() => {
+    fadeText.textContent = roles[i];
+    fadeText.style.opacity = 1;
+    i = (i + 1) % roles.length;
+  }, 500);
+}
+
+// initial
+changeText();
+
+// repeat
+setInterval(changeText, 2500);
 
 // close on outside click
 document.getElementById("imageModal").addEventListener("click", function(e) {
