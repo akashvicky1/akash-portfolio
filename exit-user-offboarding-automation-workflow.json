@@ -1,0 +1,48 @@
+{
+  "name": "exit-user-offboarding-automation-workflow",
+  "nodes": [
+    {
+      "name": "⏱ Daily Exit Check Scheduler",
+      "type": "n8n-nodes-base.scheduleTrigger"
+    },
+    {
+      "name": "📥 Fetch Exit Requests (Trello)",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "url": "https://api.trello.com/1/lists/YOUR_LIST_ID/cards",
+        "queryParameters": {
+          "key": "YOUR_TRELLO_API_KEY",
+          "token": "YOUR_TRELLO_TOKEN"
+        }
+      }
+    },
+    {
+      "name": "👤 Find Manager (Slack User Lookup)",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "url": "https://slack.com/api/users.lookupByEmail",
+        "headers": {
+          "Authorization": "Bearer YOUR_SLACK_BOT_TOKEN"
+        }
+      }
+    },
+    {
+      "name": "💬 Send Offboarding Alert (Slack)",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "url": "https://slack.com/api/chat.postMessage",
+        "headers": {
+          "Authorization": "Bearer YOUR_SLACK_BOT_TOKEN"
+        }
+      }
+    },
+    {
+      "name": "📧 Send Offboarding Report (Email)",
+      "type": "n8n-nodes-base.emailSend",
+      "parameters": {
+        "fromEmail": "YOUR_EMAIL",
+        "toEmail": "YOUR_EMAIL"
+      }
+    }
+  ]
+}
