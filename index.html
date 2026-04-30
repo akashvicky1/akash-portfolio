@@ -329,13 +329,30 @@
 </div>
 
 <div class="experience-card">
+
   <h3 class="text-lg font-semibold flex items-center gap-2">
     <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="w-6 h-6" />
-    GCP Project Automation
+    🌐 GCP Project Automation
   </h3>
+
   <p class="text-sm">
     Automated Google Cloud project setup, resource provisioning, and task execution using n8n workflows.
   </p>
+
+  <div class="mt-3 flex gap-3 flex-wrap">
+    <button onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/gcp-project-automation-workflow.png')" class="btn-premium">
+      👁 View Workflow
+    </button>
+
+    <button onclick="downloadGCPWorkflow()" class="btn-premium">
+      🔐 Download Workflow
+    </button>
+  </div>
+
+  <p class="text-xs text-gray-400 mt-2 italic">
+    *Sanitized version available. Full provisioning workflow shared on request.*
+  </p>
+
 </div>
       
       <div class="experience-card">
@@ -478,6 +495,15 @@ function downloadGlobalConfig() {
   const pass = prompt("Enter password:");
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GLOBAL_CONFIG1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
+}
+
+function downloadGCPWorkflow() {
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GCP_Project_Auto1.json");
   } else {
     alert("Access Denied ❌");
   }
