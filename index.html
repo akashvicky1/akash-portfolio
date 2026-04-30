@@ -410,17 +410,39 @@
 
 </div>
 
-      <div class="experience-card">
-        <h3 class="text-lg font-semibold flex items-center gap-2">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" class="w-6 h-6" />
-          Exit User Backup Automation
-        </h3>
-        <p class="text-sm">Automated user exit process with backup and notifications.</p>
-      </div>
+      <div class="experience-card border border-yellow-500/30">
 
-    </div>
-  </div>
-</section>
+  <h3 class="text-lg font-semibold flex items-center gap-2">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" class="w-6 h-6" />
+    🚧 Employee Offboarding System
+  </h3>
+
+  <p class="text-sm">
+    Intelligent offboarding workflow with Slack-based approvals, backup validation, and audit tracking.
+  </p>
+
+  <p class="text-xs text-yellow-400 mt-2 italic">
+    🚀 Currently under development — final integration in progress.
+  </p>
+
+</div>
+
+<div class="experience-card opacity-80">
+
+  <h3 class="text-lg font-semibold flex items-center gap-2">
+    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" class="w-6 h-6" />
+    🚧 HR Onboarding Automation
+  </h3>
+
+  <p class="text-sm">
+    Automated employee onboarding system including account provisioning, access setup, and welcome workflows.
+  </p>
+
+  <p class="text-xs text-yellow-400 mt-2 italic">
+    ⚡ Work in Progress — Integrating GCP, Slack, and email automation.
+  </p>
+
+</div>
 
 <!-- 🔥 MODAL POPUP -->
 <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
@@ -557,6 +579,25 @@ function downloadSophosWorkflow() {
     alert("Access Denied ❌");
   }
 }
+
+function downloadOffboardingWorkflow() {
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/exit-user-offboarding-automation-workflow.json");
+  } else {
+    alert("Access Denied ❌");
+  }
+}
+
+function downloadOnboardingWorkflow() {
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/hr-onboarding-automation-workflow.json");
+  } else {
+    alert("Access Denied ❌");
+  }
+}
+
 
 // close on outside click
 document.getElementById("imageModal").addEventListener("click", function(e) {
