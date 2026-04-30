@@ -1,0 +1,88 @@
+{
+  "name": "GCP_Project_Automation_Clean",
+  "nodes": [
+    {
+      "name": "📥 New GCP Request (Google Form)",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "parameters": {
+        "documentId": "YOUR_GOOGLE_SHEET_ID_HERE",
+        "sheetName": "Form Responses 1",
+        "event": "rowAdded"
+      },
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "ADD_GOOGLE_CREDENTIAL_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    },
+
+    {
+      "name": "🧹 Extract Request Data",
+      "type": "n8n-nodes-base.set",
+      "parameters": {
+        "assignments": {
+          "project_name": "={{$json[\"Project Name\"]}}",
+          "email": "={{$json[\"Requester Email (Company Email)\"]}}",
+          "category": "={{$json['Project Category ']}}",
+          "purpose": "={{$json['Purpose of Project']}}"
+        }
+      }
+    },
+
+    {
+      "name": "🌐 Fetch Base URL Config",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "parameters": {
+        "workflowId": "ADD_GLOBAL_CONFIG_WORKFLOW_ID"
+      }
+    },
+
+    {
+      "name": "📧 Send Approval Email",
+      "type": "n8n-nodes-base.emailSend",
+      "parameters": {
+        "fromEmail": "YOUR_EMAIL@domain.com",
+        "toEmail": "APPROVER_EMAIL@domain.com",
+        "subject": "🚀 GCP Project Approval Required"
+      },
+      "credentials": {
+        "smtp": {
+          "id": "ADD_SMTP_CREDENTIAL_ID",
+          "name": "SMTP Account"
+        }
+      }
+    },
+
+    {
+      "name": "☁️ Create GCP Project",
+      "type": "n8n-nodes-base.ssh",
+      "parameters": {
+        "command": "gcloud projects create {{$json.project_name}} --name=\"{{$json.project_name}}\" --folder=YOUR_FOLDER_ID"
+      },
+      "credentials": {
+        "sshPassword": {
+          "id": "ADD_SSH_CREDENTIAL_ID",
+          "name": "SSH Server Access"
+        }
+      }
+    },
+
+    {
+      "name": "🔐 Assign IAM Role",
+      "type": "n8n-nodes-base.ssh",
+      "parameters": {
+        "command": "gcloud projects add-iam-policy-binding {{$json.project_name}} --member=user:{{$json.email}} --role=roles/editor"
+      }
+    },
+
+    {
+      "name": "📧 Success Email",
+      "type": "n8n-nodes-base.emailSend",
+      "parameters": {
+        "toEmail": "={{$json.email}}",
+        "subject": "✅ Project Created Successfully"
+      }
+    }
+  ]
+}
