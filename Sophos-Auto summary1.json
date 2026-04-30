@@ -1,0 +1,445 @@
+{
+  "name": "Sophos-Auto summary",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        8496,
+        2144
+      ],
+      "id": "5e550da0-ff68-4e16-96f0-32d4fac555f4",
+      "name": "⏱ Daily Security Report Scheduler"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 10,
+        "simple": false,
+        "filters": {
+          "q": "=in:sent newer_than:1d (\"Web Risks & Usage\" OR \"User App Risks\" OR \"Executive - Daily\" OR \"Security Audit Report\" OR \"auto backup\")"
+        },
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        8752,
+        2144
+      ],
+      "id": "e2461d8a-a7fb-4fc7-a844-145e37e317a1",
+      "name": "📥 Fetch Sophos Reports (Gmail)",
+      "webhookId": "75f40c9f-d4bb-449a-8216-1e7fa9b7acea",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1mcPnK9t714pOKSy",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "be7fc8e9-eeca-432b-acf6-9d5404da97d3",
+              "leftValue": "={{$binary.attachment_0.mimeType}}",
+              "rightValue": "application/pdf",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        8976,
+        2144
+      ],
+      "id": "c93ec918-3da2-449f-8bca-eedf43790e08",
+      "name": "📄 Check PDF Attachment"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        9248,
+        2128
+      ],
+      "id": "bc1e5563-8053-49a8-a78c-e2cba39e0e8f",
+      "name": "🔁 Process Each Report"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "attachment_0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        9488,
+        2112
+      ],
+      "id": "5e9b2c48-585f-4960-9870-22da4fc38056",
+      "name": "📄 Extract Text from PDF"
+    },
+    {
+      "parameters": {
+        "jsCode": "let combined = \"\";\n\nfor (const item of items) {\n  combined += \"\\n\\n\" + (item.json.text || \"\");\n}\n\nreturn [\n  {\n    json: {\n      text: combined\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9712,
+        2112
+      ],
+      "id": "4e1463d3-f373-4a70-911a-2facbd41bff6",
+      "name": "🧠 Combine All Reports"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 🔥 Get all email subjects from Gmail node\nconst allMails = $items(\"📥 Fetch Sophos Reports (Gmail)\");\n\n// ✅ Backup keyword (tera actual subject pattern)\nconst backupKeyword = \"daily auto backup\";\n\n// ✅ Check if ANY mail matches\nlet backupFound = false;\n\nfor (const mail of allMails) {\n  const subject = (mail.json.subject || \"\").toLowerCase();\n\n  if (subject.includes(backupKeyword)) {\n    backupFound = true;\n    break;\n  }\n}\n\n// ✅ Final status\nreturn [\n  {\n    json: {\n      backup_status: backupFound ? \"YES\" : \"NO\"\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9088,
+        2352
+      ],
+      "id": "a428175c-5ac6-426b-bc2d-d7220f687656",
+      "name": " 💾 Detect Backup Status"
+    },
+    {
+      "parameters": {
+        "jsCode": "const subject = $items(\"📥 Fetch Sophos Reports (Gmail)\")[0].json.subject || \"\";\nconst text = $json.text || \"\";\n\nlet backup = \"NO\";\n\nif (\n  subject.toLowerCase().includes(\"backup\") ||\n  text.toLowerCase().includes(\"backup\")\n) {\n  backup = \"YES\";\n}\n\nreturn [\n  {\n    json: {\n      text: text,\n      backup_status: backup\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9968,
+        2112
+      ],
+      "id": "0f51341c-da37-447c-8e08-7f858168a85f",
+      "name": "🧹 Attach Backup Status to Data"
+    },
+    {
+      "parameters": {
+        "jsCode": "const report = $json.text || \"\";\n\nreturn [\n{\njson: {\n  model: \"mistral-large-latest\",\n  max_tokens: 3000,\n  messages: [\n    {\n      role: \"system\",\n      content: \"You are a STRICT data extractor. DO NOT THINK. DO NOT REORDER. DO NOT GUESS.\"\n    },\n    {\n      role: \"user\",\n      content: `\nExtract EXACT data from report.\n\nRETURN STRICT JSON:\n\n{\n  \"summary\": \"\",\n  \"high_usage_users\": [\n    { \"user\": \"\", \"bytes\": \"\" }\n  ],\n  \"top_websites\": [\n    { \"site\": \"\", \"bytes\": \"\" }\n  ],\n  \"top_applications\": [\n    { \"app\": \"\", \"bytes\": \"\" }\n  ],\n  \"top_user_groups\": [\n    { \"group\": \"\", \"bytes\": \"\" }\n  ],\n  \"top_categories\": [\n    { \"category\": \"\", \"bytes\": \"\" }\n  ],\n  \"high_risk_apps\": [\n    { \"app\": \"\", \"bytes\": \"\" }\n  ],\n  \"application_risk\": \"\"\n}\n\nCRITICAL RULES:\n- DO NOT SORT\n- DO NOT MODIFY ORDER\n- DO NOT GUESS\n- TAKE EXACT VALUES FROM TABLE\n\nIMPORTANT:\n- High Risk Applications → ONLY rows where RISK = 5\n- Example:\n  DNS over HTTPS → 351.02 MB\n  TOR Proxy → 2.19 MB\n\nIf not found → return []\n\nREPORT:\n${report}\n`\n    }\n  ]\n}\n}\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10256,
+        2112
+      ],
+      "id": "48beae7a-29f6-4410-8164-37f6138fd3d3",
+      "name": "🤖 Prepare AI Extraction Prompt"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer nV1KyRPu32OXB1FJaaiC4oP3ObT9d3EE"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "=application/json",
+        "body": "={{$json}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        10560,
+        2112
+      ],
+      "id": "3d109292-2ea0-4eab-b666-4679efd65d69",
+      "name": "🤖 Analyze Report (Mistral AI)"
+    },
+    {
+      "parameters": {
+        "jsCode": "let res = $json.choices[0].message.content;\n\nres = res.replace(/```json/g, \"\").replace(/```/g, \"\").trim();\n\nlet data;\n\ntry {\n  data = JSON.parse(res);\n} catch (e) {\n  data = {};\n}\n\ndata = data || {};\n\n// =====================================================\n// ✅ CLEAN FUNCTION\n// =====================================================\n\nconst clean = (arr, key) => {\n  if (!Array.isArray(arr)) return [];\n  return arr.filter(x => x && x[key]).slice(0, 5);\n};\n\ndata.high_usage_users = clean(data.high_usage_users, \"bytes\");\ndata.top_websites = clean(data.top_websites, \"bytes\");\ndata.top_applications = clean(data.top_applications, \"bytes\");\ndata.top_user_groups = clean(data.top_user_groups, \"bytes\");\ndata.top_categories = clean(data.top_categories, \"bytes\");\n\n// =====================================================\n// 🔥 HIGH RISK APPLICATIONS (LLM BASED - FINAL FIX)\n// =====================================================\n\n// 👉 agar LLM ne already diya hai to use karo\nif (Array.isArray(data.high_risk_apps) && data.high_risk_apps.length > 0) {\n\n  // safety clean\n  data.high_risk_apps = data.high_risk_apps\n    .filter(x => x && x.app && x.bytes)\n    .slice(0, 5);\n\n} else {\n  data.high_risk_apps = [];\n}\n\n// =====================================================\n// ✅ APPLICATION RISK (already from LLM)\n// =====================================================\n\nconst riskVal = parseFloat(data.application_risk);\n\nif (!isNaN(riskVal)) {\n  if (riskVal >= 0.7) data.risk_level = \"High\";\n  else if (riskVal >= 0.4) data.risk_level = \"Medium\";\n  else data.risk_level = \"Low\";\n} else {\n  data.risk_level = \"Low\";\n}\n\n// =====================================================\n// ✅ SUMMARY\n// =====================================================\n\ndata.summary = `\nThis is an automated consolidated security report generated from multiple Sophos logs.\n\n• Overall Risk Level: ${data.risk_level}\n• Application Risk Score: ${data.application_risk || \"N/A\"}\n\nKey Observations:\n- Top internet usage observed among selected users\n- Critical applications contributing highest traffic identified\n- ${\n  data.high_risk_apps && data.high_risk_apps.length > 0\n    ? \"High-risk applications detected and require attention\"\n    : \"No high-risk applications detected\"\n}\n\nThis report provides a quick overview for monitoring security posture and user activity.\n`.trim();\n\n// =====================================================\n\nreturn [{ json: data }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10880,
+        2112
+      ],
+      "id": "069bd08f-4f85-4458-8c2a-42ec8c85aa4a",
+      "name": "🧠 Clean & Structure AI Output"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        10992,
+        2336
+      ],
+      "id": "0382ed6f-6255-4841-aa94-bc9721b0331e",
+      "name": "🔗 Combine AI Data + Backup Status"
+    },
+    {
+      "parameters": {
+        "sendTo": "it@webelight.co.in",
+        "subject": "🚨 Sophos Daily Security Report",
+        "message": "=<body style=\"margin:0;padding:0;background:#020617;font-family:Segoe UI,Arial;font-size:15px;\">\n\n<div style=\"max-width:760px;margin:auto;padding:50px\">\n\n<!-- HEADER -->\n\n<div style=\"text-align:center;margin-bottom:40px\">\n  <h1 style=\"color:#ffffff;font-size:34px;font-weight:700;\">\n    🚀 Sophos AI Security Report\n  </h1>\n\n  <p style=\"color:#94a3b8;font-size:15px;\">\n    {{ new Date().toLocaleString(\"en-IN\", { dateStyle: \"medium\", timeStyle: \"short\" }) }}\n  </p>\n</div>\n\n<!-- BACKUP STATUS -->\n\n<div style=\"background:#020617;border:1px solid #1e293b;padding:15px;border-radius:12px;margin-bottom:30px;text-align:center;font-size:16px;\">\n<span style=\"color:#94a3b8;\">Backup Status:</span>\n\n<span style=\"\ncolor: {{($json.backup_status || \"\").toUpperCase() === \"YES\" ? \"#22c55e\" : \"#ef4444\"}};\nfont-weight:700;\nmargin-left:10px;\n\">\n{{($json.backup_status || \"\").toUpperCase() === \"YES\" ? \"✅ Successful\" : \"❌ Failed\"}} </span>\n\n</div>\n\n<!-- SUMMARY -->\n\n<div style=\"background:#0f172a;border:1px solid #1e293b;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#38bdf8;font-size:20px;\">AI Summary</h3>\n<p style=\"color:#e2e8f0;line-height:1.8;font-size:16px;\">\n{{ $json.summary && $json.summary.trim() ? $json.summary : \"No summary available\" }}\n</p>\n</div>\n\n<!-- TOP USERS -->\n\n<div style=\"background:#020617;border:1px solid #1e40af;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#3b82f6;font-size:20px;\">🧑‍💻 Top Internet Usage</h3>\n\n{{\n($json.high_usage_users && $json.high_usage_users.length > 0)\n? $json.high_usage_users.map(u => `\n\n<div style=\"display:flex;justify-content:space-between;padding:14px;margin-top:10px;background:#111827;border-radius:10px;\">\n<span style=\"color:#e2e8f0\">${u.user || \"-\"}</span>\n<span style=\"color:#38bdf8;font-weight:700\">${u.bytes || \"0\"}</span>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No high usage detected</p>`\n}}\n\n</div>\n\n<!-- TOP WEBSITES -->\n\n<div style=\"background:#020617;border:1px solid #0ea5e9;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#38bdf8;font-size:20px;\">🌐 Top Websites</h3>\n\n{{\n($json.top_websites && $json.top_websites.length > 0)\n? $json.top_websites.map(w => `\n\n<div style=\"display:flex;justify-content:space-between;padding:12px;margin-top:10px;background:#111827;border-radius:10px;\">\n<span style=\"color:#e2e8f0\">${w.site || \"-\"}</span>\n<span style=\"color:#38bdf8;font-weight:700\">${w.bytes || \"0\"}</span>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No website data</p>`\n}}\n\n</div>\n\n<!-- TOP APPLICATIONS -->\n\n<div style=\"background:#020617;border:1px solid #f97316;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#f97316;font-size:20px;\">📱 Top Applications</h3>\n\n{{\n($json.top_applications && $json.top_applications.length > 0)\n? $json.top_applications.map(a => `\n\n<div style=\"display:flex;justify-content:space-between;padding:12px;margin-top:10px;background:#111827;border-radius:10px;\">\n<span style=\"color:#e2e8f0\">${a.app || \"-\"}</span>\n<span style=\"color:#f97316;font-weight:700\">${a.bytes || \"0\"}</span>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No application data</p>`\n}}\n\n</div>\n\n<!-- 🔥 HIGH RISK APPLICATIONS (NEW ADD) -->\n\n<div style=\"background:#020617;border:1px solid #ef4444;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#ef4444;font-size:20px;\">🔥 High Risk Applications</h3>\n\n{{\n($json.high_risk_apps && $json.high_risk_apps.length > 0)\n? $json.high_risk_apps.map(a => `\n\n<div style=\"display:flex;justify-content:space-between;padding:12px;margin-top:10px;background:#111827;border-radius:10px;\">\n<span style=\"color:#e2e8f0\">${a.app || \"-\"}</span>\n<span style=\"color:#ef4444;font-weight:700\">${a.bytes || \"0\"}</span>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No high risk applications found</p>`\n}}\n\n</div>\n\n<!-- APPLICATION RISK -->\n\n<div style=\"text-align:center;padding:20px;margin-bottom:20px;border-radius:12px;background:#0f172a;border:1px solid #334155;\">\n<p style=\"color:#94a3b8;\">Application Risk</p>\n<h2 style=\"color:#38bdf8;\">\n{{$json.application_risk || \"N/A\"}}\n</h2>\n</div>\n\n<!-- TOP CATEGORIES -->\n\n<div style=\"background:#020617;border:1px solid #22c55e;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#4ade80;font-size:20px;\">📂 Top Categories</h3>\n\n{{\n($json.top_categories && $json.top_categories.length > 0)\n? $json.top_categories.map(c => `\n\n<div style=\"display:flex;justify-content:space-between;padding:12px;margin-top:10px;background:#111827;border-radius:10px;\">\n<span style=\"color:#e2e8f0\">${c.category || \"-\"}</span>\n<span style=\"color:#4ade80;font-weight:700\">${c.bytes || \"0\"}</span>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No category data</p>`\n}}\n\n</div>\n\n<!-- TOP USER GROUP -->\n\n<div style=\"background:#020617;border:1px solid #a78bfa;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#a78bfa;font-size:20px;\">🏢 Top User Group</h3>\n\n{{\n($json.top_user_groups && $json.top_user_groups.length > 0)\n? $json.top_user_groups.map(g => `\n\n<div style=\"display:flex;justify-content:space-between;padding:12px;margin-top:10px;background:#111827;border-radius:10px;\">\n<span style=\"color:#e2e8f0\">${g.group || \"-\"}</span>\n<span style=\"color:#a78bfa;font-weight:700\">${g.bytes || \"0\"}</span>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No group data</p>`\n}}\n\n</div>\n\n<!-- SUSPICIOUS -->\n\n<div style=\"background:#020617;border:1px solid #334155;padding:25px;border-radius:14px;margin-bottom:30px;\">\n<h3 style=\"color:#facc15;font-size:20px\">⚠️ Suspicious Activity</h3>\n\n{{\n($json.suspicious_activity && $json.suspicious_activity.length > 0)\n? $json.suspicious_activity.map(a => `\n\n<div style=\"padding:14px;margin-top:10px;background:#111827;border-radius:10px;border-left:4px solid #facc15;\">\n<div style=\"color:#e2e8f0\">👤 ${a.user || \"-\"}</div>\n<div style=\"color:#38bdf8\">🔗 ${a.site || \"-\"}</div>\n<div style=\"color:#94a3b8;font-size:13px\">${a.category || \"\"}</div>\n</div>\n`).join(\"\")\n: `<p style=\"color:#22c55e;\">No suspicious activity</p>`\n}}\n\n</div>\n\n<!-- FINAL RISK -->\n\n<div style=\"text-align:center;padding:25px;border-radius:14px;border:1px solid #1e293b;background:#020617;\">\n<p style=\"color:#94a3b8;\">Overall Risk Level</p>\n\n<h1 style=\"\nfont-size:30px;\nfont-weight:700;\ncolor:\n{{\n  $json.risk_level === \"High\" ? \"#ef4444\" :\n  $json.risk_level === \"Medium\" ? \"#facc15\" :\n  $json.risk_level === \"Low\" ? \"#22c55e\" :\n  \"#38bdf8\"\n}};\n\">\n{{$json.risk_level || \"N/A\"}}\n</h1>\n\n</div>\n\n</div>\n</body>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        11296,
+        2336
+      ],
+      "id": "9f5ba670-b940-4c29-9fdb-15b9322db50d",
+      "name": "📧 Send Security Report (Email)",
+      "webhookId": "3f89a4d5-9eb3-4e7a-ac27-a1f9f24d9ab4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1mcPnK9t714pOKSy",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08J3ESK9B9",
+          "mode": "id"
+        },
+        "text": "=🚀 *Sophos AI Security Report*\n\n🗓️ {{ new Date().toLocaleString(\"en-IN\") }}\n\n━━━━━━━━━━━━━━━━━━\n\n💾 *Backup Status:* \n{{$json.backup_status === \"YES\" ? \"✅ Successful\" : \"❌ Failed\"}}\n\n━━━━━━━━━━━━━━━━━━\n\n🧠 *AI Summary*\n{{$json.summary || \"No summary available\"}}\n\n━━━━━━━━━━━━━━━━━━\n\n👤 *Top Internet Usage*\n{{$json.high_usage_users?.length \n? $json.high_usage_users.map(u => `• ${u.user} → ${u.bytes}`).join('\\n') \n: 'No high usage detected'}}\n\n━━━━━━━━━━━━━━━━━━\n\n🌐 *Top Websites*\n{{$json.top_websites?.length \n? $json.top_websites.map(w => `• ${w.site} → ${w.bytes}`).join('\\n') \n: 'No website data'}}\n\n━━━━━━━━━━━━━━━━━━\n\n📱 *Top Applications*\n{{$json.top_applications?.length \n? $json.top_applications.map(a => `• ${a.app} → ${a.bytes}`).join('\\n') \n: 'No application data'}}\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 *High Risk Applications*\n{{$json.high_risk_apps?.length \n? $json.high_risk_apps.map(a => `• ${a.app} → ${a.bytes}`).join('\\n') \n: 'No high risk applications found'}}\n\n━━━━━━━━━━━━━━━━━━\n\n📊 *Application Risk:* {{$json.application_risk || \"N/A\"}}\n\n━━━━━━━━━━━━━━━━━━\n\n📂 *Top Categories*\n{{$json.top_categories?.length \n? $json.top_categories.map(c => `• ${c.category} → ${c.bytes}`).join('\\n') \n: 'No category data'}}\n\n━━━━━━━━━━━━━━━━━━\n\n🏢 *Top User Groups*\n{{$json.top_user_groups?.length \n? $json.top_user_groups.map(g => `• ${g.group} → ${g.bytes}`).join('\\n') \n: 'No group data'}}\n\n━━━━━━━━━━━━━━━━━━\n\n⚠️ *Suspicious Activity*\n{{$json.suspicious_activity?.length \n? $json.suspicious_activity.map(a => `• ${a.user} | ${a.site}`).join('\\n') \n: 'No suspicious activity'}}\n\n━━━━━━━━━━━━━━━━━━\n\n🚨 *Overall Risk Level:* *{{$json.risk_level}}*",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        11296,
+        2176
+      ],
+      "id": "d655c4c2-cb18-489a-9b94-185ab4823eb9",
+      "name": "💬 Send Security Report (Slack)",
+      "webhookId": "ff66bc70-9e40-4d17-916e-7f44b5db0e14",
+      "credentials": {
+        "slackApi": {
+          "id": "tqqF9HVdKVRoNvYl",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "⏱ Daily Security Report Scheduler": {
+      "main": [
+        [
+          {
+            "node": "📥 Fetch Sophos Reports (Gmail)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📥 Fetch Sophos Reports (Gmail)": {
+      "main": [
+        [
+          {
+            "node": "📄 Check PDF Attachment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📄 Check PDF Attachment": {
+      "main": [
+        [
+          {
+            "node": "🔁 Process Each Report",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": " 💾 Detect Backup Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔁 Process Each Report": {
+      "main": [
+        [
+          {
+            "node": "📄 Extract Text from PDF",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🔁 Process Each Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📄 Extract Text from PDF": {
+      "main": [
+        [
+          {
+            "node": "🧠 Combine All Reports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧠 Combine All Reports": {
+      "main": [
+        [
+          {
+            "node": "🧹 Attach Backup Status to Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " 💾 Detect Backup Status": {
+      "main": [
+        [
+          {
+            "node": "🔗 Combine AI Data + Backup Status",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "🧹 Attach Backup Status to Data": {
+      "main": [
+        [
+          {
+            "node": "🤖 Prepare AI Extraction Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🤖 Prepare AI Extraction Prompt": {
+      "main": [
+        [
+          {
+            "node": "🤖 Analyze Report (Mistral AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🤖 Analyze Report (Mistral AI)": {
+      "main": [
+        [
+          {
+            "node": "🧠 Clean & Structure AI Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧠 Clean & Structure AI Output": {
+      "main": [
+        [
+          {
+            "node": "🔗 Combine AI Data + Backup Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔗 Combine AI Data + Backup Status": {
+      "main": [
+        [
+          {
+            "node": "📧 Send Security Report (Email)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "💬 Send Security Report (Slack)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "timezone": "Asia/Kolkata",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "67049fd9-7c54-48bd-b486-cccee53ac7bc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b122253006f280a6d0523e4a432c82f6170a52c2c0cd1b36527e04397f98a22e"
+  },
+  "id": "O0orZD9pzs7wjoYT",
+  "tags": []
+}
