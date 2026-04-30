@@ -1,0 +1,54 @@
+{
+  "name": "hr-onboarding-automation-workflow",
+  "nodes": [
+    {
+      "name": "⏱ Continuous Onboarding Check",
+      "type": "n8n-nodes-base.scheduleTrigger"
+    },
+    {
+      "name": "📥 Fetch New Joiners (Trello)",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "url": "https://api.trello.com/1/lists/YOUR_LIST_ID/cards",
+        "queryParameters": {
+          "key": "YOUR_TRELLO_API_KEY",
+          "token": "YOUR_TRELLO_TOKEN"
+        }
+      }
+    },
+    {
+      "name": "❓ Validate Onboarding Stage",
+      "type": "n8n-nodes-base.if"
+    },
+    {
+      "name": "🧹 Extract Card Details",
+      "type": "n8n-nodes-base.set"
+    },
+    {
+      "name": "🧠 Generate User Info",
+      "type": "n8n-nodes-base.code"
+    },
+    {
+      "name": "📊 Check License Availability",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "url": "GOOGLE_ADMIN_API_ENDPOINT"
+      }
+    },
+    {
+      "name": "📧 Request Approval",
+      "type": "n8n-nodes-base.emailSend",
+      "parameters": {
+        "fromEmail": "YOUR_EMAIL",
+        "toEmail": "APPROVER_EMAIL"
+      }
+    },
+    {
+      "name": "☁️ Create Google User",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "url": "GOOGLE_USER_CREATE_API"
+      }
+    }
+  ]
+}
