@@ -151,7 +151,30 @@
   text-align: center; /* 👈 add */
 }
 
-.btn-premium:hover {
+.btn-premium:hover 
+
+#terminal {
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,0.15), transparent 40%);
+}
+
+#terminal pre {
+  font-family: monospace;
+}
+
+#terminal::after {
+  content: "_";
+  animation: blink 1s infinite;
+  color: #4ade80;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+{
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 0 25px rgba(0,191,255,0.9);
   background: linear-gradient(135deg, #ffffff, #dbeafe);
@@ -194,6 +217,75 @@
 
   </div>
 </header>
+
+<!-- 🔥 LIVE TERMINAL SECTION -->
+<section class="relative z-10 py-16">
+  <div class="container mx-auto px-4">
+
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- LEFT SIDE -->
+      <div data-aos="fade-right">
+
+        <p class="text-blue-400 uppercase tracking-widest mb-3">
+          Infrastructure • Automation • Security
+        </p>
+
+        <h2 class="text-5xl font-bold leading-tight">
+          Building Reliable
+          <span class="text-blue-400">IT Infrastructure</span>
+        </h2>
+
+        <p class="mt-6 text-gray-300 text-lg leading-8">
+          Experienced in Linux, Networking, Cloud Infrastructure,
+          Security, Monitoring & Workflow Automation.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mt-8">
+
+          <a href="Akash_Resume.pdf" download class="btn-premium">
+            📄 Download Resume
+          </a>
+
+          <a href="https://github.com/akashvicky1" target="_blank" class="btn-premium">
+            💻 View GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE TERMINAL -->
+      <div data-aos="fade-left">
+
+        <div class="bg-black rounded-2xl border border-blue-500/30 shadow-2xl overflow-hidden">
+
+          <!-- TERMINAL HEADER -->
+          <div class="flex items-center gap-2 px-4 py-3 bg-gray-900 border-b border-gray-800">
+
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+
+            <span class="ml-4 text-gray-400 text-sm font-mono">
+              akash@portfolio:~
+            </span>
+
+          </div>
+
+          <!-- TERMINAL BODY -->
+          <div id="terminal"
+            class="p-6 font-mono text-green-400 text-sm md:text-base min-h-[350px] leading-8">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
   <!-- About -->
   <section class="py-10 relative z-10" data-aos="fade-up">
@@ -665,6 +757,68 @@ document.getElementById("imageModal").addEventListener("click", function(e) {
     closeModal();
   }
 });
+// 🔥 LIVE TERMINAL EFFECT
+
+const terminal = document.getElementById("terminal");
+
+const terminalLines = [
+  {
+    command: "whoami",
+    output: "Senior IT Infrastructure Engineer"
+  },
+  {
+    command: "skills",
+    output: `
+Linux
+Docker
+Sophos Firewall
+Networking
+AWS
+Azure
+n8n
+Ansible
+Monitoring
+`
+  },
+  {
+    command: "current_status",
+    output: "Building secure and scalable infrastructure 🚀"
+  },
+  {
+    command: "uptime",
+    output: "12+ Years Experience"
+  }
+];
+
+let lineIndex = 0;
+
+function typeTerminal() {
+
+  if (lineIndex >= terminalLines.length) return;
+
+  const line = terminalLines[lineIndex];
+
+  const block = document.createElement("div");
+  block.classList.add("mb-6");
+
+  block.innerHTML = `
+    <div>
+      <span class="text-blue-400">akash@portfolio</span>:~$ ${line.command}
+    </div>
+    <pre class="text-gray-200 whitespace-pre-wrap mt-2">${line.output}</pre>
+  `;
+
+  terminal.appendChild(block);
+
+  lineIndex++;
+
+  setTimeout(typeTerminal, 1500);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(typeTerminal, 1000);
+});
+
   </script>
 </body>
 </html>
