@@ -98,16 +98,29 @@
       100% { transform: rotate(360deg); }
     }
 
-    .glow-border {
-      border: 2px solid rgba(0, 191, 255, 0.3);
-      box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
-    }
+   .glow-border {
+
+  border:
+    1px solid rgba(59,130,246,0.15);
+
+  box-shadow:
+    0 0 30px rgba(59,130,246,0.08);
+}
 
     .experience-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
-      transition: all 0.3s ease;
-    }
+
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.12);
+
+  border-color:
+    rgba(59,130,246,0.18);
+
+  transition:
+    all 0.3s ease;
+}
 
     .scroll-top-btn {
       position: fixed;
@@ -335,31 +348,37 @@
 .internet {
 
   background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #1d4ed8
-    );
+    rgba(59,130,246,0.10);
+
+  border:
+    1px solid rgba(59,130,246,0.20);
+
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.10);
 }
 
 .firewall {
 
   background:
-    linear-gradient(
-      135deg,
-      #dc2626,
-      #991b1b
-    );
+    rgba(239,68,68,0.08);
+
+  border:
+    1px solid rgba(239,68,68,0.18);
+
+  box-shadow:
+    0 0 20px rgba(239,68,68,0.08);
 }
 
 .switch {
 
   background:
-    linear-gradient(
-      135deg,
-      #059669,
-      #047857
-    );
+    rgba(16,185,129,0.08);
+
+  border:
+    1px solid rgba(16,185,129,0.18);
+
+  box-shadow:
+    0 0 20px rgba(16,185,129,0.08);
 }
 
 .topology-line {
@@ -396,13 +415,16 @@
     40px;
 }
 
-.topology-child {
+.topology-child 
+{
+  background:
+  rgba(255,255,255,0.025);
 
   background:
     rgba(255,255,255,0.04);
 
   border:
-    1px solid rgba(255,255,255,0.08);
+  1px solid rgba(255,255,255,0.04);
 
   border-radius:
     18px;
