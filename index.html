@@ -593,7 +593,6 @@ repeat(auto-fit,minmax(160px,1fr));
 
 .hero-btn-primary {
 
-  width: 100%;
 
   display: inline-flex;
   align-items: center;
@@ -633,7 +632,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
 .hero-btn-secondary {
 
-width: 100%;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -662,6 +661,15 @@ width: 100%;
   box-shadow:
     0 0 20px rgba(59,130,246,0.25);
 
+}
+
+@media (max-width: 767px) {
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+
+    width: 100%;
+  }
 }
 
 .btn-premium {
@@ -769,7 +777,7 @@ width: 100%;
      <!-- LEFT SIDE -->
 <div data-aos="fade-right">
 
-  <div class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl max-w-fit bg-blue-500/10 border border-blue-500/20 mb-6"">
+  <div class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl max-w-fit bg-blue-500/10 border border-blue-500/20 mb-6">
 
     <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
 
