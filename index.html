@@ -134,6 +134,77 @@
     }
 
 /* PREMIUM BUTTON */
+
+/* HERO BUTTONS */
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #2563eb
+  );
+
+  color: white;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.35);
+
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-btn-primary:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 0 30px rgba(59,130,246,0.6);
+
+}
+
+.hero-btn-secondary {
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: white;
+
+  border-radius: 14px;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.hero-btn-secondary:hover {
+
+  transform: translateY(-4px);
+
+  border-color: rgba(59,130,246,0.5);
+
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.25);
+
+}
+
 .btn-premium {
   display: inline-flex;
   align-items: center;
@@ -153,32 +224,13 @@
 
 .btn-premium:hover 
 
-#terminal {
-  background:
-    radial-gradient(circle at top right, rgba(59,130,246,0.15), transparent 40%);
-}
-
-#terminal pre {
-  font-family: monospace;
-}
-
-#terminal::after {
-  content: "_";
-  animation: blink 1s infinite;
-  color: #4ade80;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-{
+.btn-premium:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 0 25px rgba(0,191,255,0.9);
   background: linear-gradient(135deg, #ffffff, #dbeafe);
 }
+
+
     
   </style>
 </head>
@@ -187,36 +239,7 @@
   <div class="overlay"></div>
 
   <!-- Header -->
-  <header class="bg-blue-900 bg-opacity-90 text-white py-8 shadow-md relative z-10" data-aos="fade-down">
-  <div class="container mx-auto px-4 text-center">
-
-    <h1 class="text-4xl font-bold">
-      Akash Prajapati<br />
-      <span id="fade-text" class="text-blue-400 text-xl block mt-2"></span>
-    </h1>
-
-    <p class="text-sm mt-2">
-      Email: prajapatiakash123@gmail.com |
-      <a href="https://www.linkedin.com/in/akash-prajapati-b74905164" target="_blank" class="underline">LinkedIn</a>
-    </p>
-
-    <p class="text-sm mt-1">Mobile No: +91 9067825687</p>
-
-    <!-- 🔥 PREMIUM BUTTONS -->
-    <div class="mt-4 space-y-3 flex flex-col items-center">
-
-      <a href="Akash_Resume.pdf" download class="btn-premium">
-        📄 Download My Resume
-      </a>
-
-      <a href="A_professional_business_card_for_an_IT_network_exp.png" download class="btn-premium">
-        📄 Download Visiting Card
-      </a>
-
-    </div>
-
-  </div>
-</header>
+  
 
 <!-- 🔥 LIVE TERMINAL SECTION -->
 <section class="relative z-10 py-16">
@@ -227,33 +250,25 @@
       <!-- LEFT SIDE -->
       <div data-aos="fade-right">
 
-        <p class="text-blue-400 uppercase tracking-widest mb-3">
-          Infrastructure • Automation • Security
-        </p>
+       <a href="https://www.linkedin.com/in/akash-prajapati-b74905164"
+       target="_blank"
+       class="hero-btn-secondary">
 
-        <h2 class="text-5xl font-bold leading-tight">
-          Building Reliable
-          <span class="text-blue-400">IT Infrastructure</span>
-        </h2>
+      🔗 LinkedIn
 
-        <p class="mt-6 text-gray-300 text-lg leading-8">
-          Experienced in Linux, Networking, Cloud Infrastructure,
-          Security, Monitoring & Workflow Automation.
-        </p>
+    </a>
 
-        <div class="flex flex-wrap gap-4 mt-8">
+    <!-- Mail -->
+    <a href="mailto:prajapatiakash123@gmail.com"
+       class="hero-btn-secondary">
 
-          <a href="Akash_Resume.pdf" download class="btn-premium">
-            📄 Download Resume
-          </a>
+      ✉️ Email
 
-          <a href="https://github.com/akashvicky1" target="_blank" class="btn-premium">
-            💻 View GitHub
-          </a>
+    </a>
 
-        </div>
+  </div>
 
-      </div>
+</div>
 
       <!-- RIGHT SIDE TERMINAL -->
       <div data-aos="fade-left">
