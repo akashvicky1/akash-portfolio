@@ -145,8 +145,16 @@
 
   margin-top: 10px;
 
+  width: fit-content;
+
+  min-width: calc(100% - 24px);
+
+  margin-left: auto;
+
+  margin-right: auto;
+
   padding:
-  12px 18px;
+    12px 18px;
   
   border-radius:
     20px;
@@ -682,9 +690,9 @@ repeat(auto-fit,minmax(160px,1fr));
   <!-- 🔥 GLASS NAVBAR -->
 
 <nav id="navbar"
-     class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
 
-  <div class="w-full max-w-7xl mx-auto px-3 sm:px-6">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6">
 
     <div class="nav-glass flex items-center justify-between px-4 py-3 sm:px-6">
 
