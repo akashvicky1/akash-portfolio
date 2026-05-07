@@ -280,7 +280,162 @@
     0;
 }
 
-.incident-card li {
+.incident-card li
+
+/* 🔥 TOPOLOGY SECTION */
+
+.topology-wrapper {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  position: relative;
+}
+
+.topology-node {
+
+  padding:
+    16px 30px;
+
+  border-radius:
+    18px;
+
+  font-weight:
+    600;
+
+  color:
+    white;
+
+  backdrop-filter:
+    blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  margin:
+    10px 0;
+
+  transition:
+    all 0.3s ease;
+}
+
+.topology-node:hover {
+
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.3);
+
+}
+
+.internet {
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+.firewall {
+
+  background:
+    linear-gradient(
+      135deg,
+      #dc2626,
+      #991b1b
+    );
+}
+
+.switch {
+
+  background:
+    linear-gradient(
+      135deg,
+      #059669,
+      #047857
+    );
+}
+
+.topology-line {
+
+  width:
+    3px;
+
+  height:
+    40px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #60a5fa,
+      transparent
+    );
+}
+
+.topology-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+  gap:
+    20px;
+
+  width:
+    100%;
+
+  margin-top:
+    40px;
+}
+
+.topology-child {
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:
+    18px;
+
+  padding:
+    24px;
+
+  text-align:
+    center;
+
+  color:
+    #e2e8f0;
+
+  transition:
+    all 0.3s ease;
+
+  backdrop-filter:
+    blur(10px);
+}
+
+.topology-child:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(59,130,246,0.4);
+
+  box-shadow:
+    0 0 30px rgba(59,130,246,0.2);
+}
+
+ {
 
   color:
     #94a3b8;
@@ -534,6 +689,85 @@
       </p>
     </div>
   </section>
+
+  <!-- 🔥 INFRASTRUCTURE TOPOLOGY -->
+
+<section class="py-14 relative z-10"
+         data-aos="zoom-in">
+
+  <div class="container mx-auto px-4">
+
+    <div class="glass-card glow-border">
+
+      <h2 class="text-3xl font-bold text-center text-white mb-12">
+
+        🌐 Enterprise Infrastructure Topology
+
+      </h2>
+
+      <div class="topology-wrapper">
+
+        <!-- INTERNET -->
+        <div class="topology-node internet">
+
+          🌍 Internet
+
+        </div>
+
+        <div class="topology-line"></div>
+
+        <!-- SOPHOS -->
+        <div class="topology-node firewall">
+
+          🔥 Sophos Firewall
+
+        </div>
+
+        <div class="topology-line"></div>
+
+        <!-- SWITCH -->
+        <div class="topology-node switch">
+
+          🔀 Core Switch
+
+        </div>
+
+        <!-- CHILDREN -->
+        <div class="topology-grid">
+
+          <div class="topology-child">
+            💻 User Systems
+          </div>
+
+          <div class="topology-child">
+            📡 WiFi Access Points
+          </div>
+
+          <div class="topology-child">
+            🎥 CCTV Network
+          </div>
+
+          <div class="topology-child">
+            🖥 Linux Servers
+          </div>
+
+          <div class="topology-child">
+            ☁ Cloud Infrastructure
+          </div>
+
+          <div class="topology-child">
+            🔐 Guest VLAN
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
   <!-- Skills -->
   <section class="py-10 relative z-10" data-aos="zoom-in-up">
