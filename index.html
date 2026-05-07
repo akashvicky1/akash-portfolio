@@ -128,7 +128,66 @@
       background: #2563eb;
     }
 
-    .footer-glow {
+    .footer-glow
+
+/* 🔥 STATS SECTION */
+
+.stats-card {
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 20px;
+
+  padding: 35px 20px;
+
+  text-align: center;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.2);
+}
+
+.stats-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(59,130,246,0.5);
+
+  box-shadow:
+    0 0 35px rgba(59,130,246,0.25);
+
+}
+
+.stats-card h3 {
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  color: #60a5fa;
+
+  margin-bottom: 10px;
+}
+
+.stats-card p {
+
+  color: #cbd5e1;
+
+  font-size: 15px;
+
+  letter-spacing: 0.5px;
+}
+
+     {
       border-top: 2px solid rgba(255,255,255,0.1);
       box-shadow: inset 0 2px 10px rgba(0, 191, 255, 0.3);
     }
@@ -300,6 +359,58 @@
     </div>
 
   </div>
+</section>
+
+<!-- 🔥 LIVE INFRA STATS -->
+<section class="relative z-10 py-12">
+
+  <div class="container mx-auto px-4">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+      <!-- CARD 1 -->
+      <div class="stats-card" data-aos="zoom-in">
+
+        <h3 class="counter"
+            data-target="200">0</h3>
+
+        <p>Systems Managed</p>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="stats-card" data-aos="zoom-in">
+
+        <h3 class="counter"
+            data-target="25">0</h3>
+
+        <p>Automations Built</p>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="stats-card" data-aos="zoom-in">
+
+        <h3>99.9%</h3>
+
+        <p>Infrastructure Focus</p>
+
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="stats-card" data-aos="zoom-in">
+
+        <h3 class="counter"
+            data-target="12">0</h3>
+
+        <p>Years Experience</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
   <!-- About -->
@@ -832,6 +943,44 @@ function typeTerminal() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(typeTerminal, 1000);
+});
+
+// 🔥 COUNTER ANIMATION
+
+const counters =
+  document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+  counter.innerText = '0';
+
+  const updateCounter = () => {
+
+    const target =
+      +counter.getAttribute('data-target');
+
+    const current =
+      +counter.innerText;
+
+    const increment =
+      target / 80;
+
+    if (current < target) {
+
+      counter.innerText =
+        `${Math.ceil(current + increment)}+`;
+
+      setTimeout(updateCounter, 20);
+
+    } else {
+
+      counter.innerText =
+        `${target}+`;
+
+    }
+  };
+
+  updateCounter();
 });
 
   </script>
