@@ -411,7 +411,6 @@
     0;
 }
 
-.incident-card li
 
 /* 🔥 TOPOLOGY SECTION */
 
@@ -575,23 +574,8 @@
     0 0 30px rgba(59,130,246,0.2);
 }
 
- {
 
-  color:
-    #94a3b8;
 
-  margin-bottom:
-    12px;
-}
-
-{
-
-  color: #cbd5e1;
-
-  font-size: 15px;
-
-  letter-spacing: 0.5px;
-}
 
      {
       border-top: 2px solid rgba(255,255,255,0.1);
@@ -687,8 +671,6 @@
   text-align: center; /* 👈 add */
 }
 
-.btn-premium:hover 
-
 .btn-premium:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 0 25px rgba(0,191,255,0.9);
@@ -773,10 +755,58 @@
 
     <div class="grid md:grid-cols-2 gap-10 items-center">
 
-      <!-- LEFT SIDE -->
-      <div data-aos="fade-right">
+     <!-- LEFT SIDE -->
+<div data-aos="fade-right">
 
-       <a href="https://www.linkedin.com/in/akash-prajapati-b74905164"
+  <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+
+    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+
+    <span class="text-sm text-blue-300">
+      Available for Infrastructure & Automation Projects
+    </span>
+
+  </div>
+
+  <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+
+    Akash
+    <span class="text-blue-400">Prajapati</span>
+
+  </h1>
+
+  <div class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
+
+    Infrastructure • Automation • Security Engineer
+
+  </div>
+
+  <p class="mt-8 text-gray-400 text-lg leading-8 max-w-xl">
+
+    Experienced in Linux, Networking, Cloud Infrastructure,
+    Security Monitoring, Workflow Automation & Enterprise IT Operations.
+
+  </p>
+
+  <div class="flex flex-wrap gap-4 mt-10">
+
+    <a href="Akash_Resume.pdf"
+       download
+       class="hero-btn-primary">
+
+      📄 Resume
+
+    </a>
+
+    <a href="https://github.com/akashvicky1"
+       target="_blank"
+       class="hero-btn-secondary">
+
+      💻 GitHub
+
+    </a>
+
+    <a href="https://www.linkedin.com/in/akash-prajapati-b74905164"
        target="_blank"
        class="hero-btn-secondary">
 
@@ -784,7 +814,6 @@
 
     </a>
 
-    <!-- Mail -->
     <a href="mailto:prajapatiakash123@gmail.com"
        class="hero-btn-secondary">
 
@@ -881,7 +910,8 @@
 </section>
 
   <section id="about"
-  <section class="py-10 relative z-10" data-aos="fade-up">
+         class="py-10 relative z-10"
+         data-aos="fade-up">
     <div class="container mx-auto px-4 flex flex-col items-center">
       <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 profile-glow mb-6" />
       <h2 class="text-2xl font-semibold text-white mb-2">About Me</h2>
@@ -891,9 +921,8 @@
     </div>
   </section>
 
-  <section id="infrastructure"
-
-<section class="py-14 relative z-10"
+ <section id="infrastructure"
+         class="py-14 relative z-10"
          data-aos="zoom-in">
 
   <div class="container mx-auto px-4">
@@ -970,8 +999,9 @@
 
 </section>
 
-  <section id="skills"
-  <section class="py-10 relative z-10" data-aos="zoom-in-up">
+ <section id="skills"
+         class="py-10 relative z-10"
+         data-aos="zoom-in-up">
     <div class="container mx-auto px-4 glass-card glow-border">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
       <div class="flex flex-wrap justify-center gap-4">
@@ -1204,8 +1234,9 @@
 </section>
 
 
-  <section id="experience"
-  <section class="py-10 relative z-10" data-aos="flip-left">
+ <section id="experience"
+         class="py-10 relative z-10"
+         data-aos="flip-left">
     <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
       <div class="max-w-3xl mx-auto space-y-6 text-white">
@@ -1220,7 +1251,8 @@
   </section>
   
   <section id="automation"
-<section class="py-10 relative z-10" data-aos="flip-left">
+         class="py-10 relative z-10"
+         data-aos="flip-left">
   <div class="container mx-auto px-4 glass-card">
     <h2 class="text-2xl font-semibold text-white mb-6 text-center">
       🤖 Automation Experience (n8n)
@@ -1512,10 +1544,20 @@
 
     // Scroll-to-top button
     const scrollBtn = document.getElementById('scrollBtn');
-    window.onscroll = () => 
+// Scroll-to-top button
+const scrollBtn =
+  document.getElementById('scrollBtn');
+
+window.onscroll = () => {
+
+  scrollBtn.style.display =
+    (document.body.scrollTop > 300 ||
+     document.documentElement.scrollTop > 300)
+      ? "block"
+      : "none";
+};
 
 // 🔥 NAVBAR SCROLL EFFECT
-
 const navbar =
   document.getElementById("navbar");
 
