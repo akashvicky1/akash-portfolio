@@ -178,7 +178,118 @@
   margin-bottom: 10px;
 }
 
-.stats-card p {
+.stats-card p 
+
+/* 🔥 INCIDENT SECTION */
+
+.incident-card {
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 20px;
+
+  padding: 28px;
+
+  transition:
+    all 0.3s ease;
+
+  backdrop-filter:
+    blur(10px);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.incident-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(59,130,246,0.4);
+
+  box-shadow:
+    0 0 35px rgba(59,130,246,0.18);
+
+}
+
+.incident-tag {
+
+  display: inline-block;
+
+  padding:
+    6px 14px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(59,130,246,0.12);
+
+  color:
+    #93c5fd;
+
+  font-size:
+    13px;
+
+  margin-bottom:
+    18px;
+}
+
+.incident-card h3 {
+
+  font-size:
+    22px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    16px;
+
+  color:
+    white;
+}
+
+.incident-card p {
+
+  color:
+    #cbd5e1;
+
+  line-height:
+    1.8;
+
+  margin-bottom:
+    20px;
+}
+
+.incident-card ul {
+
+  list-style:
+    none;
+
+  padding:
+    0;
+
+  margin:
+    0;
+}
+
+.incident-card li {
+
+  color:
+    #94a3b8;
+
+  margin-bottom:
+    12px;
+}
+
+{
 
   color: #cbd5e1;
 
@@ -449,6 +560,153 @@
       </div>
     </div>
   </section>
+
+<!-- 🔥 INCIDENT RESPONSE SECTION -->
+
+<section class="py-10 relative z-10"
+         data-aos="fade-up">
+
+  <div class="container mx-auto px-4">
+
+    <div class="glass-card glow-border">
+
+      <h2 class="text-3xl font-bold text-center text-white mb-10">
+
+        🚨 Incident Response & Troubleshooting
+
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- CARD 1 -->
+        <div class="incident-card">
+
+          <div class="incident-tag">
+            Sophos Firewall
+          </div>
+
+          <h3>
+            Captive Portal Session Timeout
+          </h3>
+
+          <p>
+
+            Diagnosed repeated captive portal
+            authentication issue affecting users
+            across enterprise WiFi networks.
+
+          </p>
+
+          <ul>
+
+            <li>✔ Analyzed session timeout policies</li>
+
+            <li>✔ Improved authentication persistence</li>
+
+            <li>✔ Reduced repeated login requests</li>
+
+          </ul>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="incident-card">
+
+          <div class="incident-tag">
+            Linux / GPU
+          </div>
+
+          <h3>
+            WebGL Rendering Failure
+          </h3>
+
+          <p>
+
+            Debugged Linux-based WebGL rendering
+            issue related to EGL/OpenGL acceleration.
+
+          </p>
+
+          <ul>
+
+            <li>✔ Investigated GPU rendering stack</li>
+
+            <li>✔ Tested EGL/OpenGL dependencies</li>
+
+            <li>✔ Restored hardware acceleration</li>
+
+          </ul>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="incident-card">
+
+          <div class="incident-tag">
+            Infrastructure
+          </div>
+
+          <h3>
+            200+ Systems Infrastructure Management
+          </h3>
+
+          <p>
+
+            Managed enterprise-grade IT infrastructure
+            across multiple departments and floors.
+
+          </p>
+
+          <ul>
+
+            <li>✔ VLAN & Network Segmentation</li>
+
+            <li>✔ Firewall & Endpoint Security</li>
+
+            <li>✔ Monitoring & Asset Management</li>
+
+          </ul>
+
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="incident-card">
+
+          <div class="incident-tag">
+            Automation
+          </div>
+
+          <h3>
+            Intelligent Workflow Automation
+          </h3>
+
+          <p>
+
+            Built automated workflows using n8n,
+            Slack integrations, and AI-based reporting.
+
+          </p>
+
+          <ul>
+
+            <li>✔ Real-time monitoring alerts</li>
+
+            <li>✔ Automated reporting system</li>
+
+            <li>✔ Reduced manual operations</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
   <!-- Experience -->
   <section class="py-10 relative z-10" data-aos="flip-left">
