@@ -179,8 +179,14 @@ body {
   background:
     rgba(255,255,255,0.03);
 
-  border:
-    1px solid rgba(255,255,255,0.06);
+  border-top:
+  1px solid rgba(255,255,255,0.06);
+
+border-right:
+  1px solid rgba(255,255,255,0.06);
+
+border-bottom:
+  1px solid rgba(255,255,255,0.06);
 
   border-radius:
     18px;
@@ -1407,8 +1413,10 @@ repeat(auto-fit,minmax(160px,1fr));
 
   font-weight: 600;
 
-  transition: all 0.3s ease;
-
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  background 0.3s ease;
   box-shadow:
     0 0 20px rgba(59,130,246,0.35);
 
@@ -1609,7 +1617,7 @@ repeat(auto-fit,minmax(160px,1fr));
   
 
 <!-- 🔥 LIVE TERMINAL SECTION -->
-<section class="relative z-10 pt-28 pb-16">
+<section class="relative z-10 pt-32 pb-20">
   <div class="container mx-auto px-4">
 
     <div class="grid lg:grid-cols-2 gap-10 items-center">
@@ -1770,7 +1778,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div class="container mx-auto px-4">
 
-    <div class="glass-card glow-border">
+    <div class="glass-card glow-border relative overflow-hidden">
 
       <h2 class="text-3xl font-bold text-white text-center mb-10">
 
@@ -1933,7 +1941,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div class="container mx-auto px-4">
 
-    <div class="glass-card glow-border">
+    <div class="glass-card glow-border relative overflow-hidden">
 
       <h2 class="text-3xl font-bold text-center text-white mb-12">
 
@@ -2178,7 +2186,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div class="container mx-auto px-4">
 
-    <div class="glass-card glow-border">
+    <div class="glass-card glow-border relative overflow-hidden">
 
       <h2 class="text-3xl font-bold text-center text-white mb-10">
 
@@ -2273,7 +2281,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div class="container mx-auto px-4">
 
-    <div class="glass-card glow-border">
+    <div class="glass-card glow-border relative overflow-hidden">
 
       <h2 class="text-3xl font-bold text-center text-white mb-10">
 
@@ -2479,7 +2487,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div class="container mx-auto px-4">
 
-    <div class="glass-card glow-border">
+    <div class="glass-card glow-border relative overflow-hidden">
 
       <h2 class="text-3xl font-bold text-center text-white mb-10">
 
@@ -3041,9 +3049,10 @@ function closeModal() {
 }
 
 function downloadWorkflow() {
-  const pass = alert("Contact me for workflow access.");;
 
-  if (pass === "akash123") {
+  alert("Contact me for workflow access.");
+
+}
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Ai%20Monitoring%20System1.json");
   } else {
     alert("Access Denied ❌");
@@ -3054,7 +3063,7 @@ function downloadWorkflow() {
 function downloadBlueGuardian() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/BlueGuardian_Monitring1.json");
   } else {
     alert("Access Denied ❌");
@@ -3064,7 +3073,7 @@ return;
 function downloadGlobalConfig() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GLOBAL_CONFIG1.json");
   } else {
     alert("Access Denied ❌");
@@ -3074,7 +3083,7 @@ return;
 function downloadGCPWorkflow() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GCP_Project_Auto1.json");
   } else {
     alert("Access Denied ❌");
@@ -3084,7 +3093,7 @@ return;
 function downloadPatchWorkflow() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Centralized%20Patch%20Management1.json");
   } else {
     alert("Access Denied ❌");
@@ -3094,7 +3103,7 @@ return;
 function downloadSophosWorkflow() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Sophos-Auto%20summary1.json");
   } else {
     alert("Access Denied ❌");
@@ -3104,7 +3113,7 @@ return;
 function downloadOffboardingWorkflow() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/exit-user-offboarding-automation-workflow.json");
   } else {
     alert("Access Denied ❌");
@@ -3114,7 +3123,7 @@ return;
 function downloadOnboardingWorkflow() {
   alert("Contact me for workflow access.");
 return;
-  if (pass === "akash123") {
+   {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/hr-onboarding-automation-workflow.json");
   } else {
     alert("Access Denied ❌");
