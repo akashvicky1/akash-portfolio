@@ -69,6 +69,22 @@ body {
       padding: 0;
     }
 
+#matrixCanvas {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -3;
+
+  opacity: 0.08;
+}
+
+
     #tsparticles {
       position: fixed;
       z-index: -1;
@@ -148,6 +164,27 @@ body {
 
   box-shadow:
     0 0 30px rgba(59,130,246,0.08);
+}
+
+.experience-card {
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:
+    20px;
+
+  padding:
+    24px;
+
+  transition:
+    all 0.3s ease;
+
+  backdrop-filter:
+    blur(10px);
 }
 
     .experience-card:hover {
@@ -1353,6 +1390,8 @@ repeat(auto-fit,minmax(160px,1fr));
 </nav>
   <div id="tsparticles"></div>
 
+<canvas id="matrixCanvas"></canvas>
+
 <!-- 🔥 NETWORK GLOW -->
 <div class="network-glow"></div>
 
@@ -1389,7 +1428,12 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
 
-    Infrastructure • Automation • Security Engineer
+    I<div id="typed-text"
+     class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
+
+  <span id="fade-text"></span>
+
+</div>
 
   </div>
 
@@ -1403,6 +1447,14 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div id="uptimeCounter">
     ⚡ Uptime: 0 Days
+
+    <div class="text-sm text-green-400 mt-2">
+  👀 Live Visitors: <span id="visitorCount">128</span>
+</div>
+
+    <div class="text-sm text-green-400 mt-2">
+  👀 Live Visitors: <span id="visitorCount">128</span>
+</div>
   </div>
 
 </div>
@@ -1440,6 +1492,16 @@ repeat(auto-fit,minmax(160px,1fr));
   <div class="status-card">
 
     🌍 Region
+    <div class="mt-4 rounded-2xl overflow-hidden border border-blue-500/20">
+  <iframe
+    src="https://www.google.com/maps?q=Ahmedabad&output=embed"
+    width="100%"
+    height="220"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</div>
 
     <strong>Ahmedabad, IN</strong>
 
@@ -2851,6 +2913,22 @@ setInterval(updateUptime, 1000);
 
 updateUptime();
 
+
+// 🔥 RANDOM VISITOR COUNTER
+
+function updateVisitors() {
+
+  const visitors =
+    Math.floor(Math.random() * 80) + 120;
+
+  document.getElementById("visitorCount").innerText =
+    visitors;
+}
+
+setInterval(updateVisitors, 4000);
+
+updateVisitors();
+
 // 🔥 LIVE MONITORING VALUES
 
 function randomValue(min, max) {
@@ -3056,6 +3134,79 @@ counters.forEach(counter => {
 
   updateCounter();
 });
+
+
+// 🔥 MATRIX EFFECT
+
+const canvas =
+  document.getElementById("matrixCanvas");
+
+const ctx =
+  canvas.getContext("2d");
+
+canvas.width =
+  window.innerWidth;
+
+canvas.height =
+  window.innerHeight;
+
+const chars =
+  "01";
+
+const fontSize =
+  14;
+
+const columns =
+  canvas.width / fontSize;
+
+const drops = [];
+
+for (let x = 0; x < columns; x++) {
+
+  drops[x] = 1;
+}
+
+function drawMatrix() {
+
+  ctx.fillStyle =
+    "rgba(15,23,42,0.08)";
+
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  ctx.fillStyle =
+    "#3b82f6";
+
+  ctx.font =
+    fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+
+    const text =
+      chars[Math.floor(Math.random() * chars.length)];
+
+    ctx.fillText(
+      text,
+      i * fontSize,
+      drops[i] * fontSize
+    );
+
+    if (
+      drops[i] * fontSize > canvas.height &&
+      Math.random() > 0.975
+    ) {
+      drops[i] = 0;
+    }
+
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 35);
 
   </script>
 </body>
