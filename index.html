@@ -69,22 +69,6 @@ body {
       padding: 0;
     }
 
-#matrixCanvas {
-
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: -3;
-
-  opacity: 0.08;
-}
-
-
     #tsparticles {
       position: fixed;
       z-index: -1;
@@ -164,27 +148,6 @@ body {
 
   box-shadow:
     0 0 30px rgba(59,130,246,0.08);
-}
-
-.experience-card {
-
-  background:
-    rgba(255,255,255,0.03);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  border-radius:
-    20px;
-
-  padding:
-    24px;
-
-  transition:
-    all 0.3s ease;
-
-  backdrop-filter:
-    blur(10px);
 }
 
     .experience-card:hover {
@@ -509,6 +472,136 @@ body {
   letter-spacing:
     0.5px;
 }
+/* 🔥 ENTERPRISE STACK WALL */
+
+.stack-heading {
+
+  color:
+    white;
+
+  font-size:
+    26px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    28px;
+
+  text-align:
+    center;
+
+  letter-spacing:
+    0.5px;
+}
+/* 🔥 HERO GRADIENT TEXT */
+
+.hero-gradient-text {
+
+  background:
+    linear-gradient(
+      90deg,
+      #60a5fa,
+      #38bdf8,
+      #818cf8
+    );
+
+  -webkit-background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  background-size:
+    200% auto;
+
+  animation:
+    gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.stack-wall {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  justify-content:
+    center;
+
+  gap:
+    18px;
+}
+
+.stack-pill {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  padding:
+    14px 20px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color:
+    #e2e8f0;
+
+  font-weight:
+    500;
+
+  backdrop-filter:
+    blur(12px);
+
+  transition:
+    all 0.3s ease;
+
+  box-shadow:
+    0 0 15px rgba(0,0,0,0.18);
+
+  animation:
+    float 4s ease-in-out infinite;
+}
+
+.stack-pill:hover {
+
+  transform:
+    translateY(-6px) scale(1.05);
+
+  border-color:
+    rgba(59,130,246,0.45);
+
+  color:
+    white;
+
+  box-shadow:
+    0 0 28px rgba(59,130,246,0.22);
+}
+
 
 /* 🔥 SOC SECTION */
 
@@ -1321,46 +1414,7 @@ repeat(auto-fit,minmax(160px,1fr));
   background: linear-gradient(135deg, #ffffff, #dbeafe);
 }
 
-/* 🔥 STACK PILLS */
 
-.stack-pill {
-
-  padding:
-    12px 22px;
-
-  border-radius:
-    999px;
-
-  background:
-    rgba(255,255,255,0.06);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter:
-    blur(10px);
-
-  transition:
-    all 0.3s ease;
-
-  color:
-    white;
-
-  font-weight:
-    500;
-}
-
-.stack-pill:hover {
-
-  transform:
-    translateY(-4px);
-
-  border-color:
-    rgba(59,130,246,0.5);
-
-  box-shadow:
-    0 0 25px rgba(59,130,246,0.25);
-}
     
   </style>
 </head>
@@ -1429,8 +1483,6 @@ repeat(auto-fit,minmax(160px,1fr));
 </nav>
   <div id="tsparticles"></div>
 
-<canvas id="matrixCanvas"></canvas>
-
 <!-- 🔥 NETWORK GLOW -->
 <div class="network-glow"></div>
 
@@ -1461,18 +1513,15 @@ repeat(auto-fit,minmax(160px,1fr));
   <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
 
     Akash
-    <span class="text-blue-400">Prajapati</span>
+<span class="hero-gradient-text">
+  Prajapati
+</span>
 
   </h1>
 
   <div class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
 
-    I<div id="typed-text"
-     class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
-
-  <span id="fade-text"></span>
-
-</div>
+    Infrastructure • Automation • Security Engineer
 
   </div>
 
@@ -1486,14 +1535,6 @@ repeat(auto-fit,minmax(160px,1fr));
 
   <div id="uptimeCounter">
     ⚡ Uptime: 0 Days
-
-    <div class="text-sm text-green-400 mt-2">
-  👀 Live Visitors: <span id="visitorCount">128</span>
-</div>
-
-    <div class="text-sm text-green-400 mt-2">
-  👀 Live Visitors: <span id="visitorCount">128</span>
-</div>
   </div>
 
 </div>
@@ -1531,16 +1572,6 @@ repeat(auto-fit,minmax(160px,1fr));
   <div class="status-card">
 
     🌍 Region
-    <div class="mt-4 rounded-2xl overflow-hidden border border-blue-500/20">
-  <iframe
-    src="https://www.google.com/maps?q=Ahmedabad&output=embed"
-    width="100%"
-    height="220"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-</div>
 
     <strong>Ahmedabad, IN</strong>
 
@@ -1588,8 +1619,7 @@ repeat(auto-fit,minmax(160px,1fr));
       <!-- RIGHT SIDE TERMINAL -->
       <div data-aos="fade-left">
 
-        <div class="bg-black rounded-2xl w-full border border-blue-500/30 shadow-2xl overflow-hidden">
-
+       <div class="bg-black rounded-2xl w-full border border-blue-500/30 shadow-2xl overflow-hidden terminal-glow">
           <!-- TERMINAL HEADER -->
           <div class="flex items-center gap-2 px-4 py-3 bg-gray-900 border-b border-gray-800">
 
@@ -1861,117 +1891,168 @@ repeat(auto-fit,minmax(160px,1fr));
 
 </section>
 
- <section id="skills" class="py-16 relative z-10" data-aos="fade-up">
+ <section id="skills"
+         class="py-10 relative z-10"
+         data-aos="zoom-in-up">
+    <div class="container mx-auto px-4 glass-card glow-border">
+      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
+     <div class="space-y-12">
 
-  <div class="container mx-auto px-4">
+  <!-- 🖥 INFRA -->
 
-    <div class="glass-card glow-border p-10">
+  <div>
 
-      <h2 class="text-4xl font-bold text-center mb-12 hero-gradient-text">
+    <h3 class="stack-heading">
+      🖥 Infrastructure
+    </h3>
 
-        Enterprise Tech Stack
+    <div class="stack-wall">
 
-      </h2>
+      <div class="stack-pill">
+        🐧 Linux
+      </div>
 
-      <div class="space-y-10">
+      <div class="stack-pill">
+        🖥 VMware
+      </div>
 
-        <!-- Infrastructure -->
+      <div class="stack-pill">
+        🌐 Networking
+      </div>
 
-        <div>
+      <div class="stack-pill">
+        🔀 VLAN
+      </div>
 
-          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
+      <div class="stack-pill">
+        🖥 Windows Server
+      </div>
 
-            🖥 Infrastructure
-
-          </h3>
-
-          <div class="flex flex-wrap gap-4">
-
-            <span class="stack-pill">🐧 Linux</span>
-            <span class="stack-pill">🌐 Networking</span>
-            <span class="stack-pill">🔀 VLAN</span>
-            <span class="stack-pill">🖥 VMware</span>
-            <span class="stack-pill">📦 Asset Management</span>
-
-          </div>
-
-        </div>
-
-        <!-- Cloud -->
-
-        <div>
-
-          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
-
-            ☁ Cloud & DevOps
-
-          </h3>
-
-          <div class="flex flex-wrap gap-4">
-
-            <span class="stack-pill">☁ AWS</span>
-            <span class="stack-pill">🌍 OVH Cloud</span>
-            <span class="stack-pill">🐳 Docker</span>
-            <span class="stack-pill">⚙️ Ansible</span>
-            <span class="stack-pill">📨 Google Workspace</span>
-            <span class="stack-pill">🏢 Microsoft 365</span>
-
-          </div>
-
-        </div>
-
-        <!-- Security -->
-
-        <div>
-
-          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
-
-            🛡 Security & Monitoring
-
-          </h3>
-
-          <div class="flex flex-wrap gap-4">
-
-            <span class="stack-pill">🔥 Sophos Firewall</span>
-            <span class="stack-pill">🛡 Wazuh</span>
-            <span class="stack-pill">🧩 ESET Security</span>
-            <span class="stack-pill">📊 Zabbix</span>
-            <span class="stack-pill">📈 Grafana</span>
-            <span class="stack-pill">📡 Prometheus</span>
-
-          </div>
-
-        </div>
-
-        <!-- Automation -->
-
-        <div>
-
-          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
-
-            🤖 Automation & AI
-
-          </h3>
-
-          <div class="flex flex-wrap gap-4">
-
-            <span class="stack-pill">⚡ n8n</span>
-            <span class="stack-pill">💬 Slack API</span>
-            <span class="stack-pill">🤖 ChatGPT</span>
-            <span class="stack-pill">🧠 Gemini AI</span>
-            <span class="stack-pill">📑 AI Reporting</span>
-
-          </div>
-
-        </div>
-
+      <div class="stack-pill">
+        📦 Asset Management
       </div>
 
     </div>
 
   </div>
 
-</section>
+  <!-- ☁ CLOUD -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      ☁ Cloud & DevOps
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">
+        ☁ AWS
+      </div>
+
+      <div class="stack-pill">
+        🌩 OVH Cloud
+      </div>
+
+      <div class="stack-pill">
+        🐳 Docker
+      </div>
+
+      <div class="stack-pill">
+        ⚙ Ansible
+      </div>
+
+      <div class="stack-pill">
+        📧 Google Workspace
+      </div>
+
+      <div class="stack-pill">
+        🏢 Microsoft 365
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 🛡 SECURITY -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      🛡 Security & Monitoring
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">
+        🔥 Sophos Firewall
+      </div>
+
+      <div class="stack-pill">
+        🛡 Wazuh
+      </div>
+
+      <div class="stack-pill">
+        🧩 ESET Security
+      </div>
+
+      <div class="stack-pill">
+        📊 Zabbix
+      </div>
+
+      <div class="stack-pill">
+        📈 Grafana
+      </div>
+
+      <div class="stack-pill">
+        📡 Prometheus
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 🤖 AUTOMATION -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      🤖 Automation & AI
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">
+        ⚡ n8n
+      </div>
+
+      <div class="stack-pill">
+        💬 Slack API
+      </div>
+
+      <div class="stack-pill">
+        🤖 AI Reporting
+      </div>
+
+      <div class="stack-pill">
+        🧠 ChatGPT
+      </div>
+
+      <div class="stack-pill">
+        ✨ Gemini AI
+      </div>
+
+      <div class="stack-pill">
+        🔄 Workflow Automation
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </section>
 
 <!-- 🔥 SECURITY OPERATIONS CENTER -->
 
@@ -2690,14 +2771,6 @@ repeat(auto-fit,minmax(160px,1fr));
 
 <!-- 🔥 LIVE AUTOMATION FEED -->
 
-
-
-
-</div>
-
-
-<!-- 🔥 LIVE AUTOMATION FEED -->
-
 <div class="experience-card mt-10">
 
   <h3 class="text-xl font-semibold mb-5 flex items-center gap-2">
@@ -2710,6 +2783,9 @@ repeat(auto-fit,minmax(160px,1fr));
        class="automation-feed">
 
   </div>
+
+</div>
+
 
 </div>
 
@@ -3042,22 +3118,6 @@ setInterval(updateUptime, 1000);
 
 updateUptime();
 
-
-// 🔥 RANDOM VISITOR COUNTER
-
-function updateVisitors() {
-
-  const visitors =
-    Math.floor(Math.random() * 80) + 120;
-
-  document.getElementById("visitorCount").innerText =
-    visitors;
-}
-
-setInterval(updateVisitors, 4000);
-
-updateVisitors();
-
 // 🔥 LIVE MONITORING VALUES
 
 function randomValue(min, max) {
@@ -3263,133 +3323,6 @@ counters.forEach(counter => {
 
   updateCounter();
 });
-
-
-// 🔥 MATRIX EFFECT
-
-const canvas =
-  document.getElementById("matrixCanvas");
-
-const ctx =
-  canvas.getContext("2d");
-
-canvas.width =
-  window.innerWidth;
-
-canvas.height =
-  window.innerHeight;
-
-const chars =
-  "01";
-
-const fontSize =
-  14;
-
-const columns =
-  canvas.width / fontSize;
-
-const drops = [];
-
-for (let x = 0; x < columns; x++) {
-
-  drops[x] = 1;
-}
-
-function drawMatrix() {
-
-  ctx.fillStyle =
-    "rgba(15,23,42,0.08)";
-
-  ctx.fillRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-  ctx.fillStyle =
-    "#3b82f6";
-
-  ctx.font =
-    fontSize + "px monospace";
-
-  for (let i = 0; i < drops.length; i++) {
-
-    const text =
-      chars[Math.floor(Math.random() * chars.length)];
-
-    ctx.fillText(
-      text,
-      i * fontSize,
-      drops[i] * fontSize
-    );
-
-    if (
-      drops[i] * fontSize > canvas.height &&
-      Math.random() > 0.975
-    ) {
-      drops[i] = 0;
-    }
-
-    drops[i]++;
-  }
-}
-
-setInterval(drawMatrix, 35);
-
-
-// 🔥 LIVE AUTOMATION FEED
-
-const activities = [
-
-  "✅ Backup Verification Completed",
-  "⚡ New VM Provisioned",
-  "🛡 Sophos Threat Blocked",
-  "📦 Docker Container Restarted",
-  "☁ Cloud Sync Successful",
-  "🔐 VPN Authentication Success",
-  "📊 Monitoring Alert Resolved",
-  "🚀 n8n Workflow Executed"
-
-];
-
-function updateActivityFeed() {
-
-  const feed =
-    document.getElementById("activityFeed");
-
-  if (!feed) return;
-
-  feed.innerHTML = "";
-
-  for (let i = 0; i < 6; i++) {
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "activity-item";
-
-    const randomActivity =
-      activities[
-        Math.floor(Math.random() * activities.length)
-      ];
-
-    const time =
-      new Date().toLocaleTimeString();
-
-    div.innerHTML = `
-      <span class="text-blue-400">[${time}]</span>
-      ${randomActivity}
-    `;
-
-    feed.appendChild(div);
-  }
-}
-
-setInterval(updateActivityFeed, 4000);
-
-updateActivityFeed();
 
   </script>
 </body>
