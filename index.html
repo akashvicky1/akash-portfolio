@@ -130,12 +130,45 @@ body {
     }
 
     .glass-card {
+      position: relative;
+      overflow: hidden;
       background-color: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(12px);
       border-radius: 1rem;
       padding: 2rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
+
+    .glass-card::before {
+
+  content: '';
+
+  position: absolute;
+
+  top: -100%;
+  left: -100%;
+
+  width: 200%;
+  height: 200%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.05),
+      transparent
+    );
+
+  transform: rotate(25deg);
+
+  transition: all 0.8s ease;
+}
+
+.glass-card:hover::before {
+
+  top: 100%;
+  left: 100%;
+}
 
     .icon {
       width: 20px;
@@ -209,6 +242,28 @@ body {
 
 
 /* 🔥 GLASS NAVBAR */
+
+
+.logo-glow {
+
+  animation:
+    logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+
+  0%,100% {
+
+    text-shadow:
+      0 0 10px rgba(59,130,246,0.4);
+  }
+
+  50% {
+
+    text-shadow:
+      0 0 25px rgba(59,130,246,0.9);
+  }
+}
 
 .nav-glass {
 
@@ -1455,7 +1510,7 @@ repeat(auto-fit,minmax(160px,1fr));
     <div class="nav-glass flex items-center justify-between gap-4 px-4 py-3 sm:px-6 overflow-x-auto">
 
       <!-- LOGO -->
-      <div class="text-lg sm:text-xl font-bold text-white shrink-0">
+      <div class="text-lg sm:text-xl font-bold text-white shrink-0 logo-glow">
 
         Akash<span class="text-blue-400">.</span>
 
