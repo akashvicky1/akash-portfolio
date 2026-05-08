@@ -494,6 +494,41 @@ body {
   letter-spacing:
     0.5px;
 }
+/* 🔥 HERO GRADIENT TEXT */
+
+.hero-gradient-text {
+
+  background:
+    linear-gradient(
+      90deg,
+      #60a5fa,
+      #38bdf8,
+      #818cf8
+    );
+
+  -webkit-background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  background-size:
+    200% auto;
+
+  animation:
+    gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
 
 .stack-wall {
 
@@ -1478,7 +1513,9 @@ repeat(auto-fit,minmax(160px,1fr));
   <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
 
     Akash
-    <span class="text-blue-400">Prajapati</span>
+<span class="hero-gradient-text">
+  Prajapati
+</span>
 
   </h1>
 
@@ -1582,8 +1619,7 @@ repeat(auto-fit,minmax(160px,1fr));
       <!-- RIGHT SIDE TERMINAL -->
       <div data-aos="fade-left">
 
-        <div class="bg-black rounded-2xl w-full border border-blue-500/30 shadow-2xl overflow-hidden">
-
+       <div class="bg-black rounded-2xl w-full border border-blue-500/30 shadow-2xl overflow-hidden terminal-glow">
           <!-- TERMINAL HEADER -->
           <div class="flex items-center gap-2 px-4 py-3 bg-gray-900 border-b border-gray-800">
 
