@@ -25,17 +25,21 @@
 }
 
 
-.cursor-glow{
+.cursor-glow {
 
   position: fixed;
 
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
+
+  opacity: 0.6;
 
   background:
-    radial-gradient(circle,
-    rgba(59,130,246,0.15),
-    transparent 70%);
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.15),
+      transparent 70%
+    );
 
   pointer-events: none;
 
@@ -46,8 +50,7 @@
   transform: translate(-50%, -50%);
 
   transition:
-    left 0.08s linear,
-    top 0.08s linear;
+    transform 0.08s linear;
 }
 
 
@@ -57,27 +60,32 @@
 
   position: fixed;
 
-  top: 50%;
+  inset: 50% auto auto 50%;
 
-  left: 50%;
-
-  width: 700px;
-
-  height: 700px;
+  width: 420px;
+  height: 420px;
 
   transform: translate(-50%, -50%);
 
   background:
-    radial-gradient(circle,
-    rgba(59,130,246,0.18),
-    transparent 70%);
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.10),
+      transparent 70%
+    );
 
-  filter: blur(80px);
+  filter: blur(32px);
+
+  opacity: 0.45;
 
   z-index: -2;
 
   animation:
-    pulseGlow 6s ease-in-out infinite;
+    pulseGlow 14s ease-in-out infinite;
+
+  pointer-events: none;
+
+  will-change: transform;
 }
 
 @keyframes pulseGlow {
@@ -102,11 +110,12 @@ body {
     }
 
     #tsparticles {
-      position: fixed;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-    }
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
     
 #typed-text {
   line-height: 32px;
@@ -131,19 +140,13 @@ body {
     }
 
     .profile-glow {
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
-      animation: slowRotate 20s linear infinite, float 6s ease-in-out infinite;
-    }
 
-    .glass-card {
-      position: relative;
-      overflow: hidden;
-      background-color: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    }
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.30);
+
+  animation:
+    float 6s ease-in-out infinite;
+}
 
     .glass-card::before {
 
@@ -167,7 +170,9 @@ body {
 
   transform: rotate(25deg);
 
-  transition: all 0.8s ease;
+  transition:
+  top 0.8s ease,
+  left 0.8s ease;
 }
 
 .glass-card:hover::before {
@@ -176,36 +181,16 @@ body {
   left: 100%;
 }
 
-    .icon {
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
+    
 
-    .skill-3d {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      transform-style: preserve-3d;
-      will-change: transform;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .skill-3d:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-    }
+   
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-2px); }
     }
 
-    @keyframes slowRotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
+   
    .glow-border {
 
   border:
@@ -219,7 +204,10 @@ body {
 .experience-card {
 
   transition:
-    all 0.35s ease;
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
 
   border:
     1px solid rgba(255,255,255,0.05);
@@ -231,25 +219,22 @@ body {
     20px;
 
   backdrop-filter:
-    blur(10px);
+    blur(4px);
 
   background:
     rgba(255,255,255,0.03);
 }
 
-    .experience-card:hover {
+.experience-card:hover {
 
   transform:
-    translateY(-6px);
+    translateY(-2px);
 
   box-shadow:
     0 0 25px rgba(59,130,246,0.12);
 
   border-color:
     rgba(59,130,246,0.18);
-
-  transition:
-    all 0.3s ease;
 }
 
     .scroll-top-btn {
@@ -318,7 +303,7 @@ body {
     1px solid rgba(255,255,255,0.06);
 
   backdrop-filter:
-    blur(14px);
+    blur(4px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
@@ -333,7 +318,7 @@ body {
     15px;
 
   transition:
-    all 0.3s ease;
+    color 0.3s ease;
 
   position: relative;
 }
@@ -378,7 +363,7 @@ body {
     1px solid rgba(59,130,246,0.12);
 
   box-shadow:
-    0 0 40px rgba(59,130,246,0.08);
+    0 6px 18px rgba(59,130,246,0.08);
 }
 
     .scroll-top-btn:hover {
@@ -416,16 +401,19 @@ body {
     24px;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .monitor-card:hover {
 
   transform:
-    translateY(-6px);
+    translateY(-2px);
 
   border-color:
     rgba(59,130,246,0.4);
@@ -495,16 +483,18 @@ body {
     #e2e8f0;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
-
 .infra-status:hover {
 
   transform:
-    translateY(-5px);
+    translateY(-2px);
 
   border-color:
     rgba(59,130,246,0.4);
@@ -534,10 +524,13 @@ body {
     center;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
   box-shadow:
     0 0 20px rgba(0,0,0,0.2);
@@ -546,13 +539,13 @@ body {
 .stats-card:hover {
 
   transform:
-    translateY(-8px);
+    translateY(-3px);
 
   border-color:
     rgba(59,130,246,0.5);
 
   box-shadow:
-    0 0 35px rgba(59,130,246,0.25);
+    0 10px 24px rgba(59,130,246,0.14);
 }
 
 .stats-card h3 {
@@ -684,22 +677,23 @@ body {
     500;
 
   backdrop-filter:
-    blur(12px);
+    blur(6px);
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
 
   box-shadow:
     0 0 15px rgba(0,0,0,0.18);
-
-  animation:
-    float 4s ease-in-out infinite;
 }
 
 .stack-pill:hover {
 
   transform:
-    translateY(-6px) scale(1.05);
+    translateY(-2px) scale(1.02);
 
   border-color:
     rgba(59,130,246,0.45);
@@ -708,9 +702,8 @@ body {
     white;
 
   box-shadow:
-    0 0 28px rgba(59,130,246,0.22);
+    0 8px 18px rgba(59,130,246,0.14);
 }
-
 
 /* 🔥 SOC SECTION */
 
@@ -729,7 +722,7 @@ body {
     24px;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 }
 
 .soc-title {
@@ -804,16 +797,19 @@ body {
     center;
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 }
 
 .soc-stat:hover {
 
   transform:
-    translateY(-5px);
+    translateY(-2px);
 
   border-color:
     rgba(59,130,246,0.4);
@@ -860,16 +856,18 @@ body {
     24px;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
-
 .case-card:hover {
 
   transform:
-    translateY(-6px);
+    translateY(-2px);
 
   border-color:
     rgba(59,130,246,0.45);
@@ -961,10 +959,13 @@ body {
     28px;
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 
   position:
     relative;
@@ -972,11 +973,10 @@ body {
   overflow:
     hidden;
 }
-
 .incident-card:hover {
 
   transform:
-    translateY(-8px);
+    translateY(-3px);
 
   border-color:
     rgba(59,130,246,0.4);
@@ -1077,7 +1077,7 @@ body {
     white;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 
   border:
     1px solid rgba(255,255,255,0.08);
@@ -1086,16 +1086,18 @@ body {
     10px 0;
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
-
 .topology-node:hover {
 
   transform:
-    translateY(-6px);
+    translateY(-2px);
 
   box-shadow:
-    0 0 25px rgba(59,130,246,0.3);
+    0 8px 18px rgba(59,130,246,0.14);
 
 }
 
@@ -1217,16 +1219,13 @@ repeat(auto-fit,minmax(160px,1fr));
     40px;
 }
 
-.topology-child 
-{
-  background:
-  rgba(255,255,255,0.025);
+.topology-child {
 
   background:
     rgba(255,255,255,0.04);
 
   border:
-  1px solid rgba(255,255,255,0.04);
+    1px solid rgba(255,255,255,0.04);
 
   border-radius:
     18px;
@@ -1241,22 +1240,25 @@ repeat(auto-fit,minmax(160px,1fr));
     #e2e8f0;
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
   backdrop-filter:
-    blur(10px);
+    blur(5px);
 }
 
 .topology-child:hover {
 
   transform:
-    translateY(-8px);
+    translateY(-3px);
 
   border-color:
     rgba(59,130,246,0.4);
 
   box-shadow:
-    0 0 30px rgba(59,130,246,0.2);
+    0 10px 22px rgba(59,130,246,0.12);
 }
 
 
@@ -1280,7 +1282,7 @@ repeat(auto-fit,minmax(160px,1fr));
     #cbd5e1;
 
   backdrop-filter:
-    blur(12px);
+    blur(6px);
 
   display:
     flex;
@@ -1292,13 +1294,15 @@ repeat(auto-fit,minmax(160px,1fr));
     8px;
 
   transition:
-    all 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
-
 .status-card:hover {
 
   transform:
-    translateY(-5px);
+    translateY(-2px);
 
   border-color:
     rgba(59,130,246,0.5);
@@ -1440,10 +1444,14 @@ repeat(auto-fit,minmax(160px,1fr));
 
   font-weight: 600;
 
-  transition: all 0.3s ease;
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  background 0.3s ease,
+  border-color 0.3s ease;
 
   box-shadow:
-    0 0 20px rgba(59,130,246,0.35);
+    0 6px 16px rgba(59,130,246,0.16);
 
   border:
     1px solid rgba(255,255,255,0.1);
@@ -1451,10 +1459,10 @@ repeat(auto-fit,minmax(160px,1fr));
 
 .hero-btn-primary:hover {
 
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 
   box-shadow:
-    0 0 30px rgba(59,130,246,0.6);
+    0 8px 18px rgba(59,130,246,0.18);
 
 }
 
@@ -1475,19 +1483,23 @@ repeat(auto-fit,minmax(160px,1fr));
 
   border-radius: 14px;
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 
-  transition: all 0.3s ease;
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  border-color 0.3s ease,
+  background 0.3s ease;
 }
 
 .hero-btn-secondary:hover {
 
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 
   border-color: rgba(59,130,246,0.5);
 
   box-shadow:
-    0 0 20px rgba(59,130,246,0.25);
+    0 6px 16px rgba(59,130,246,0.14);
 
 }
 
@@ -1501,13 +1513,12 @@ repeat(auto-fit,minmax(160px,1fr));
     inset 0 0 20px rgba(59,130,246,0.08);
 
   transition:
-    all 0.3s ease;
+    box-shadow 0.3s ease;
 }
-
 .terminal-glow:hover {
 
   box-shadow:
-    0 0 60px rgba(59,130,246,0.28),
+    0 0 24px rgba(59,130,246,0.12),
     inset 0 0 25px rgba(59,130,246,0.12);
 }
 
@@ -1534,15 +1545,19 @@ repeat(auto-fit,minmax(160px,1fr));
   font-weight: 600;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,191,255,0.4);
-  transition: all 0.3s ease;
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  background 0.3s ease,
+  color 0.3s ease;
 
   min-width: 220px;   /* 👈 change */
   text-align: center; /* 👈 add */
 }
 
 .btn-premium:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 25px rgba(0,191,255,0.9);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,191,255,0.22);
   background: linear-gradient(135deg, #ffffff, #dbeafe);
 }
 
@@ -1563,8 +1578,8 @@ body::after {
 
   position: fixed;
 
-  width: 500px;
-  height: 500px;
+  width: 350px;
+height: 350px;
 
   top: -150px;
   right: -150px;
@@ -1574,7 +1589,8 @@ body::after {
     rgba(59,130,246,0.12),
     transparent 70%);
 
-  filter: blur(80px);
+  filter: blur(24px);
+opacity: 0.45;
 
   z-index: -6;
 
@@ -1594,8 +1610,44 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
+.glass-card,
+.monitor-card,
+.case-card,
+.incident-card,
+.stats-card,
+.hero-btn-primary,
+.hero-btn-secondary,
+.stack-pill,
+.topology-child,
+.topology-node {
+  will-change: transform;
+  transform: translateZ(0);
+}
 
-  will-change:
-    transform;
+@media (max-width: 768px) {
+
+  #tsparticles,
+  .network-glow,
+  body::after,
+  .cursor-glow {
+    display: none;
+  }
+
+  .glass-card,
+  .monitor-card,
+  .case-card,
+  .incident-card,
+  .soc-panel,
+  .soc-stat,
+  .topology-node,
+  .topology-child,
+  .status-card,
+  .nav-glass {
+    backdrop-filter: none !important;
+  }
+
+}
+
+img {
+  content-visibility: auto;
 }
