@@ -22,9 +22,6 @@ if (
 
 }
 
-}
-
-
 // 🔥 PARTICLES
 
 if (window.innerWidth > 768) {
