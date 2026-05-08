@@ -2627,9 +2627,13 @@ function updateMonitoring() {
     net + "%";
 }
 
-setInterval(updateMonitoring, 2000);
 
-updateMonitoring();
+if (document.getElementById("cpuBar")) {
+
+  updateMonitoring();
+
+
+}
 
 // 🔥 LIVE AUTOMATION FEED
 
