@@ -1707,3 +1707,24 @@ body::before {
 
 }
 
+@media (max-width: 768px) {
+
+  body::before {
+
+    opacity: 0.35;
+
+  }
+
+}
+
+.experience-card:hover,
+.case-card:hover,
+.incident-card:hover {
+
+  border-color:
+    rgba(59,130,246,0.25);
+
+  transform:
+    translateY(-2px);
+
+}
