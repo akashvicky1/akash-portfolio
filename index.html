@@ -61,42 +61,7 @@
   }
 }
 
-/* 🔥 SCROLL PROGRESS */
-
-#scrollProgress {
-
-  position:
-    fixed;
-
-  top:
-    0;
-
-  left:
-    0;
-
-  width:
-    0%;
-
-  height:
-    3px;
-
-  z-index:
-    99999;
-
-  background:
-    linear-gradient(
-      90deg,
-      #3b82f6,
-      #38bdf8,
-      #818cf8
-    );
-
-  box-shadow:
-    0 0 12px rgba(59,130,246,0.8);
-}
-
 body {
-  scroll-behavior: smooth;
       font-family: 'Inter', sans-serif;
       color: #ffffff;
       background-color: #0f172a;
@@ -111,22 +76,27 @@ body {
       height: 100%;
     }
     
-
-    .overlay {
-
-  background-color:
-    rgba(15, 23, 42, 0.55);
-
-  position:
-    absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  z-index: 0;
+#typed-text {
+  line-height: 32px;
+  overflow: hidden;
 }
+
+#fade-text {
+  display: inline-block;
+  min-width: 280px;
+  height: 32px;
+  line-height: 32px;
+  transition: opacity 0.5s ease;
+}
+    .overlay {
+      background-color: rgba(15, 23, 42, 0.85);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
 
     .profile-glow {
       box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
@@ -149,7 +119,17 @@ body {
       margin-right: 8px;
     }
 
-   
+    .skill-3d {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .skill-3d:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -169,38 +149,6 @@ body {
   box-shadow:
     0 0 30px rgba(59,130,246,0.08);
 }
-/* 🔥 EXPERIENCE CARD */
-
-.experience-card {
-
-  border-left:
-  3px solid rgba(59,130,246,0.45);
-
-  background:
-    rgba(255,255,255,0.03);
-
-  border-top:
-  1px solid rgba(255,255,255,0.06);
-
-border-right:
-  1px solid rgba(255,255,255,0.06);
-
-border-bottom:
-  1px solid rgba(255,255,255,0.06);
-
-  border-radius:
-    18px;
-
-  padding:
-    22px;
-
-  transition:
-    all 0.3s ease;
-
-  backdrop-filter:
-    blur(10px);
-}
-
 
     .experience-card:hover {
 
@@ -330,36 +278,6 @@ border-bottom:
     rgba(59,130,246,0.85);
 
 }
-
-/* 🔥 TERMINAL GLOW */
-
-.terminal-glow {
-
-  box-shadow:
-    0 0 40px rgba(59,130,246,0.18),
-    0 0 80px rgba(59,130,246,0.08);
-
-  animation:
-    pulseTerminal 5s ease-in-out infinite;
-}
-
-@keyframes pulseTerminal {
-
-  0%,100% {
-
-    box-shadow:
-      0 0 40px rgba(59,130,246,0.18),
-      0 0 80px rgba(59,130,246,0.08);
-  }
-
-  50% {
-
-    box-shadow:
-      0 0 60px rgba(59,130,246,0.28),
-      0 0 100px rgba(59,130,246,0.12);
-  }
-}
-
 
  /* FOOTER */
 
@@ -554,136 +472,6 @@ border-bottom:
   letter-spacing:
     0.5px;
 }
-/* 🔥 ENTERPRISE STACK WALL */
-
-.stack-heading {
-
-  color:
-    white;
-
-  font-size:
-    26px;
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    28px;
-
-  text-align:
-    center;
-
-  letter-spacing:
-    0.5px;
-}
-/* 🔥 HERO GRADIENT TEXT */
-
-.hero-gradient-text {
-
-  background:
-    linear-gradient(
-      90deg,
-      #60a5fa,
-      #38bdf8,
-      #818cf8
-    );
-
-  -webkit-background-clip:
-    text;
-
-  -webkit-text-fill-color:
-    transparent;
-
-  background-size:
-    200% auto;
-
-  animation:
-    gradientMove 5s linear infinite;
-}
-
-@keyframes gradientMove {
-
-  0% {
-    background-position: 0% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.stack-wall {
-
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
-
-  justify-content:
-    center;
-
-  gap:
-    18px;
-}
-
-.stack-pill {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    8px;
-
-  padding:
-    14px 20px;
-
-  border-radius:
-    999px;
-
-  background:
-    rgba(255,255,255,0.05);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  color:
-    #e2e8f0;
-
-  font-weight:
-    500;
-
-  backdrop-filter:
-    blur(12px);
-
-  transition:
-    all 0.3s ease;
-
-  box-shadow:
-    0 0 15px rgba(0,0,0,0.18);
-
-  animation:
-    float 4s ease-in-out infinite;
-}
-
-.stack-pill:hover {
-
-  transform:
-    translateY(-6px) scale(1.05);
-
-  border-color:
-    rgba(59,130,246,0.45);
-
-  color:
-    white;
-
-  box-shadow:
-    0 0 28px rgba(59,130,246,0.22);
-}
-
 
 /* 🔥 SOC SECTION */
 
@@ -1413,10 +1201,8 @@ repeat(auto-fit,minmax(160px,1fr));
 
   font-weight: 600;
 
-  transition:
-  transform 0.3s ease,
-  box-shadow 0.3s ease,
-  background 0.3s ease;
+  transition: all 0.3s ease;
+
   box-shadow:
     0 0 20px rgba(59,130,246,0.35);
 
@@ -1452,9 +1238,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
   backdrop-filter: blur(10px);
 
-  transition: transform 0.3s ease,
-            box-shadow 0.3s ease,
-            background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .hero-btn-secondary:hover {
@@ -1488,9 +1272,7 @@ repeat(auto-fit,minmax(160px,1fr));
   font-weight: 600;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,191,255,0.4);
-  transition: transform 0.3s ease,
-            box-shadow 0.3s ease,
-            background 0.3s ease;
+  transition: all 0.3s ease;
 
   min-width: 220px;   /* 👈 change */
   text-align: center; /* 👈 add */
@@ -1503,47 +1285,10 @@ repeat(auto-fit,minmax(160px,1fr));
 }
 
 
-/* 🔥 MOBILE PERFORMANCE */
-
-@media (max-width: 768px) {
-
-  .network-glow {
-
-    filter:
-      blur(40px);
-
-    width:
-      350px;
-
-    height:
-      350px;
-  }
-
-  .terminal-glow {
-
-    animation:
-      none;
-  }
-
-  .stack-pill {
-
-    animation:
-      none;
-  }
-
-  .profile-glow {
-
-    animation:
-      float 6s ease-in-out infinite;
-  }
-}
-
     
   </style>
 </head>
 <body>
-
-<div id="scrollProgress"></div>
   <!-- 🔥 GLASS NAVBAR -->
 
 <nav id="navbar"
@@ -1617,7 +1362,7 @@ repeat(auto-fit,minmax(160px,1fr));
   
 
 <!-- 🔥 LIVE TERMINAL SECTION -->
-<section class="relative z-10 pt-32 pb-20">
+<section class="relative z-10 pt-28 pb-16">
   <div class="container mx-auto px-4">
 
     <div class="grid lg:grid-cols-2 gap-10 items-center">
@@ -1638,15 +1383,13 @@ repeat(auto-fit,minmax(160px,1fr));
   <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
 
     Akash
-<span class="hero-gradient-text">
-  Prajapati
-</span>
+    <span class="text-blue-400">Prajapati</span>
 
   </h1>
 
   <div class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
 
-   Infrastructure Engineer • Automation Architect • Security Operations
+    Infrastructure • Automation • Security Engineer
 
   </div>
 
@@ -1744,7 +1487,8 @@ repeat(auto-fit,minmax(160px,1fr));
       <!-- RIGHT SIDE TERMINAL -->
       <div data-aos="fade-left">
 
-       <div class="bg-black rounded-2xl w-full border border-blue-500/30 shadow-2xl overflow-hidden terminal-glow">
+        <div class="bg-black rounded-2xl w-full border border-blue-500/30 shadow-2xl overflow-hidden">
+
           <!-- TERMINAL HEADER -->
           <div class="flex items-center gap-2 px-4 py-3 bg-gray-900 border-b border-gray-800">
 
@@ -1910,8 +1654,7 @@ repeat(auto-fit,minmax(160px,1fr));
       <div class="stats-card" data-aos="zoom-in">
 
         <h3 class="counter"
-           data-target="10">0</h3>
-
+            data-target="12">0</h3>
 
         <p>Years Experience</p>
 
@@ -1930,7 +1673,7 @@ repeat(auto-fit,minmax(160px,1fr));
       <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 profile-glow mb-6" />
       <h2 class="text-2xl font-semibold text-white mb-2">About Me</h2>
       <p class="text-center max-w-2xl text-white">
-        IT & Network & Automation Expert with over 10 years of experience based in Ahmedabad, Gujarat. Proven track record in managing enterprise IT infrastructure, firewalls, cloud environments (AWS, OVH), and implementing automation solutions using n8n and Ansible. Experienced in email security, monitoring systems (Zabbix, Prometheus, Grafana), and building intelligent workflows to reduce manual effort. Passionate about optimizing performance, strengthening system security, and delivering scalable, automated solutions.
+        IT & Network & Automation Expert with over 12+ years of experience based in Ahmedabad, Gujarat. Proven track record in managing enterprise IT infrastructure, firewalls, cloud environments (AWS, OVH), and implementing automation solutions using n8n and Ansible. Experienced in email security, monitoring systems (Zabbix, Prometheus, Grafana), and building intelligent workflows to reduce manual effort. Passionate about optimizing performance, strengthening system security, and delivering scalable, automated solutions.
       </p>
     </div>
   </section>
@@ -2022,162 +1765,26 @@ repeat(auto-fit,minmax(160px,1fr));
          data-aos="zoom-in-up">
     <div class="container mx-auto px-4 glass-card glow-border">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
-     <div class="space-y-12">
-
-  <!-- 🖥 INFRA -->
-
-  <div>
-
-    <h3 class="stack-heading">
-      🖥 Infrastructure
-    </h3>
-
-    <div class="stack-wall">
-
-      <div class="stack-pill">
-        🐧 Linux
+      <div class="flex flex-wrap justify-center gap-4">
+        <!-- Keep all your skill blocks same as before -->
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://n8n.io/favicon.ico" class="icon">n8n</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" class="icon">Ansible</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://avatars.githubusercontent.com/u/15015919?s=200&v=4" class="icon">Snipe-IT(Asset Mgmt)</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
+        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
       </div>
-
-      <div class="stack-pill">
-        🖥 VMware
-      </div>
-
-      <div class="stack-pill">
-        🌐 Networking
-      </div>
-
-      <div class="stack-pill">
-        🔀 VLAN
-      </div>
-
-      <div class="stack-pill">
-        🖥 Windows Server
-      </div>
-
-      <div class="stack-pill">
-        📦 Asset Management
-      </div>
-
     </div>
-
-  </div>
-
-  <!-- ☁ CLOUD -->
-
-  <div>
-
-    <h3 class="stack-heading">
-      ☁ Cloud & DevOps
-    </h3>
-
-    <div class="stack-wall">
-
-      <div class="stack-pill">
-        ☁ AWS
-      </div>
-
-      <div class="stack-pill">
-        🌩 OVH Cloud
-      </div>
-
-      <div class="stack-pill">
-        🐳 Docker
-      </div>
-
-      <div class="stack-pill">
-        ⚙ Ansible
-      </div>
-
-      <div class="stack-pill">
-        📧 Google Workspace
-      </div>
-
-      <div class="stack-pill">
-        🏢 Microsoft 365
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- 🛡 SECURITY -->
-
-  <div>
-
-    <h3 class="stack-heading">
-      🛡 Security & Monitoring
-    </h3>
-
-    <div class="stack-wall">
-
-      <div class="stack-pill">
-        🔥 Sophos Firewall
-      </div>
-
-      <div class="stack-pill">
-        🛡 Wazuh
-      </div>
-
-      <div class="stack-pill">
-        🧩 ESET Security
-      </div>
-
-      <div class="stack-pill">
-        📊 Zabbix
-      </div>
-
-      <div class="stack-pill">
-        📈 Grafana
-      </div>
-
-      <div class="stack-pill">
-        📡 Prometheus
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- 🤖 AUTOMATION -->
-
-  <div>
-
-    <h3 class="stack-heading">
-      🤖 Automation & AI
-    </h3>
-
-    <div class="stack-wall">
-
-      <div class="stack-pill">
-        ⚡ n8n
-      </div>
-
-      <div class="stack-pill">
-        💬 Slack API
-      </div>
-
-      <div class="stack-pill">
-        🤖 AI Reporting
-      </div>
-
-      <div class="stack-pill">
-        🧠 ChatGPT
-      </div>
-
-      <div class="stack-pill">
-        ✨ Gemini AI
-      </div>
-
-      <div class="stack-pill">
-        🔄 Workflow Automation
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
   </section>
 
 <!-- 🔥 SECURITY OPERATIONS CENTER -->
@@ -2650,9 +2257,9 @@ repeat(auto-fit,minmax(160px,1fr));
     <div class="container mx-auto px-4 glass-card">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Experience</h2>
       <div class="max-w-3xl mx-auto space-y-6 text-white">
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="webelight logo.jpg" class="w-6 h-6 rounded" />Senior IT Infrastructure System Engineer — Webelight Solutions Pvt. Ltd.</h3><p class="text-sm">Dec 2024 – Present</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="growexx.svg" class="w-6 h-6 rounded" />Sr. IT Executive — Growexx Pvt. Ltd.</h3><p class="text-sm">Jul 2023 – Dec 2024</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="xbyte.jpg" class="w-6 h-6 rounded" />System Administrator — xByte Technolab Pvt. Ltd.</h3><p class="text-sm">Jul 2019 – Jul 2023</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="webelight logo.jpg" class="w-6 h-6 rounded" />Senior IT Infrastructure System Engineer — Webelight Solutions pvt  ltd</h3><p class="text-sm">Dec 2024 – Present</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="growexx.svg" class="w-6 h-6 rounded" />Sr. IT Executive — Growexx pvt ltd</h3><p class="text-sm">Jul 2023 – Dec 2024</p></div>
+        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="xbyte.jpg" class="w-6 h-6 rounded" />System Administrator — xbyte technolabs pvt ltd</h3><p class="text-sm">Jul 2019 – Jul 2023</p></div>
         <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="K R India.jpeg" class="w-6 h-6 rounded" />Desktop Support Engineer — KR India Pvt Ltd (IDSS)</h3><p class="text-sm">Mar 2018 – Jun 2019</p></div>
         <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="N B Patel logo.png" class="w-6 h-6 rounded" />Desktop Support Engineer — NB Patel</h3><p class="text-sm">Mar 2017 – Mar 2018</p></div>
         <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="LCIT logo.jpg" class="w-6 h-6 rounded" />Desktop Support Engineer — LCIT</h3><p class="text-sm">Mar 2015 – Mar 2017</p></div>
@@ -2927,26 +2534,16 @@ repeat(auto-fit,minmax(160px,1fr));
     </span>
 
     <!-- IMAGE -->
-   <img id="modalImage" src=""
-  class="rounded-xl shadow-lg h-auto w-auto max-w-full md:max-w-none md:min-w-[1400px]" />
+   <img id="modalImage" src="" 
+  style="min-width: 1400px; max-width: none;"
+  class="rounded-xl shadow-lg h-auto" />
   
   </div>
 </div>
 
-<div class="text-center text-gray-400 italic text-sm py-8 relative z-10">
-
-  “Building secure, scalable & intelligent infrastructure systems.”
-
-</div>
-
-
   <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10 footer-glow" data-aos="fade-up">
     <p>&copy; 2026 Akash Prajapati. All rights reserved.</p>
-
-<p class="text-xs text-blue-200 mt-2 opacity-70">
-  Designed & Engineered with Infrastructure Precision ⚡
-</p>
   </footer>
 
   <!-- Scroll to top button -->
@@ -2979,26 +2576,6 @@ repeat(auto-fit,minmax(160px,1fr));
         color: "#0f172a"
       }
     });
-
-// 🔥 SCROLL PROGRESS
-
-window.addEventListener("scroll", () => {
-
-  const scrollTop =
-    document.documentElement.scrollTop;
-
-  const scrollHeight =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-
-  const progress =
-    (scrollTop / scrollHeight) * 100;
-
-  document.getElementById(
-    "scrollProgress"
-  ).style.width = progress + "%";
-
-});
 
    
 // Scroll-to-top button
@@ -3049,40 +2626,106 @@ function closeModal() {
 }
 
 function downloadWorkflow() {
+  const pass = prompt("Enter password to download workflow:");
 
-  alert("Contact me for workflow access.");
-
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Ai%20Monitoring%20System1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 
 function downloadBlueGuardian() {
-  alert("Contact me for workflow access.");
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/BlueGuardian_Monitring1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
-ffunction downloadGlobalConfig() {
-  alert("Contact me for workflow access.");
+function downloadGlobalConfig() {
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GLOBAL_CONFIG1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 function downloadGCPWorkflow() {
-  alert("Contact me for workflow access.");
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GCP_Project_Auto1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 function downloadPatchWorkflow() {
-  alert("Contact me for workflow access.");
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Centralized%20Patch%20Management1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 function downloadSophosWorkflow() {
-  alert("Contact me for workflow access.");
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Sophos-Auto%20summary1.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 function downloadOffboardingWorkflow() {
-  alert("Contact me for workflow access.");
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/exit-user-offboarding-automation-workflow.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
 function downloadOnboardingWorkflow() {
-  alert("Contact me for workflow access.");
+  const pass = prompt("Enter password:");
+  if (pass === "akash123") {
+    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/hr-onboarding-automation-workflow.json");
+  } else {
+    alert("Access Denied ❌");
+  }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const roles = [
+    "Senior IT Infrastructure Engineer",
+    "Cloud & Automation Specialist",
+    "Firewall & Security Expert",
+    "n8n Workflow Developer"
+  ];
+
+  let i = 0;
+  const fadeText = document.getElementById("fade-text");
+  if (!fadeText) return;
+
+  function changeText() {
+    fadeText.style.opacity = 0;
+
+    setTimeout(() => {
+      fadeText.textContent = roles[i];
+      fadeText.style.opacity = 1;
+      i = (i + 1) % roles.length;
+    }, 500);
+  }
+
+  changeText();
+  setInterval(changeText, 2500);
+
+});
 
 // close on outside click
 document.getElementById("imageModal").addEventListener("click", function(e) {
@@ -3100,7 +2743,7 @@ const terminalLines = [
     output: "Senior IT Infrastructure Engineer"
   },
   {
-   command: "cat expertise.txt",
+    command: "skills",
     output: `
 Linux
 Docker
@@ -3114,12 +2757,12 @@ Monitoring
 `
   },
   {
-    command: "systemctl status infrastructure",
+    command: "current_status",
     output: "Building secure and scalable infrastructure 🚀"
   },
   {
     command: "uptime",
-    output: "10+ Years Experience"
+    output: "12+ Years Experience"
   },
 
   {
@@ -3137,20 +2780,7 @@ let lineIndex = 0;
 
 function typeTerminal() {
 
-  if (lineIndex >= terminalLines.length) {
-
-  setTimeout(() => {
-
-    terminal.innerHTML = "";
-
-    lineIndex = 0;
-
-    typeTerminal();
-
-  }, 3000);
-
-  return;
-}
+  if (lineIndex >= terminalLines.length) return;
 
   const line = terminalLines[lineIndex];
 
@@ -3265,7 +2895,6 @@ if (document.getElementById("cpuBar")) {
 
   updateMonitoring();
 
-  setInterval(updateMonitoring, 2000);
 
 }
 
