@@ -1,4 +1,3 @@
- <script>
     AOS.init({ duration: 1000, once: true });
 
     // 🔥 CURSOR GLOW
@@ -540,5 +539,3 @@ counters.forEach(counter => {
 
   updateCounter();
 });
-
-  </script>
