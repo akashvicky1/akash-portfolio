@@ -5,7 +5,10 @@
 const glow =
   document.getElementById("cursorGlow");
 
-if (glow) {
+if (
+  glow &&
+  window.innerWidth > 768
+) {
 
   document.addEventListener("mousemove", (e) => {
 
@@ -16,6 +19,8 @@ if (glow) {
       )`;
 
   });
+
+}
 
 }
 
