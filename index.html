@@ -604,6 +604,106 @@ body {
     white;
 }
 
+/* 🔥 CASE STUDIES */
+
+.case-card {
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:
+    22px;
+
+  padding:
+    24px;
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    all 0.3s ease;
+}
+
+.case-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(59,130,246,0.45);
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.18);
+}
+
+.case-tag {
+
+  display:
+    inline-block;
+
+  background:
+    rgba(59,130,246,0.12);
+
+  color:
+    #93c5fd;
+
+  padding:
+    7px 14px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    13px;
+
+  margin-bottom:
+    18px;
+}
+
+.case-card h3 {
+
+  color:
+    white;
+
+  font-size:
+    22px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    20px;
+}
+
+.case-section {
+
+  margin-bottom:
+    18px;
+
+  color:
+    #cbd5e1;
+
+  line-height:
+    1.7;
+}
+
+.case-section span {
+
+  display:
+    block;
+
+  color:
+    white;
+
+  font-weight:
+    600;
+
+  margin-bottom:
+    6px;
+}
 
 /* 🔥 INCIDENT SECTION */
 
@@ -1977,6 +2077,168 @@ repeat(auto-fit,minmax(160px,1fr));
             <li>✔ Reduced manual operations</li>
 
           </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 🔥 REAL CASE STUDIES -->
+
+<section class="py-10 relative z-10">
+
+  <div class="container mx-auto px-4">
+
+    <div class="glass-card glow-border">
+
+      <h2 class="text-3xl font-bold text-center text-white mb-10">
+
+        🚨 Real Infrastructure Case Studies
+
+      </h2>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+
+        <!-- CASE 1 -->
+
+        <div class="case-card">
+
+          <div class="case-tag">
+            Sophos Firewall
+          </div>
+
+          <h3>
+            Captive Portal Timeout Optimization
+          </h3>
+
+          <div class="case-section">
+
+            <span>Problem</span>
+
+            Users were repeatedly logged out from captive portal sessions.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Root Cause</span>
+
+            Session timeout policy mismatch in firewall configuration.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Resolution</span>
+
+            Optimized authentication persistence and timeout handling.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Impact</span>
+
+            Improved user experience and reduced authentication complaints.
+
+          </div>
+
+        </div>
+
+        <!-- CASE 2 -->
+
+        <div class="case-card">
+
+          <div class="case-tag">
+            VPN Infrastructure
+          </div>
+
+          <h3>
+            SSL VPN Connectivity Stabilization
+          </h3>
+
+          <div class="case-section">
+
+            <span>Problem</span>
+
+            Remote users experienced unstable VPN sessions.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Root Cause</span>
+
+            DNS conflicts and routing inconsistencies.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Resolution</span>
+
+            Optimized VPN policies and corrected DNS forwarding.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Impact</span>
+
+            Stable and reliable remote access across teams.
+
+          </div>
+
+        </div>
+
+        <!-- CASE 3 -->
+
+        <div class="case-card">
+
+          <div class="case-tag">
+            Automation
+          </div>
+
+          <h3>
+            Automated Patch Deployment
+          </h3>
+
+          <div class="case-section">
+
+            <span>Problem</span>
+
+            Manual patch deployment required excessive admin effort.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Root Cause</span>
+
+            No centralized automation workflow.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Resolution</span>
+
+            Built automated deployment & reporting workflows.
+
+          </div>
+
+          <div class="case-section">
+
+            <span>Impact</span>
+
+            Reduced operational effort and improved deployment consistency.
+
+          </div>
 
         </div>
 
