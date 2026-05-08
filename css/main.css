@@ -1657,3 +1657,10 @@ html {
 img {
   content-visibility: auto;
 }
+
+#mobileMenu {
+
+  transition:
+    all 0.3s ease;
+
+}
