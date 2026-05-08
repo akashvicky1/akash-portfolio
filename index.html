@@ -877,7 +877,72 @@ repeat(auto-fit,minmax(160px,1fr));
   }
 }
 
-     
+     /* 🔥 AUTOMATION FEED */
+
+.automation-feed {
+
+  background:
+    rgba(0,0,0,0.35);
+
+  border:
+    1px solid rgba(59,130,246,0.12);
+
+  border-radius:
+    18px;
+
+  padding:
+    20px;
+
+  height:
+    320px;
+
+  overflow:
+    hidden;
+
+  position:
+    relative;
+
+  font-family:
+    monospace;
+}
+
+.feed-line {
+
+  color:
+    #cbd5e1;
+
+  margin-bottom:
+    14px;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(10px);
+
+  animation:
+    fadeFeed 0.5s forwards;
+}
+
+.feed-time {
+
+  color:
+    #60a5fa;
+
+  margin-right:
+    10px;
+}
+
+@keyframes fadeFeed {
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
 
 /* PREMIUM BUTTON */
 
@@ -1949,6 +2014,24 @@ repeat(auto-fit,minmax(160px,1fr));
     ⚡ Work in Progress — Integrating GCP, Slack, and email automation.
   </p>
 
+<!-- 🔥 LIVE AUTOMATION FEED -->
+
+<div class="experience-card mt-10">
+
+  <h3 class="text-xl font-semibold mb-5 flex items-center gap-2">
+
+    ⚡ Live Automation Activity
+
+  </h3>
+
+  <div id="activityFeed"
+       class="automation-feed">
+
+  </div>
+
+</div>
+
+
 </div>
 
 <!-- 🔥 MODAL POPUP -->
@@ -2321,6 +2404,61 @@ function updateMonitoring() {
 setInterval(updateMonitoring, 2000);
 
 updateMonitoring();
+
+// 🔥 LIVE AUTOMATION FEED
+
+const feedMessages = [
+
+  "✅ Sophos Report Generated",
+  "⚡ Slack Alert Sent",
+  "🟢 Backup Validation Completed",
+  "🔵 Patch Deployment Started",
+  "🛡 Threat Scan Completed",
+  "☁ GCP Provisioning Success",
+  "📨 Email Notification Delivered",
+  "🔐 User Offboarding Completed",
+  "🚀 Workflow Executed Successfully",
+  "📊 Monitoring Report Synced"
+
+];
+
+const activityFeed =
+  document.getElementById("activityFeed");
+
+function addFeedLine() {
+
+  const line =
+    document.createElement("div");
+
+  line.classList.add("feed-line");
+
+  const now =
+    new Date().toLocaleTimeString();
+
+  const randomMessage =
+    feedMessages[
+      Math.floor(Math.random() * feedMessages.length)
+    ];
+
+  line.innerHTML = `
+    <span class="feed-time">[${now}]</span>
+    ${randomMessage}
+  `;
+
+  activityFeed.prepend(line);
+
+  if (activityFeed.children.length > 12) {
+
+    activityFeed.removeChild(
+      activityFeed.lastChild
+    );
+  }
+}
+
+setInterval(addFeedLine, 1800);
+
+addFeedLine();
+
 
 // 🔥 COUNTER ANIMATION
 
