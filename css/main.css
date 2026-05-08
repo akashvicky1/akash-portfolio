@@ -1662,5 +1662,48 @@ img {
 
   transition:
     all 0.3s ease;
+}
+  .experience-card:hover,
+.case-card:hover,
+.incident-card:hover {
+
+  border-color:
+    rgba(59,130,246,0.25);
 
 }
+
+  .live-dot {
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 8px #22c55e;
+
+}
+
+
+body::before {
+
+  content: '';
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  z-index: -10;
+
+  pointer-events: none;
+
+}
+
