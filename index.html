@@ -472,6 +472,89 @@ body {
   letter-spacing:
     0.5px;
 }
+/* 🔥 ENTERPRISE STACK WALL */
+
+.stack-heading {
+
+  color:
+    white;
+
+  font-size:
+    22px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    22px;
+
+  text-align:
+    center;
+}
+
+.stack-wall {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  justify-content:
+    center;
+
+  gap:
+    16px;
+}
+
+.stack-pill {
+
+  padding:
+    14px 22px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color:
+    #e2e8f0;
+
+  font-weight:
+    500;
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    all 0.3s ease;
+
+  box-shadow:
+    0 0 15px rgba(0,0,0,0.15);
+
+  animation:
+    float 4s ease-in-out infinite;
+}
+
+.stack-pill:hover {
+
+  transform:
+    translateY(-6px) scale(1.05);
+
+  border-color:
+    rgba(59,130,246,0.45);
+
+  color:
+    white;
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.25);
+}
+
 
 /* 🔥 SOC SECTION */
 
@@ -1765,25 +1848,93 @@ repeat(auto-fit,minmax(160px,1fr));
          data-aos="zoom-in-up">
     <div class="container mx-auto px-4 glass-card glow-border">
       <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <!-- Keep all your skill blocks same as before -->
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://n8n.io/favicon.ico" class="icon">n8n</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" class="icon">Ansible</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://avatars.githubusercontent.com/u/15015919?s=200&v=4" class="icon">Snipe-IT(Asset Mgmt)</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
-      </div>
+      <div class="space-y-10">
+
+  <!-- 🖥 INFRASTRUCTURE -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      🖥 Infrastructure
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">Linux</div>
+      <div class="stack-pill">VMware</div>
+      <div class="stack-pill">Networking</div>
+      <div class="stack-pill">VLAN</div>
+      <div class="stack-pill">Windows Server</div>
+      <div class="stack-pill">Asset Management</div>
+
+    </div>
+
+  </div>
+
+  <!-- ☁ CLOUD -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      ☁ Cloud & DevOps
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">AWS</div>
+      <div class="stack-pill">OVH Cloud</div>
+      <div class="stack-pill">Docker</div>
+      <div class="stack-pill">Ansible</div>
+      <div class="stack-pill">Google Workspace</div>
+      <div class="stack-pill">Microsoft 365</div>
+
+    </div>
+
+  </div>
+
+  <!-- 🛡 SECURITY -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      🛡 Security & Monitoring
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">Sophos Firewall</div>
+      <div class="stack-pill">Wazuh</div>
+      <div class="stack-pill">ESET Security</div>
+      <div class="stack-pill">Zabbix</div>
+      <div class="stack-pill">Grafana</div>
+      <div class="stack-pill">Prometheus</div>
+
+    </div>
+
+  </div>
+
+  <!-- 🤖 AUTOMATION -->
+
+  <div>
+
+    <h3 class="stack-heading">
+      🤖 Automation & AI
+    </h3>
+
+    <div class="stack-wall">
+
+      <div class="stack-pill">n8n</div>
+      <div class="stack-pill">Slack API</div>
+      <div class="stack-pill">AI Reporting</div>
+      <div class="stack-pill">ChatGPT</div>
+      <div class="stack-pill">Gemini AI</div>
+      <div class="stack-pill">Workflow Automation</div>
+
+    </div>
+
+  </div>
+
+</div>
     </div>
   </section>
 
