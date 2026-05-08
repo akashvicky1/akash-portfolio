@@ -183,6 +183,29 @@ body {
   box-shadow:
     0 0 30px rgba(59,130,246,0.08);
 }
+/* 🔥 EXPERIENCE CARD */
+
+.experience-card {
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  border-radius:
+    18px;
+
+  padding:
+    22px;
+
+  transition:
+    all 0.3s ease;
+
+  backdrop-filter:
+    blur(10px);
+}
+
 
     .experience-card:hover {
 
@@ -1479,6 +1502,41 @@ repeat(auto-fit,minmax(160px,1fr));
 }
 
 
+/* 🔥 MOBILE PERFORMANCE */
+
+@media (max-width: 768px) {
+
+  .network-glow {
+
+    filter:
+      blur(40px);
+
+    width:
+      350px;
+
+    height:
+      350px;
+  }
+
+  .terminal-glow {
+
+    animation:
+      none;
+  }
+
+  .stack-pill {
+
+    animation:
+      none;
+  }
+
+  .profile-glow {
+
+    animation:
+      float 6s ease-in-out infinite;
+  }
+}
+
     
   </style>
 </head>
@@ -1871,7 +1929,7 @@ repeat(auto-fit,minmax(160px,1fr));
       <img src="profile.jpg" alt="Profile Image" class="rounded-full w-40 h-40 border-4 border-blue-900 profile-glow mb-6" />
       <h2 class="text-2xl font-semibold text-white mb-2">About Me</h2>
       <p class="text-center max-w-2xl text-white">
-        IT & Network & Automation Expert with over 12+ years of experience based in Ahmedabad, Gujarat. Proven track record in managing enterprise IT infrastructure, firewalls, cloud environments (AWS, OVH), and implementing automation solutions using n8n and Ansible. Experienced in email security, monitoring systems (Zabbix, Prometheus, Grafana), and building intelligent workflows to reduce manual effort. Passionate about optimizing performance, strengthening system security, and delivering scalable, automated solutions.
+        IT & Network & Automation Expert with over 10 years of experience based in Ahmedabad, Gujarat. Proven track record in managing enterprise IT infrastructure, firewalls, cloud environments (AWS, OVH), and implementing automation solutions using n8n and Ansible. Experienced in email security, monitoring systems (Zabbix, Prometheus, Grafana), and building intelligent workflows to reduce manual effort. Passionate about optimizing performance, strengthening system security, and delivering scalable, automated solutions.
       </p>
     </div>
   </section>
@@ -2874,6 +2932,13 @@ repeat(auto-fit,minmax(160px,1fr));
   
   </div>
 </div>
+
+<div class="text-center text-gray-400 italic text-sm py-8 relative z-10">
+
+  “Building secure, scalable & intelligent infrastructure systems.”
+
+</div>
+
 
   <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10 footer-glow" data-aos="fade-up">
