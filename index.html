@@ -96,6 +96,7 @@
 }
 
 body {
+  scroll-behavior: smooth;
       font-family: 'Inter', sans-serif;
       color: #ffffff;
       background-color: #0f172a;
@@ -123,14 +124,20 @@ body {
   transition: opacity 0.5s ease;
 }
     .overlay {
-      background-color: rgba(15, 23, 42, 0.85);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 0;
-    }
+
+  background-color:
+    rgba(15, 23, 42, 0.55);
+
+  position:
+    absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 0;
+}
 
     .profile-glow {
       box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.3);
@@ -2926,9 +2933,8 @@ repeat(auto-fit,minmax(160px,1fr));
     </span>
 
     <!-- IMAGE -->
-   <img id="modalImage" src="" 
-  style="min-width: 1400px; max-width: none;"
-  class="rounded-xl shadow-lg h-auto" />
+   <img id="modalImage" src=""
+  class="rounded-xl shadow-lg h-auto w-auto max-w-none min-w-[1400px] md:min-w-[1400px] min-[320px]:min-w-full" />
   
   </div>
 </div>
@@ -3056,7 +3062,8 @@ function downloadWorkflow() {
 
 
 function downloadBlueGuardian() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/BlueGuardian_Monitring1.json");
   } else {
@@ -3065,7 +3072,8 @@ function downloadBlueGuardian() {
 }
 
 function downloadGlobalConfig() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GLOBAL_CONFIG1.json");
   } else {
@@ -3074,7 +3082,8 @@ function downloadGlobalConfig() {
 }
 
 function downloadGCPWorkflow() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GCP_Project_Auto1.json");
   } else {
@@ -3083,7 +3092,8 @@ function downloadGCPWorkflow() {
 }
 
 function downloadPatchWorkflow() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Centralized%20Patch%20Management1.json");
   } else {
@@ -3092,7 +3102,8 @@ function downloadPatchWorkflow() {
 }
 
 function downloadSophosWorkflow() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Sophos-Auto%20summary1.json");
   } else {
@@ -3101,7 +3112,8 @@ function downloadSophosWorkflow() {
 }
 
 function downloadOffboardingWorkflow() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/exit-user-offboarding-automation-workflow.json");
   } else {
@@ -3110,7 +3122,8 @@ function downloadOffboardingWorkflow() {
 }
 
 function downloadOnboardingWorkflow() {
-  const pass = prompt("Enter password:");
+  alert("Contact me for workflow access.");
+return;
   if (pass === "akash123") {
     window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/hr-onboarding-automation-workflow.json");
   } else {
@@ -3172,7 +3185,20 @@ let lineIndex = 0;
 
 function typeTerminal() {
 
-  if (lineIndex >= terminalLines.length) return;
+  if (lineIndex >= terminalLines.length) {
+
+  setTimeout(() => {
+
+    terminal.innerHTML = "";
+
+    lineIndex = 0;
+
+    typeTerminal();
+
+  }, 3000);
+
+  return;
+}
 
   const line = terminalLines[lineIndex];
 
