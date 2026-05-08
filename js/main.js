@@ -593,3 +593,26 @@ if (menuBtn && mobileMenu) {
   });
 
 }
+
+function contactForWorkflow(workflowName) {
+
+  const subject =
+    encodeURIComponent(
+      `Workflow Access Request - ${workflowName}`
+    );
+
+  const body =
+    encodeURIComponent(
+`Hi Akash,
+
+I visited your portfolio and I'm interested in the "${workflowName}" workflow.
+
+Please share more details about the workflow implementation and access process.
+
+Thanks.`
+    );
+
+  window.location.href =
+    `mailto:prajapatiakash123@gmail.com?subject=${subject}&body=${body}`;
+
+}
