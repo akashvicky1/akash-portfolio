@@ -473,6 +473,138 @@ body {
     0.5px;
 }
 
+/* 🔥 SOC SECTION */
+
+.soc-panel {
+
+  background:
+    rgba(0,0,0,0.35);
+
+  border:
+    1px solid rgba(59,130,246,0.12);
+
+  border-radius:
+    20px;
+
+  padding:
+    24px;
+
+  backdrop-filter:
+    blur(10px);
+}
+
+.soc-title {
+
+  font-size:
+    22px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    20px;
+
+  color:
+    white;
+}
+
+.soc-logs {
+
+  height:
+    350px;
+
+  overflow:
+    hidden;
+
+  font-family:
+    monospace;
+}
+
+.soc-line {
+
+  margin-bottom:
+    14px;
+
+  color:
+    #cbd5e1;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(10px);
+
+  animation:
+    fadeFeed 0.4s forwards;
+}
+
+.soc-time {
+
+  color:
+    #60a5fa;
+
+  margin-right:
+    8px;
+}
+
+.soc-stat {
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:
+    18px;
+
+  padding:
+    20px;
+
+  text-align:
+    center;
+
+  transition:
+    all 0.3s ease;
+
+  backdrop-filter:
+    blur(10px);
+}
+
+.soc-stat:hover {
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(59,130,246,0.4);
+
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.18);
+}
+
+.soc-stat h4 {
+
+  margin-bottom:
+    10px;
+
+  color:
+    #93c5fd;
+}
+
+.soc-stat p {
+
+  font-size:
+    22px;
+
+  font-weight:
+    bold;
+
+  color:
+    white;
+}
+
+
 /* 🔥 INCIDENT SECTION */
 
 .incident-card {
@@ -1555,6 +1687,100 @@ repeat(auto-fit,minmax(160px,1fr));
     </div>
   </section>
 
+<!-- 🔥 SECURITY OPERATIONS CENTER -->
+
+<section class="relative z-10 py-10">
+
+  <div class="container mx-auto px-4">
+
+    <div class="glass-card glow-border">
+
+      <h2 class="text-3xl font-bold text-center text-white mb-10">
+
+        🛡 Security Operations Center
+
+      </h2>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+
+        <!-- LEFT -->
+
+        <div class="soc-panel">
+
+          <h3 class="soc-title">
+            🚨 Threat Monitoring
+          </h3>
+
+          <div id="socLogs"
+               class="soc-logs">
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="grid grid-cols-2 gap-4">
+
+          <div class="soc-stat">
+
+            <h4>🟢 Firewall</h4>
+
+            <p>Operational</p>
+
+          </div>
+
+          <div class="soc-stat">
+
+            <h4>🛡 Wazuh</h4>
+
+            <p>Connected</p>
+
+          </div>
+
+          <div class="soc-stat">
+
+            <h4>⚠ Medium Alerts</h4>
+
+            <p id="mediumAlerts">3</p>
+
+          </div>
+
+          <div class="soc-stat">
+
+            <h4>🚫 Blocked IPs</h4>
+
+            <p id="blockedIPs">17</p>
+
+          </div>
+
+          <div class="soc-stat">
+
+            <h4>🔑 Failed SSH</h4>
+
+            <p id="failedSSH">9</p>
+
+          </div>
+
+          <div class="soc-stat">
+
+            <h4>☁ Cloud Sync</h4>
+
+            <p>Healthy</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- 🔥 INCIDENT RESPONSE SECTION -->
 
 <section class="py-10 relative z-10"
@@ -2458,6 +2684,72 @@ function addFeedLine() {
 setInterval(addFeedLine, 1800);
 
 addFeedLine();
+
+// 🔥 LIVE SOC LOGS
+
+const socMessages = [
+
+  "🛡 Wazuh Agent Connected",
+  "🚫 Malicious IP Blocked",
+  "⚠ Failed SSH Login Attempt",
+  "☁ Cloud Backup Completed",
+  "🔐 VPN Authentication Success",
+  "🟢 Sophos Firewall Healthy",
+  "📡 Network Latency Stable",
+  "⚡ Threat Scan Completed",
+  "🚨 Suspicious Login Detected",
+  "🔵 Patch Verification Success"
+
+];
+
+const socLogs =
+  document.getElementById("socLogs");
+
+function addSocLog() {
+
+  const line =
+    document.createElement("div");
+
+  line.classList.add("soc-line");
+
+  const now =
+    new Date().toLocaleTimeString();
+
+  const randomMessage =
+    socMessages[
+      Math.floor(Math.random() * socMessages.length)
+    ];
+
+  line.innerHTML = `
+    <span class="soc-time">[${now}]</span>
+    ${randomMessage}
+  `;
+
+  socLogs.prepend(line);
+
+  if (socLogs.children.length > 14) {
+
+    socLogs.removeChild(
+      socLogs.lastChild
+    );
+  }
+
+  // RANDOM COUNTERS
+
+  document.getElementById("mediumAlerts").innerText =
+    Math.floor(Math.random() * 6);
+
+  document.getElementById("blockedIPs").innerText =
+    Math.floor(Math.random() * 40);
+
+  document.getElementById("failedSSH").innerText =
+    Math.floor(Math.random() * 15);
+
+}
+
+setInterval(addSocLog, 1600);
+
+addSocLog();
 
 
 // 🔥 COUNTER ANIMATION
