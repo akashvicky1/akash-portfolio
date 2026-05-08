@@ -18,7 +18,50 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    body {
+
+/* 🔥 NETWORK GLOW */
+
+.network-glow {
+
+  position: fixed;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 700px;
+
+  height: 700px;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(circle,
+    rgba(59,130,246,0.18),
+    transparent 70%);
+
+  filter: blur(80px);
+
+  z-index: -2;
+
+  animation:
+    pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+  0%,100% {
+    transform:
+      translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%) scale(1.15);
+  }
+}
+
+body {
       font-family: 'Inter', sans-serif;
       color: #ffffff;
       background-color: #0f172a;
@@ -508,6 +551,8 @@
 
 .topology-line {
 
+    position: relative;
+
   width:
     3px;
 
@@ -520,6 +565,52 @@
       #60a5fa,
       transparent
     );
+}
+
+.packet {
+
+  width:
+    10px;
+
+  height:
+    10px;
+
+  border-radius:
+    50%;
+
+  background:
+    #60a5fa;
+
+  position:
+    absolute;
+
+  left:
+    -3px;
+
+  animation:
+    movePacket 2s linear infinite;
+
+  box-shadow:
+    0 0 12px #60a5fa;
+}
+
+@keyframes movePacket {
+
+  0% {
+    transform:
+      translateY(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(40px);
+    opacity: 0;
+  }
 }
 
 .topology-grid {
@@ -583,7 +674,93 @@ repeat(auto-fit,minmax(160px,1fr));
 }
 
 
+/* 🔥 STATUS CARDS */
 
+.status-card {
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:
+    16px;
+
+  padding:
+    16px;
+
+  color:
+    #cbd5e1;
+
+  backdrop-filter:
+    blur(12px);
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    8px;
+
+  transition:
+    all 0.3s ease;
+}
+
+.status-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(59,130,246,0.5);
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.18);
+}
+
+.status-card strong {
+
+  color:
+    white;
+
+  font-size:
+    18px;
+}
+
+.status-dot {
+
+  width:
+    10px;
+
+  height:
+    10px;
+
+  border-radius:
+    50%;
+
+  background:
+    #22c55e;
+
+  box-shadow:
+    0 0 12px #22c55e;
+
+  animation:
+    blink 1.5s infinite;
+}
+
+@keyframes blink {
+
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
 
      
 
@@ -763,7 +940,11 @@ repeat(auto-fit,minmax(160px,1fr));
 
 </nav>
   <div id="tsparticles"></div>
-  <div class="overlay"></div>
+
+<!-- 🔥 NETWORK GLOW -->
+<div class="network-glow"></div>
+
+<div class="overlay"></div>
 
   <!-- Header -->
   
@@ -800,6 +981,21 @@ repeat(auto-fit,minmax(160px,1fr));
 
   </div>
 
+<!-- 🔥 LIVE INFO -->
+
+<div class="flex flex-wrap gap-4 mt-4 text-sm text-blue-300">
+
+  <div id="liveClock">
+    🕒 Loading Time...
+  </div>
+
+  <div id="uptimeCounter">
+    ⚡ Uptime: 0 Days
+  </div>
+
+</div>
+
+
   <p class="mt-8 text-gray-400 text-lg leading-8 max-w-xl">
 
     Experienced in Linux, Networking, Cloud Infrastructure,
@@ -807,7 +1003,39 @@ repeat(auto-fit,minmax(160px,1fr));
 
   </p>
 
-  <div class="flex flex-wrap gap-3 mt-10">
+<!-- 🔥 LIVE STATUS -->
+
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+  <div class="status-card">
+
+    <span class="status-dot"></span>
+
+    Infrastructure Status
+
+    <strong>Operational</strong>
+
+  </div>
+
+  <div class="status-card">
+
+    ⚡ Active Nodes
+
+    <strong>24</strong>
+
+  </div>
+
+  <div class="status-card">
+
+    🌍 Region
+
+    <strong>India-West</strong>
+
+  </div>
+
+</div>
+
+<div class="flex flex-wrap gap-3 mt-10">
 
     <a href="Akash_Resume.pdf"
        download
@@ -963,7 +1191,9 @@ repeat(auto-fit,minmax(160px,1fr));
 
         </div>
 
-        <div class="topology-line"></div>
+        <div class="topology-line">
+  <span class="packet"></span>
+</div>
 
         <!-- SOPHOS -->
         <div class="topology-node firewall">
@@ -972,7 +1202,9 @@ repeat(auto-fit,minmax(160px,1fr));
 
         </div>
 
-        <div class="topology-line"></div>
+        <div class="topology-line">
+  <span class="packet"></span>
+</div>
 
         <!-- SWITCH -->
         <div class="topology-node switch">
@@ -1746,6 +1978,16 @@ Monitoring
   {
     command: "uptime",
     output: "12+ Years Experience"
+  },
+
+  {
+    command: "security_scan",
+    output: `
+[ OK ] Wazuh Agent Connected
+[ OK ] Sophos Firewall Healthy
+[ OK ] Backup Verification Completed
+[ ALERT ] 0 Critical Threats
+`
   }
 ];
 
@@ -1777,6 +2019,52 @@ function typeTerminal() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(typeTerminal, 1000);
 });
+
+
+// 🔥 LIVE CLOCK
+
+function updateClock() {
+
+  const now = new Date();
+
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  };
+
+  document.getElementById("liveClock").innerHTML =
+    "🕒 " + now.toLocaleTimeString('en-IN', options);
+
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+// 🔥 FAKE UPTIME
+
+const portfolioStart =
+  new Date("2026-01-01");
+
+function updateUptime() {
+
+  const now = new Date();
+
+  const diff =
+    now - portfolioStart;
+
+  const days =
+    Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById("uptimeCounter").innerHTML =
+    "⚡ Uptime: " + days + " Days";
+
+}
+
+setInterval(updateUptime, 1000);
+
+updateUptime();
 
 // 🔥 COUNTER ANIMATION
 
