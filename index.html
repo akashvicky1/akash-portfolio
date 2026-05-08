@@ -111,18 +111,7 @@ body {
       height: 100%;
     }
     
-#typed-text {
-  line-height: 32px;
-  overflow: hidden;
-}
 
-#fade-text {
-  display: inline-block;
-  min-width: 280px;
-  height: 32px;
-  line-height: 32px;
-  transition: opacity 0.5s ease;
-}
     .overlay {
 
   background-color:
@@ -160,17 +149,7 @@ body {
       margin-right: 8px;
     }
 
-    .skill-3d {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      transform-style: preserve-3d;
-      will-change: transform;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .skill-3d:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-    }
+   
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -1462,7 +1441,9 @@ repeat(auto-fit,minmax(160px,1fr));
 
   backdrop-filter: blur(10px);
 
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease,
+            box-shadow 0.3s ease,
+            background 0.3s ease;
 }
 
 .hero-btn-secondary:hover {
@@ -1496,7 +1477,9 @@ repeat(auto-fit,minmax(160px,1fr));
   font-weight: 600;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,191,255,0.4);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease,
+            box-shadow 0.3s ease,
+            background 0.3s ease;
 
   min-width: 220px;   /* 👈 change */
   text-align: center; /* 👈 add */
@@ -2934,7 +2917,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
     <!-- IMAGE -->
    <img id="modalImage" src=""
-  class="rounded-xl shadow-lg h-auto w-auto max-w-none min-w-[1400px] md:min-w-[1400px] min-[320px]:min-w-full" />
+  class="rounded-xl shadow-lg h-auto w-auto max-w-full md:max-w-none md:min-w-[1400px]" />
   
   </div>
 </div>
@@ -2949,6 +2932,10 @@ repeat(auto-fit,minmax(160px,1fr));
   <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10 footer-glow" data-aos="fade-up">
     <p>&copy; 2026 Akash Prajapati. All rights reserved.</p>
+
+<p class="text-xs text-blue-200 mt-2 opacity-70">
+  Designed & Engineered with Infrastructure Precision ⚡
+</p>
   </footer>
 
   <!-- Scroll to top button -->
