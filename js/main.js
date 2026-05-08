@@ -1,70 +1,117 @@
     AOS.init({ duration: 1000, once: true });
 
-    // 🔥 CURSOR GLOW
+     // 🔥 CURSOR GLOW
+
+const glow =
+  document.getElementById("cursorGlow");
+
+if (glow) {
+
+  document.addEventListener("mousemove", (e) => {
+
+    glow.style.transform =
+      `translate(
+        ${e.clientX - 90}px,
+        ${e.clientY - 90}px
+      )`;
+
+  });
+
+}
 
 
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true },
-      particles: {
-        number: { value: 50 },
-        size: { value: 3 },
-        color: { value: "#00bfff" },
-        links: {
-          enable: true,
-          distance: 120,
-          color: "#00bfff",
-          opacity: 0.4
-        },
-        move: {
-          enable: true,
-          speed: 1
-        }
+// 🔥 PARTICLES
+
+if (window.innerWidth > 768) {
+
+  tsParticles.load("tsparticles", {
+
+    fullScreen: {
+  enable: false
+},
+
+    particles: {
+
+      number: {
+
+        value: 28
+
       },
-      background: {
-        color: "#0f172a"
-      }
-    });
 
-   
-// Scroll-to-top button
+      size: {
+
+        value: 3
+
+      },
+
+      color: {
+
+        value: "#00bfff"
+
+      },
+
+      links: {
+
+        enable: true,
+
+        distance: 90,
+
+        color: "#00bfff",
+
+        opacity: 0.2
+
+      },
+
+      move: {
+
+        enable: true,
+
+        speed: 1
+
+      }
+
+    },
+
+    background: {
+
+      color: "#0f172a"
+
+    }
+
+  });
+
+}
+
+
+// 🔥 SCROLL BUTTON
+
 const scrollBtn =
   document.getElementById('scrollBtn');
 
-window.onscroll = () => {
-
-  scrollBtn.style.display =
-    (document.body.scrollTop > 300 ||
-     document.documentElement.scrollTop > 300)
-      ? "block"
-      : "none";
-};
-
 // 🔥 NAVBAR SCROLL EFFECT
+
+
 const navbar =
   document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-
-  if (window.scrollY > 50) {
-
-    navbar.classList.add("nav-scrolled");
-
-  } else {
-
-    navbar.classList.remove("nav-scrolled");
-
-  }
-
-});
-
-
-// 🔥 SCROLL PROGRESS
 
 const scrollProgress =
   document.getElementById("scrollProgress");
 
 window.addEventListener("scroll", () => {
 
+  // 🔥 Scroll Top Button
+  scrollBtn.style.display =
+    window.scrollY > 300
+      ? "block"
+      : "none";
+
+  // 🔥 Navbar Scroll Effect
+  navbar.classList.toggle(
+    "nav-scrolled",
+    window.scrollY > 50
+  );
+
+  // 🔥 Scroll Progress
   const totalHeight =
     document.documentElement.scrollHeight -
     window.innerHeight;
@@ -75,8 +122,7 @@ window.addEventListener("scroll", () => {
   scrollProgress.style.width =
     progress + "%";
 
-});
-
+}, { passive: true });
 
 
     
@@ -317,7 +363,7 @@ function updateUptime() {
 
 }
 
-setInterval(updateUptime, 1000);
+setInterval(updateUptime, 60000);
 
 updateUptime();
 
@@ -365,7 +411,7 @@ if (document.getElementById("cpuBar")) {
 
   updateMonitoring();
 
-  setInterval(updateMonitoring, 2500);
+  setInterval(updateMonitoring, 3500);
 
 }
 
@@ -419,7 +465,7 @@ function addFeedLine() {
   }
 }
 
-setInterval(addFeedLine, 1800);
+setInterval(addFeedLine, 3000);
 
 addFeedLine();
 
@@ -485,7 +531,7 @@ function addSocLog() {
 
 }
 
-setInterval(addSocLog, 1600);
+setInterval(addSocLog, 3200);
 
 addSocLog();
 
@@ -530,14 +576,20 @@ counters.forEach(counter => {
 
 // 🔥 MOBILE MENU
 
+ // 🔥 MOBILE MENU
+
 const menuBtn =
   document.getElementById("menuBtn");
 
 const mobileMenu =
   document.getElementById("mobileMenu");
 
-menuBtn.addEventListener("click", () => {
+if (menuBtn && mobileMenu) {
 
-  mobileMenu.classList.toggle("hidden");
+  menuBtn.addEventListener("click", () => {
 
-});
+    mobileMenu.classList.toggle("hidden");
+
+  });
+
+}
