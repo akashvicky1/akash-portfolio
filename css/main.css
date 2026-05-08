@@ -1589,3 +1589,13 @@ body::after {
 
   border-radius: 8px;
 }
+html {
+
+  scroll-behavior: smooth;
+}
+
+* {
+
+  will-change:
+    transform;
+}
