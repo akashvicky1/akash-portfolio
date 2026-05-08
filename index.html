@@ -19,6 +19,32 @@
 
   <style>
 
+.cursor-glow{
+
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  background:
+    radial-gradient(circle,
+    rgba(59,130,246,0.15),
+    transparent 70%);
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    left 0.08s linear,
+    top 0.08s linear;
+}
+
+
 /* 🔥 NETWORK GLOW */
 
 .network-glow {
@@ -1485,6 +1511,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
 <!-- 🔥 NETWORK GLOW -->
 <div class="network-glow"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <div class="overlay"></div>
 
@@ -1519,11 +1546,12 @@ repeat(auto-fit,minmax(160px,1fr));
 
   </h1>
 
-  <div class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
+  <div id="typed-text"
+     class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
 
-    Infrastructure • Automation • Security Engineer
+  <span id="fade-text"></span>
 
-  </div>
+</div>
 
 <!-- 🔥 LIVE INFO -->
 
@@ -2820,7 +2848,20 @@ repeat(auto-fit,minmax(160px,1fr));
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    
+    // 🔥 CURSOR GLOW
+
+const glow =
+  document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove", (e) => {
+
+  glow.style.left =
+    e.clientX + "px";
+
+  glow.style.top =
+    e.clientY + "px";
+
+});
 
     tsParticles.load("tsparticles", {
       fullScreen: { enable: true },
