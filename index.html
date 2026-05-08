@@ -2448,6 +2448,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let i = 0;
   const fadeText = document.getElementById("fade-text");
+  if (!fadeText) return;
 
   function changeText() {
     fadeText.style.opacity = 0;
