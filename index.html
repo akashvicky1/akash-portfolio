@@ -1321,7 +1321,46 @@ repeat(auto-fit,minmax(160px,1fr));
   background: linear-gradient(135deg, #ffffff, #dbeafe);
 }
 
+/* 🔥 STACK PILLS */
 
+.stack-pill {
+
+  padding:
+    12px 22px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    all 0.3s ease;
+
+  color:
+    white;
+
+  font-weight:
+    500;
+}
+
+.stack-pill:hover {
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(59,130,246,0.5);
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.25);
+}
     
   </style>
 </head>
@@ -1822,32 +1861,117 @@ repeat(auto-fit,minmax(160px,1fr));
 
 </section>
 
- <section id="skills"
-         class="py-10 relative z-10"
-         data-aos="zoom-in-up">
-    <div class="container mx-auto px-4 glass-card glow-border">
-      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Key Skills</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <!-- Keep all your skill blocks same as before -->
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://n8n.io/favicon.ico" class="icon">n8n</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" class="icon">Ansible</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="amazon-web-services.svg" class="icon">AWS</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Wazuh_idrZuiAhhs_1.svg" class="icon">Wazuh</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="zabbix.svg" class="icon">Zabbix</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="icon">Grafana</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="icon">Prometheus</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="sophos.svg" class="icon">Sophos Firewall</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="office-365-1.svg" class="icon">Microsoft 365</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Workspace_Logo.svg" class="icon">Google Workspace</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://avatars.githubusercontent.com/u/15015919?s=200&v=4" class="icon">Snipe-IT(Asset Mgmt)</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="chatgpt-icon.svg" class="icon">ChatGPT</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="Google_Gemini_logo.svg" class="icon">Gemini</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ESET_logo.svg" class="icon">ESET Security</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="ovhcloud-logo-vector.svg" class="icon">OVH Cloud</span>
-        <span class="skill-3d bg-white text-blue-900 px-4 py-2 rounded-full shadow flex items-center"><img src="https://cdn-icons-png.flaticon.com/512/961/961247.png" class="icon">Networking</span>
+ <section id="skills" class="py-16 relative z-10" data-aos="fade-up">
+
+  <div class="container mx-auto px-4">
+
+    <div class="glass-card glow-border p-10">
+
+      <h2 class="text-4xl font-bold text-center mb-12 hero-gradient-text">
+
+        Enterprise Tech Stack
+
+      </h2>
+
+      <div class="space-y-10">
+
+        <!-- Infrastructure -->
+
+        <div>
+
+          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
+
+            🖥 Infrastructure
+
+          </h3>
+
+          <div class="flex flex-wrap gap-4">
+
+            <span class="stack-pill">🐧 Linux</span>
+            <span class="stack-pill">🌐 Networking</span>
+            <span class="stack-pill">🔀 VLAN</span>
+            <span class="stack-pill">🖥 VMware</span>
+            <span class="stack-pill">📦 Asset Management</span>
+
+          </div>
+
+        </div>
+
+        <!-- Cloud -->
+
+        <div>
+
+          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
+
+            ☁ Cloud & DevOps
+
+          </h3>
+
+          <div class="flex flex-wrap gap-4">
+
+            <span class="stack-pill">☁ AWS</span>
+            <span class="stack-pill">🌍 OVH Cloud</span>
+            <span class="stack-pill">🐳 Docker</span>
+            <span class="stack-pill">⚙️ Ansible</span>
+            <span class="stack-pill">📨 Google Workspace</span>
+            <span class="stack-pill">🏢 Microsoft 365</span>
+
+          </div>
+
+        </div>
+
+        <!-- Security -->
+
+        <div>
+
+          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
+
+            🛡 Security & Monitoring
+
+          </h3>
+
+          <div class="flex flex-wrap gap-4">
+
+            <span class="stack-pill">🔥 Sophos Firewall</span>
+            <span class="stack-pill">🛡 Wazuh</span>
+            <span class="stack-pill">🧩 ESET Security</span>
+            <span class="stack-pill">📊 Zabbix</span>
+            <span class="stack-pill">📈 Grafana</span>
+            <span class="stack-pill">📡 Prometheus</span>
+
+          </div>
+
+        </div>
+
+        <!-- Automation -->
+
+        <div>
+
+          <h3 class="text-2xl font-semibold mb-5 text-blue-300">
+
+            🤖 Automation & AI
+
+          </h3>
+
+          <div class="flex flex-wrap gap-4">
+
+            <span class="stack-pill">⚡ n8n</span>
+            <span class="stack-pill">💬 Slack API</span>
+            <span class="stack-pill">🤖 ChatGPT</span>
+            <span class="stack-pill">🧠 Gemini AI</span>
+            <span class="stack-pill">📑 AI Reporting</span>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
-  </section>
+
+  </div>
+
+</section>
 
 <!-- 🔥 SECURITY OPERATIONS CENTER -->
 
@@ -3212,6 +3336,60 @@ function drawMatrix() {
 }
 
 setInterval(drawMatrix, 35);
+
+
+// 🔥 LIVE AUTOMATION FEED
+
+const activities = [
+
+  "✅ Backup Verification Completed",
+  "⚡ New VM Provisioned",
+  "🛡 Sophos Threat Blocked",
+  "📦 Docker Container Restarted",
+  "☁ Cloud Sync Successful",
+  "🔐 VPN Authentication Success",
+  "📊 Monitoring Alert Resolved",
+  "🚀 n8n Workflow Executed"
+
+];
+
+function updateActivityFeed() {
+
+  const feed =
+    document.getElementById("activityFeed");
+
+  if (!feed) return;
+
+  feed.innerHTML = "";
+
+  for (let i = 0; i < 6; i++) {
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "activity-item";
+
+    const randomActivity =
+      activities[
+        Math.floor(Math.random() * activities.length)
+      ];
+
+    const time =
+      new Date().toLocaleTimeString();
+
+    div.innerHTML = `
+      <span class="text-blue-400">[${time}]</span>
+      ${randomActivity}
+    `;
+
+    feed.appendChild(div);
+  }
+}
+
+setInterval(updateActivityFeed, 4000);
+
+updateActivityFeed();
 
   </script>
 </body>
