@@ -67,11 +67,9 @@
   transform: translate(-50%, -50%);
 
   background:
-    radial-gradient(
-      circle,
-      rgba(59,130,246,0.06),
-      transparent 72%
-    );
+ radial-gradient(circle,
+ rgba(59,130,246,0.18),
+ transparent 70%);
 
   filter: blur(18px);
 
@@ -1744,13 +1742,11 @@ body::before {
 .service-card:hover {
 
   transform:
-    translateY(-10px);
-
-  border-color:
-    rgba(59,130,246,0.45);
+    translateY(-10px)
+    scale(1.02);
 
   box-shadow:
-    0 15px 40px rgba(59,130,246,0.18);
+    0 20px 45px rgba(59,130,246,0.2);
 
 }
 
@@ -1786,4 +1782,21 @@ body::before {
 
   transform:
     translateY(-6px);
+}
+
+/* 🔥 HERO TEXT */
+
+.hero-gradient-text {
+
+  background:
+    linear-gradient(
+      90deg,
+      #60a5fa,
+      #3b82f6,
+      #93c5fd
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
 }
