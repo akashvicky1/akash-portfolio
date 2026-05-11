@@ -257,30 +257,32 @@ const terminal = document.getElementById("terminal");
 
 const terminalLines = [
   {
-    command: "whoami",
-    output: "Senior IT Infrastructure Engineer"
+    command: "service_status",
+    output: "Enterprise Infrastructure & AMC Solutions"
   },
+
   {
-    command: "skills",
+    command: "services",
     output: `
-Linux
-Docker
+Linux Infrastructure
+Cloud Solutions
 Sophos Firewall
-Networking
+Network Security
 AWS
-Azure
-n8n
-Ansible
+WiFi Infrastructure
+Automation
 Monitoring
 `
   },
+
   {
     command: "current_status",
-    output: "Building secure and scalable infrastructure 🚀"
+    output: "Delivering secure & scalable IT solutions 🚀"
   },
+
   {
-    command: "uptime",
-    output: "12+ Years Experience"
+    command: "monitoring",
+    output: "24/7 Infrastructure Monitoring"
   },
 
   {
@@ -307,9 +309,12 @@ function typeTerminal() {
 
   block.innerHTML = `
     <div>
-      <span class="text-blue-400">akash@portfolio</span>:~$ ${line.command}
+      <span class="text-blue-400">hanutech@infra</span>:~$ ${line.command}
     </div>
-    <pre class="text-gray-200 whitespace-pre-wrap mt-2">${line.output}</pre>
+
+    <pre class="text-gray-200 whitespace-pre-wrap mt-2">
+${line.output}
+    </pre>
   `;
 
   terminal.appendChild(block);
@@ -322,7 +327,6 @@ function typeTerminal() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(typeTerminal, 1000);
 });
-
 
 // 🔥 LIVE CLOCK
 
