@@ -1,1456 +1,1730 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta name="google-site-verification: google360db5c3b5f20cb2.html"
-content="random-code" />
-  <link rel="stylesheet" href="css/main.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="images/logo.png" />
-  <title>HanuTech Cloud | Infrastructure & AMC Solutions</title>
-  <meta name="theme-color" content="#0f172a">
-  <meta property="og:title" content="HanuTech Cloud | Infrastructure & AMC Solutions" />
-  <meta property="og:description" content="Enterprise IT infrastructure, networking, cloud, automation and AMC solutions for modern businesses." />
-  <meta property="og:image" content="https://hanutech.cloud/images/logo.png" />
-  <meta property="og:url" content="https://hanutech.cloud" />
-  <meta name="twitter:card" content="summary_large_image" />
+/* 🔥 SCROLL PROGRESS */
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <link
-  rel="preconnect"
-  href="https://fonts.googleapis.com">
+#scrollProgress {
 
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  position: fixed;
 
+  top: 0;
+  left: 0;
 
-</head>
-<body>
+  width: 0%;
 
-<div id="scrollProgress"></div>
-  <!-- 🔥 GLASS NAVBAR -->
+  height: 3px;
 
-<nav id="navbar"
-     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  background:
+    linear-gradient(
+      90deg,
+      #3b82f6,
+      #60a5fa
+    );
 
-  <div class="max-w-7xl mx-auto px-3 sm:px-6">
+  z-index: 9999;
 
-    <div class="nav-glass flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
+  box-shadow:
+    0 0 15px rgba(59,130,246,0.6);
+}
 
-  <!-- LOGO -->
-  <div class="flex items-center gap-3 shrink-0">
 
-  <img src="images/logo.png"
-     alt="HanuTech Cloud"
-     class="w-14 h-14 object-cover rounded-full" />
+.cursor-glow {
 
-  <div class="text-2xl font-bold tracking-wide text-white">
+  position: fixed;
 
-    HanuTech
-    <span class="text-blue-400">Cloud</span>
+  width: 180px;
+  height: 180px;
 
-  </div>
+  opacity: 0.6;
 
-</div>
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.15),
+      transparent 70%
+    );
 
-  <!-- MENU BUTTON -->
-  <button id="menuBtn"
-    class="md:hidden text-white text-2xl">
+  pointer-events: none;
 
-    ☰
+  z-index: -1;
 
-  </button>
+  border-radius: 50%;
 
-  <!-- DESKTOP LINKS -->
-  <div class="hidden md:flex items-center gap-3 text-[13px] sm:text-sm whitespace-nowrap">
 
-<a href="#services" class="nav-link">Services</a>
+  transition:
+    transform 0.08s linear;
+}
 
-<a href="#infrastructure" class="nav-link">Infrastructure</a>
 
-<a href="#experience" class="nav-link">Experience</a>
+/* 🔥 NETWORK GLOW */
 
-<a href="#automation" class="nav-link">Automation</a>
+.network-glow {
 
-<a href="#contact" class="nav-link">Contact</a>
-  </div>
+  position: fixed;
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu"
-    class="hidden w-full flex-col gap-4 pt-4 pb-2 text-center md:hidden">
-    <a href="#services" class="nav-link py-2">Services</a>
+  inset: 50% auto auto 50%;
 
-<a href="#infrastructure" class="nav-link py-2">Infrastructure</a>
+  width: 280px;
+  height: 280px;
 
-<a href="#experience" class="nav-link py-2">Experience</a>
+  transform: translate(-50%, -50%);
 
-<a href="#automation" class="nav-link py-2">Automation</a>
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.06),
+      transparent 72%
+    );
 
-<a href="#contact" class="nav-link py-2">Contact</a>
+  filter: blur(18px);
 
-  </div>
+  opacity: 0.22;
 
-</div>
-</div>
-</nav>
-  <div id="tsparticles"></div>
+  z-index: -2;
 
-<!-- 🔥 NETWORK GLOW -->
-<div class="network-glow"></div>
+  animation:
+    pulseGlow 18s ease-in-out infinite;
 
+  pointer-events: none;
 
-<div class="overlay"></div>
+  will-change: transform;
+}
 
-  <!-- Header -->
-  
+@keyframes pulseGlow {
 
-<!-- 🔥 LIVE TERMINAL SECTION -->
-<section class="relative z-10 pt-24 md:pt-28 pb-16">
-  <div class="container mx-auto px-4">
+  0%,100% {
 
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
+    transform:
+      translate(-50%, -50%) scale(1);
 
-     <!-- LEFT SIDE -->
-<div data-aos="fade-right">
+  }
 
-  <div class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl max-w-fit bg-blue-500/10 border border-blue-500/20 mb-6">
+  50% {
 
-  <span class="inline-flex items-center gap-2">
-
-    <span class="live-dot"></span>
-
-    Enterprise IT Infrastructure & AMC Solutions
-
-  </span>
-
-</div>
-
-  <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-
-    IT Infrastructure
-<span class="hero-gradient-text">
-  & AMC Solutions
-</span>
-
-  </h1>
-
-  <div id="typed-text"
-     class="mt-4 text-xl md:text-2xl text-gray-300 font-light">
-
-  <span id="fade-text"></span>
-
-</div>
-
-<!-- 🔥 LIVE INFO -->
-
-<div class="flex flex-wrap gap-4 mt-4 text-sm text-blue-300">
-
-  <div id="liveClock">
-    🕒 Loading Time...
-  </div>
-
-  <div id="uptimeCounter">
-    ⚡ Uptime: 0 Days
-  </div>
-
-</div>
-
-
-  <p class="mt-8 text-gray-400 text-lg leading-8 max-w-xl">
-
-    Helping businesses build secure, scalable and reliable IT infrastructure solutions including networking, cloud, automation, monitoring and AMC services.
-
-  </p>
-
-  <div class="flex flex-wrap gap-2 mt-6">
-
-  <span class="stack-pill">Linux</span>
-  <span class="stack-pill">AWS</span>
-  <span class="stack-pill">Sophos</span>
-  <span class="stack-pill">n8n</span>
-  <span class="stack-pill">Ansible</span>
-
-</div>
-
-<!-- 🔥 LIVE STATUS -->
-
-<div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-
-  <div class="status-card">
-
-    <span class="status-dot"></span>
-
-    Infrastructure Status
-
-    <strong>Operational</strong>
-
-  </div>
-
-  <div class="status-card">
-
-    ⚡ Active Nodes
-
-    <strong>24</strong>
-
-  </div>
-
-  <div class="status-card">
-
-    🌍 Region
-
-    <strong>Ahmedabad, IN</strong>
-
-  </div>
-
-</div>
-
-
-<div class="text-gray-400 text-sm mt-6 space-y-1">
-
-  <p>📞 +91 90678 25687</p>
-
-  <p>✉️ support@hanutech.cloud</p>
-
-</div>
-
-<div class="flex flex-wrap gap-3 mt-10">
+    transform:
+      translate(-50%, -50%) scale(1.08);
+
+  }
+
+}
+body {
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      background-color: #0f172a;
+      margin: 0;
+      padding: 0;
+    }
+
+    #tsparticles {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
     
-   <a href="https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20need%20IT%20support."
-   target="_blank"
-   rel="noopener noreferrer"
-   class="hero-btn-secondary">
+#typed-text {
+  line-height: 32px;
+  overflow: hidden;
+}
 
-  💬 WhatsApp
+#fade-text {
+  display: inline-block;
+  min-width: 280px;
+  height: 32px;
+  line-height: 32px;
+  transition: opacity 0.5s ease;
+}
+    .overlay {
 
-</a>
-  
-  
-  <a href="mailto:support@hanutech.cloud"
-       class="hero-btn-secondary">
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15,23,42,0.45),
+      rgba(15,23,42,0.65)
+    );
 
-      ✉️ Email
+  position: fixed;
 
-    </a>
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+    .profile-glow {
+
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.30);
+
+  animation:
+    float 6s ease-in-out infinite;
+}
+
+   .glass-card::before {
+
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(59,130,246,0.015),
+      transparent
+    );
+
+  opacity: 0.25;
+
+  pointer-events: none;
+}
+.glass-card:hover::before {
+
+  top: 100%;
+  left: 100%;
+}
+
+    
 
    
 
-  </div>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
 
-</div>
+   
+   .glow-border {
 
-      <!-- RIGHT SIDE TERMINAL -->
-      <div data-aos="fade-left">
+  border:
+    1px solid rgba(59,130,246,0.15);
 
-      <div class="bg-black rounded-2xl w-full max-w-2xl mx-auto border border-blue-500/30 shadow-2xl overflow-hidden terminal-glow">
-          <!-- TERMINAL HEADER -->
-          <div class="flex items-center gap-2 px-4 py-3 bg-gray-900 border-b border-gray-800">
+  box-shadow:
+    0 0 30px rgba(59,130,246,0.08);
+}
 
-            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500"></div>
 
-            <span class="ml-4 text-gray-400 text-sm font-mono">
-              hanutech@infrastructure:~
-            </span>
+.experience-card {
 
-          </div>
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
 
-          <!-- TERMINAL BODY -->
-          <div id="terminal"
-            class="p-6 font-mono text-green-400 text-sm md:text-base min-h-[220px] md:min-h-[350px] leading-8">
-            <span class="terminal-cursor">▋</span>
-          </div>
+  border:
+    1px solid rgba(255,255,255,0.05);
 
-        </div>
+  border-radius:
+    18px;
 
-      </div>
+  padding:
+    20px;
 
-    </div>
+  backdrop-filter:
+    blur(4px);
 
-  </div>
-</section>
+  background:
+    rgba(255,255,255,0.03);
+}
 
-<section id="services" class="py-12 relative z-10">
+.experience-card:hover {
 
-  <div class="container mx-auto px-4">
+  transform:
+    translateY(-2px);
 
-    <h2 class="section-glow text-3xl font-bold text-center text-white mb-10">
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.12);
 
-      🚀 Our Services
+  border-color:
+    rgba(59,130,246,0.18);
+}
 
-    </h2>
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e40af;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 50;
+      box-shadow:
+  0 0 15px rgba(59,130,246,0.18);
+      display: none;
+    }
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div class="glass-card text-center p-6">
-        🌐
-        <h3 class="text-xl font-semibold text-white mt-4">
-          Network Infrastructure
-        </h3>
-      </div>
+/* 🔥 GLASS NAVBAR */
 
-      <div class="glass-card text-center p-6">
-        🔥
-        <h3 class="text-xl font-semibold text-white mt-4">
-          Firewall Security
-        </h3>
-      </div>
 
-      <div class="glass-card text-center p-6">
-        ☁️
-        <h3 class="text-xl font-semibold text-white mt-4">
-          Cloud Solutions
-        </h3>
-      </div>
+.logo-glow {
 
-    <div class="glass-card text-center p-6">
+  animation:
+    logoPulse 3s ease-in-out infinite;
+}
 
-  ⚡
+@keyframes logoPulse {
 
-  <h3 class="text-xl font-semibold text-white mt-4">
+  0%,100% {
 
-    AMC Support
+    text-shadow:
+      0 0 10px rgba(59,130,246,0.4);
+  }
 
-  </h3>
+  50% {
 
-  <a href="amc-services.html"
-     class="inline-block mt-4 text-blue-400 hover:text-blue-300 transition">
+    text-shadow:
+      0 0 25px rgba(59,130,246,0.9);
+  }
+}
 
-    View Service →
+.nav-glass {
 
-  </a>
+  margin-top: 10px;
 
-</div>
+  width: fit-content;
 
-    </div>
+  min-width: calc(100% - 24px);
 
-  </div>
+  margin-left: auto;
 
-</section>
+  margin-right: auto;
 
-<!-- 🔥 LIVE MONITORING DASHBOARD -->
+  padding:
+    12px 18px;
 
-<section class="relative z-10 py-10">
+  border-radius:
+    20px;
 
-  <div class="container mx-auto px-4">
+  background:
+    rgba(15,23,42,0.55);
 
-    <div class="glass-card glow-border">
+  border:
+    1px solid rgba(255,255,255,0.06);
 
-      <h2 class="section-glow text-3xl font-bold text-white text-center mb-10">
+  backdrop-filter:
+    blur(4px);
 
-        📡 Live Infrastructure Monitoring
+  box-shadow:
+    0 0 30px rgba(0,0,0,0.15);
+}
 
-      </h2>
+.nav-link {
 
-      <div class="grid md:grid-cols-3 gap-6">
+  color:
+    #cbd5e1;
 
-        <!-- CPU -->
-        <div class="monitor-card">
+  font-size:
+    15px;
 
-          <div class="flex justify-between mb-3">
+  transition:
+    color 0.3s ease;
 
-            <span>🖥 CPU Usage</span>
+  position: relative;
+}
 
-            <span id="cpuValue">42%</span>
+.nav-link:hover {
 
-          </div>
+  color:
+    #60a5fa;
+}
 
-          <div class="monitor-bar">
-            <div id="cpuBar" class="monitor-fill"></div>
-          </div>
+.nav-link::after {
 
-        </div>
+  content: '';
 
-        <!-- RAM -->
-        <div class="monitor-card">
+  position: absolute;
 
-          <div class="flex justify-between mb-3">
+  left: 0;
+  bottom: -6px;
 
-            <span>⚡ RAM Usage</span>
+  width: 0%;
 
-            <span id="ramValue">61%</span>
+  height: 2px;
 
-          </div>
+  background:
+    #60a5fa;
 
-          <div class="monitor-bar">
-            <div id="ramBar" class="monitor-fill"></div>
-          </div>
+  transition:
+    width 0.3s ease;
+}
 
-        </div>
+.nav-link:hover::after {
 
-        <!-- NETWORK -->
-        <div class="monitor-card">
+  width: 100%;
+}
 
-          <div class="flex justify-between mb-3">
+.nav-scrolled .nav-glass {
 
-            <span>🌐 Network Traffic</span>
+  background:
+    rgba(15,23,42,0.82);
 
-            <span id="netValue">78%</span>
+  border:
+    1px solid rgba(59,130,246,0.12);
 
-          </div>
+  box-shadow:
+    0 6px 18px rgba(59,130,246,0.08);
+}
 
-          <div class="monitor-bar">
-            <div id="netBar" class="monitor-fill"></div>
-          </div>
+    .scroll-top-btn:hover {
 
-        </div>
+  background:
+    rgba(59,130,246,0.85);
 
-      </div>
+}
 
-      <!-- STATUS GRID -->
+ /* FOOTER */
 
-      <div class="grid md:grid-cols-4 gap-4 mt-10">
+.footer-glow {
 
-        <div class="infra-status">
-          🟢 Firewall Healthy
-        </div>
+  border-top:
+    1px solid rgba(255,255,255,0.08);
 
-        <div class="infra-status">
-          🟢 24 Nodes Online
-        </div>
+  box-shadow:
+    inset 0 2px 10px rgba(59,130,246,0.08);
+}
 
-        <div class="infra-status">
-          🟡 3 Pending Updates
-        </div>
+/* 🔥 MONITORING DASHBOARD */
 
-        <div class="infra-status">
-          🔵 Backup Successful
-        </div>
+.monitor-card {
 
-      </div>
+  background:
+    rgba(255,255,255,0.03);
 
-    </div>
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-  </div>
+  border-radius:
+    20px;
 
-</section>
+  padding:
+    24px;
 
+  backdrop-filter:
+    blur(5px);
 
-<!-- 🔥 LIVE INFRA STATS -->
-<section class="relative z-10 py-12">
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
 
-  <div class="container mx-auto px-4">
+.monitor-card:hover {
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+  transform:
+    translateY(-2px);
 
-      <!-- CARD 1 -->
-      <div class="stats-card" data-aos="zoom-in">
+  border-color:
+    rgba(59,130,246,0.4);
 
-        <h3 class="counter"
-            data-target="200">0</h3>
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.18);
+}
 
-        <p>Systems Managed</p>
+.monitor-bar {
 
-      </div>
+  width:
+    100%;
 
-      <!-- CARD 2 -->
-      <div class="stats-card" data-aos="zoom-in">
+  height:
+    12px;
 
-        <h3 class="counter"
-            data-target="25">0</h3>
+  border-radius:
+    999px;
 
-        <p>Automations Built</p>
+  background:
+    rgba(255,255,255,0.08);
 
-      </div>
+  overflow:
+    hidden;
+}
 
-      <!-- CARD 3 -->
-      <div class="stats-card" data-aos="zoom-in">
+.monitor-fill {
 
-        <h3>99.9%</h3>
+  height:
+    100%;
 
-        <p>Infrastructure Reliability</p>
+  width:
+    50%;
 
-      </div>
+  border-radius:
+    999px;
 
-      <!-- CARD 4 -->
-      <div class="stats-card" data-aos="zoom-in">
+  background:
+    linear-gradient(
+      90deg,
+      #3b82f6,
+      #60a5fa
+    );
 
-        <h3 class="counter"
-            data-target="12">0</h3>
+  transition:
+    width 1s ease;
+}
 
-        <p>Years Experience</p>
+.infra-status {
 
-      </div>
+  background:
+    rgba(255,255,255,0.04);
 
-    </div>
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-  </div>
+  border-radius:
+    16px;
 
-</section>
+  padding:
+    16px;
 
-  <section id="about"
-         class="py-16 relative z-10"
-         data-aos="fade-up">
-    <div class="container mx-auto px-4 flex flex-col items-center">
-      <h2 class="section-glow text-2xl font-semibold text-white mb-2">Enterprise Infrastructure Solutions</h2>
-      <p class="text-center max-w-2xl text-gray-300">
-HanuTech Cloud provides enterprise-grade IT infrastructure, networking, cloud, automation and AMC solutions for businesses. Specialized in firewall security, monitoring systems, workflow automation and scalable infrastructure management.      </p>
-    </div>
-  </section>
+  text-align:
+    center;
 
- <section id="infrastructure"
-         class="py-14 relative z-10"
-         data-aos="zoom-in">
+  color:
+    #e2e8f0;
 
-  <div class="container mx-auto px-4">
+  backdrop-filter:
+    blur(5px);
 
-    <div class="glass-card glow-border">
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+.infra-status:hover {
 
-      <h2 class="section-glow text-3xl font-bold text-center text-white mb-12">
+  transform:
+    translateY(-2px);
 
-        🌐 Enterprise Infrastructure Topology
+  border-color:
+    rgba(59,130,246,0.4);
 
-      </h2>
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.15);
+}
 
-      <div class="topology-wrapper">
 
-        <!-- INTERNET -->
-        <div class="topology-node internet">
+/* 🔥 STATS SECTION */
 
-          🌍 Internet
+.stats-card {
 
-        </div>
+  background:
+    rgba(255,255,255,0.04);
 
-        <div class="topology-line">
-  <span class="packet"></span>
-</div>
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-        <!-- SOPHOS -->
-        <div class="topology-node firewall">
+  border-radius:
+    20px;
 
-          🔥 Sophos Firewall
+  padding:
+    35px 20px;
 
-        </div>
+  text-align:
+    center;
 
-        <div class="topology-line">
-  <span class="packet"></span>
-</div>
+  backdrop-filter:
+    blur(5px);
 
-        <!-- SWITCH -->
-        <div class="topology-node switch">
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
-          🔀 Core Switch
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.2);
+}
 
-        </div>
+.stats-card:hover {
 
-        <!-- CHILDREN -->
-        <div class="topology-grid">
+  transform:
+    translateY(-3px);
 
-          <div class="topology-child">
-            💻 User Systems
-          </div>
+  border-color:
+    rgba(59,130,246,0.5);
 
-          <div class="topology-child">
-            📡 WiFi Access Points
-          </div>
+  box-shadow:
+    0 10px 24px rgba(59,130,246,0.14);
+}
 
-          <div class="topology-child">
-            🎥 CCTV Network
-          </div>
+.stats-card h3 {
 
-          <div class="topology-child">
-            🖥 Linux Servers
-          </div>
+  font-size:
+    42px;
 
-          <div class="topology-child">
-            ☁ Cloud Infrastructure
-          </div>
+  font-weight:
+    700;
 
-          <div class="topology-child">
-            🔐 Guest VLAN
-          </div>
+  color:
+    #60a5fa;
 
-        </div>
+  margin-bottom:
+    10px;
+}
 
-      </div>
+.stats-card p {
 
-    </div>
+  color:
+    #cbd5e1;
 
-  </div>
+  font-size:
+    15px;
 
-</section>
+  letter-spacing:
+    0.5px;
+}
+/* 🔥 ENTERPRISE STACK WALL */
 
- 
+.stack-heading {
 
-<!-- 🔥 SECURITY OPERATIONS CENTER -->
+  color:
+    white;
 
-<section class="relative z-10 py-10">
+  font-size:
+    26px;
 
-  <div class="container mx-auto px-4">
+  font-weight:
+    700;
 
-    <div class="glass-card glow-border">
+  margin-bottom:
+    28px;
 
-      <h2 class="section-glow text-3xl font-bold text-center text-white mb-10">
+  text-align:
+    center;
 
-        🛡 Security Operations Center
+  letter-spacing:
+    0.5px;
+}
+/* 🔥 HERO GRADIENT TEXT */
 
-      </h2>
+.hero-gradient-text {
 
-      <div class="grid lg:grid-cols-2 gap-6">
+  background:
+    linear-gradient(
+      90deg,
+      #60a5fa,
+      #38bdf8,
+      #818cf8
+    );
 
-        <!-- LEFT -->
+  -webkit-background-clip:
+    text;
 
-        <div class="soc-panel">
+  -webkit-text-fill-color:
+    transparent;
 
-          <h3 class="soc-title">
-            🚨 Threat Monitoring
-          </h3>
+  background-size:
+    200% auto;
 
-          <div id="socLogs"
-               class="soc-logs">
+  animation:
+    gradientMove 5s linear infinite;
+}
 
-          </div>
+@keyframes gradientMove {
 
-        </div>
+  0% {
+    background-position: 0% center;
+  }
 
-        <!-- RIGHT -->
+  100% {
+    background-position: 200% center;
+  }
+}
 
-        <div class="grid grid-cols-2 gap-4">
+.stack-wall {
 
-          <div class="soc-stat">
+  display:
+    flex;
 
-            <h4>🟢 Firewall</h4>
+  flex-wrap:
+    wrap;
 
-            <p>Operational</p>
+  justify-content:
+    center;
 
-          </div>
+  gap:
+    18px;
+}
 
-          <div class="soc-stat">
+.stack-pill {
 
-            <h4>🛡 Wazuh</h4>
+  display:
+    flex;
 
-            <p>Connected</p>
+  align-items:
+    center;
 
-          </div>
+  gap:
+    8px;
 
-          <div class="soc-stat">
+  padding:
+    14px 20px;
 
-            <h4>⚠ Medium Alerts</h4>
+  border-radius:
+    999px;
 
-            <p id="mediumAlerts">3</p>
+  background:
+    rgba(255,255,255,0.05);
 
-          </div>
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-          <div class="soc-stat">
+  color:
+    #e2e8f0;
 
-            <h4>🚫 Blocked IPs</h4>
+  font-weight:
+    500;
 
-            <p id="blockedIPs">17</p>
+  backdrop-filter:
+    blur(6px);
 
-          </div>
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
 
-          <div class="soc-stat">
+  box-shadow:
+    0 0 15px rgba(0,0,0,0.18);
+}
 
-            <h4>🔑 Failed SSH</h4>
+.stack-pill:hover {
 
-            <p id="failedSSH">9</p>
+  transform:
+    translateY(-2px) scale(1.02);
 
-          </div>
+  border-color:
+    rgba(59,130,246,0.45);
 
-          <div class="soc-stat">
+  color:
+    white;
 
-            <h4>☁ Cloud Sync</h4>
+  box-shadow:
+    0 8px 18px rgba(59,130,246,0.14);
+}
 
-            <p>Healthy</p>
+/* 🔥 SOC SECTION */
 
-          </div>
+.soc-panel {
 
-        </div>
+  background:
+    rgba(0,0,0,0.35);
 
-      </div>
+  border:
+    1px solid rgba(59,130,246,0.12);
 
-    </div>
+  border-radius:
+    20px;
 
-  </div>
+  padding:
+    24px;
 
-</section>
+  backdrop-filter:
+    blur(5px);
+}
 
+.soc-title {
 
-<!-- 🔥 INCIDENT RESPONSE SECTION -->
+  font-size:
+    22px;
 
-<section class="py-10 relative z-10"
-         data-aos="fade-up">
+  font-weight:
+    700;
 
-  <div class="container mx-auto px-4">
+  margin-bottom:
+    20px;
 
-    <div class="glass-card glow-border">
+  color:
+    white;
+}
 
-      <h2 class="section-glow text-3xl font-bold text-center text-white mb-10">
+.soc-logs {
 
-        🚨 Incident Response & Troubleshooting
+  height:
+    350px;
 
-      </h2>
+  overflow:
+    hidden;
 
-      <div class="grid lg:grid-cols-2 gap-6">
+  font-family:
+    monospace;
+}
 
-        <!-- CARD 1 -->
-        <div class="incident-card">
+.soc-line {
 
-          <div class="incident-tag">
-            Sophos Firewall
-          </div>
+  margin-bottom:
+    14px;
 
-          <h3>
-            Captive Portal Session Timeout
-          </h3>
+  color:
+    #cbd5e1;
 
-          <p>
+  opacity:
+    0;
 
-            Diagnosed repeated captive portal
-            authentication issue affecting users
-            across enterprise WiFi networks.
+  transform:
+    translateY(10px);
 
-          </p>
+  animation:
+    fadeFeed 0.4s forwards;
+}
 
-          <ul>
+.soc-time {
 
-            <li>✔ Analyzed session timeout policies</li>
+  color:
+    #60a5fa;
 
-            <li>✔ Improved authentication persistence</li>
+  margin-right:
+    8px;
+}
 
-            <li>✔ Reduced repeated login requests</li>
+.soc-stat {
 
-          </ul>
+  background:
+    rgba(255,255,255,0.04);
 
-        </div>
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-        <!-- CARD 2 -->
-<div class="incident-card">
+  border-radius:
+    18px;
 
-  <div class="incident-tag">
-    Sophos VPN
-  </div>
+  padding:
+    20px;
 
-  <h3>
-    Remote VPN Connectivity Failure
-  </h3>
+  text-align:
+    center;
 
-  <p>
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
-    Diagnosed SSL VPN connection instability
-    affecting remote employees accessing
-    internal office resources.
+  backdrop-filter:
+    blur(5px);
+}
 
-  </p>
+.soc-stat:hover {
 
-  <ul>
+  transform:
+    translateY(-2px);
 
-    <li>✔ Analyzed VPN authentication logs</li>
+  border-color:
+    rgba(59,130,246,0.4);
 
-    <li>✔ Identified routing & DNS conflicts</li>
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.18);
+}
 
-    <li>✔ Restored stable remote connectivity</li>
+.soc-stat h4 {
 
-  </ul>
+  margin-bottom:
+    10px;
 
-</div>
+  color:
+    #93c5fd;
+}
 
-        <!-- CARD 3 -->
-        <div class="incident-card">
+.soc-stat p {
 
-          <div class="incident-tag">
-            Infrastructure
-          </div>
+  font-size:
+    22px;
 
-          <h3>
-            200+ Systems Infrastructure Management
-          </h3>
+  font-weight:
+    bold;
 
-          <p>
+  color:
+    white;
+}
 
-            Managed enterprise-grade IT infrastructure
-            across multiple departments and floors.
+/* 🔥 CASE STUDIES */
 
-          </p>
+.case-card {
 
-          <ul>
+  background:
+    rgba(255,255,255,0.04);
 
-            <li>✔ VLAN & Network Segmentation</li>
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-            <li>✔ Firewall & Endpoint Security</li>
+  border-radius:
+    22px;
 
-            <li>✔ Monitoring & Asset Management</li>
+  padding:
+    24px;
 
-          </ul>
+  backdrop-filter:
+    blur(5px);
 
-        </div>
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+.case-card:hover {
 
-        <!-- CARD 5 -->
-<div class="incident-card">
+  transform:
+    translateY(-2px);
 
-  <div class="incident-tag">
-    Enterprise Network
-  </div>
+  border-color:
+    rgba(59,130,246,0.45);
 
-  <h3>
-    Sudden Office Internet Outage
-  </h3>
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.18);
+}
 
-  <p>
+.case-tag {
 
-    Investigated enterprise-wide internet outage
-    impacting multiple departments and business operations.
+  display:
+    inline-block;
 
-  </p>
+  background:
+    rgba(59,130,246,0.12);
 
-  <ul>
+  color:
+    #93c5fd;
 
-    <li>✔ Diagnosed ISP & firewall uplink issue</li>
+  padding:
+    7px 14px;
 
-    <li>✔ Performed failover testing</li>
+  border-radius:
+    999px;
 
-    <li>✔ Restored internet connectivity rapidly</li>
+  font-size:
+    13px;
 
-  </ul>
+  margin-bottom:
+    18px;
+}
 
-</div>
+.case-card h3 {
 
-<!-- CARD 6 -->
-<div class="incident-card">
+  color:
+    white;
 
-  <div class="incident-tag">
-    WiFi Infrastructure
-  </div>
+  font-size:
+    22px;
 
-  <h3>
-    Enterprise WiFi Coverage & Roaming Issues
-  </h3>
+  font-weight:
+    700;
 
-  <p>
+  margin-bottom:
+    20px;
+}
 
-    Resolved unstable WiFi connectivity and
-    roaming issues affecting users across office floors.
+.case-section {
 
-  </p>
+  margin-bottom:
+    18px;
 
-  <ul>
+  color:
+    #cbd5e1;
 
-    <li>✔ Optimized Access Point placement</li>
+  line-height:
+    1.7;
+}
 
-    <li>✔ Reduced signal interference</li>
+.case-section span {
 
-    <li>✔ Improved roaming stability</li>
+  display:
+    block;
 
-  </ul>
+  color:
+    white;
 
-</div>
+  font-weight:
+    600;
 
-        <!-- CARD 4 -->
-        <div class="incident-card">
+  margin-bottom:
+    6px;
+}
 
-          <div class="incident-tag">
-            Automation
-          </div>
+/* 🔥 INCIDENT SECTION */
 
-          <h3>
-            Intelligent Workflow Automation
-          </h3>
+.incident-card {
 
-          <p>
+  background:
+    rgba(255,255,255,0.03);
 
-            Built automated workflows using n8n,
-            Slack integrations, and AI-based reporting.
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-          </p>
+  border-radius:
+    20px;
 
-          <ul>
+  padding:
+    28px;
 
-            <li>✔ Real-time monitoring alerts</li>
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
-            <li>✔ Automated reporting system</li>
+  backdrop-filter:
+    blur(5px);
 
-            <li>✔ Reduced manual operations</li>
+  position:
+    relative;
 
-          </ul>
+  overflow:
+    hidden;
+}
+.incident-card:hover {
 
-        </div>
+  transform:
+    translateY(-3px);
 
-      </div>
+  border-color:
+    rgba(59,130,246,0.4);
 
-    </div>
+  box-shadow:
+    0 0 35px rgba(59,130,246,0.18);
 
-  </div>
+}
 
-</section>
+.incident-tag {
 
-<!-- 🔥 REAL CASE STUDIES -->
+  display: inline-block;
 
-<section class="py-10 relative z-10">
+  padding:
+    6px 14px;
 
-  <div class="container mx-auto px-4">
+  border-radius:
+    999px;
 
-    <div class="glass-card glow-border">
+  background:
+    rgba(59,130,246,0.12);
 
-      <h2 class="section-glow text-3xl font-bold text-center text-white mb-10">
+  color:
+    #93c5fd;
 
-        🚨 Real Infrastructure Case Studies
+  font-size:
+    13px;
 
-      </h2>
+  margin-bottom:
+    18px;
+}
 
-      <div class="grid lg:grid-cols-3 gap-6">
+.incident-card h3 {
 
-        <!-- CASE 1 -->
+  font-size:
+    22px;
 
-        <div class="case-card">
+  font-weight:
+    700;
 
-          <div class="case-tag">
-            Sophos Firewall
-          </div>
+  margin-bottom:
+    16px;
 
-          <h3>
-            Captive Portal Timeout Optimization
-          </h3>
+  color:
+    white;
+}
 
-          <div class="case-section">
+.incident-card p {
 
-            <span>Problem</span>
+  color:
+    #cbd5e1;
 
-            Users were repeatedly logged out from captive portal sessions.
+  line-height:
+    1.8;
 
-          </div>
+  margin-bottom:
+    20px;
+}
 
-          <div class="case-section">
+.incident-card ul {
 
-            <span>Root Cause</span>
+  list-style:
+    none;
 
-            Session timeout policy mismatch in firewall configuration.
+  padding:
+    0;
 
-          </div>
+  margin:
+    0;
+}
 
-          <div class="case-section">
 
-            <span>Resolution</span>
+/* 🔥 TOPOLOGY SECTION */
 
-            Optimized authentication persistence and timeout handling.
+.topology-wrapper {
 
-          </div>
+  display: flex;
 
-          <div class="case-section">
+  flex-direction: column;
 
-            <span>Impact</span>
+  align-items: center;
 
-            Improved user experience and reduced authentication complaints.
+  position: relative;
+}
 
-          </div>
+.topology-node {
 
-        </div>
+  padding:
+    16px 30px;
 
-        <!-- CASE 2 -->
+  border-radius:
+    18px;
 
-        <div class="case-card">
+  font-weight:
+    600;
 
-          <div class="case-tag">
-            VPN Infrastructure
-          </div>
+  color:
+    white;
 
-          <h3>
-            SSL VPN Connectivity Stabilization
-          </h3>
+  backdrop-filter:
+    blur(5px);
 
-          <div class="case-section">
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-            <span>Problem</span>
+  margin:
+    10px 0;
 
-            Remote users experienced unstable VPN sessions.
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+.topology-node:hover {
 
-          </div>
+  transform:
+    translateY(-2px);
 
-          <div class="case-section">
+  box-shadow:
+    0 8px 18px rgba(59,130,246,0.14);
 
-            <span>Root Cause</span>
+}
 
-            DNS conflicts and routing inconsistencies.
+.internet {
 
-          </div>
+  background:
+    rgba(59,130,246,0.10);
 
-          <div class="case-section">
+  border:
+    1px solid rgba(59,130,246,0.20);
 
-            <span>Resolution</span>
+  box-shadow:
+    0 0 20px rgba(59,130,246,0.10);
+}
 
-            Optimized VPN policies and corrected DNS forwarding.
+.firewall {
 
-          </div>
+  background:
+    rgba(239,68,68,0.08);
 
-          <div class="case-section">
+  border:
+    1px solid rgba(239,68,68,0.18);
 
-            <span>Impact</span>
+  box-shadow:
+    0 0 20px rgba(239,68,68,0.08);
+}
 
-            Stable and reliable remote access across teams.
+.switch {
 
-          </div>
+  background:
+    rgba(16,185,129,0.08);
 
-        </div>
+  border:
+    1px solid rgba(16,185,129,0.18);
 
-        <!-- CASE 3 -->
+  box-shadow:
+    0 0 20px rgba(16,185,129,0.08);
+}
 
-        <div class="case-card">
+.topology-line {
 
-          <div class="case-tag">
-            Automation
-          </div>
+    position: relative;
 
-          <h3>
-            Automated Patch Deployment
-          </h3>
+  width:
+    3px;
 
-          <div class="case-section">
+  height:
+    40px;
 
-            <span>Problem</span>
+  background:
+    linear-gradient(
+      to bottom,
+      #60a5fa,
+      transparent
+    );
+}
 
-            Manual patch deployment required excessive admin effort.
+.packet {
 
-          </div>
+  width:
+    10px;
 
-          <div class="case-section">
+  height:
+    10px;
 
-            <span>Root Cause</span>
+  border-radius:
+    50%;
 
-            No centralized automation workflow.
+  background:
+    #60a5fa;
 
-          </div>
+  position:
+    absolute;
 
-          <div class="case-section">
+  left:
+    -3px;
 
-            <span>Resolution</span>
+  animation:
+    movePacket 2s linear infinite;
 
-            Built automated deployment & reporting workflows.
+  box-shadow:
+    0 0 12px #60a5fa;
+}
 
-          </div>
+@keyframes movePacket {
 
-          <div class="case-section">
+  0% {
+    transform:
+      translateY(0);
+    opacity: 0;
+  }
 
-            <span>Impact</span>
+  20% {
+    opacity: 1;
+  }
 
-            Reduced operational effort and improved deployment consistency.
+  100% {
+    transform:
+      translateY(40px);
+    opacity: 0;
+  }
+}
 
-          </div>
+.topology-grid {
 
-        </div>
+  display:
+    grid;
 
-      </div>
+  grid-template-columns:
+repeat(auto-fit,minmax(160px,1fr));
 
-    </div>
+  gap:
+    20px;
 
-  </div>
+  width:
+    100%;
 
-</section>
+  margin-top:
+    40px;
+}
 
+.topology-child {
 
- <section id="experience"
-         class="py-10 relative z-10"
-         data-aos="fade-up">
-    <div class="container mx-auto px-4 glass-card">
-      <h2 class="section-glow text-2xl font-semibold text-white mb-6 text-center">Enterprise Experience</h2>
-      <div class="max-w-3xl mx-auto space-y-6 text-white">
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="webelight logo.jpg" class="company-logo" />Senior IT Infrastructure System Engineer — Webelight Solutions Pvt Ltd</h3><p class="text-sm">Dec 2024 – Present</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="growexx.svg" class="company-logo" />Sr. IT Executive — Growexx Pvt Ltd</h3><p class="text-sm">Jul 2023 – Dec 2024</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="xbyte.jpg" class="company-logo" />System Administrator — Xbyte Technolabs Pvt Ltd</h3><p class="text-sm">Jul 2019 – Jul 2023</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="K R India.jpeg" class="company-logo" />Desktop Support Engineer — KR India Pvt Ltd (IDSS)</h3><p class="text-sm">Mar 2018 – Jun 2019</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="N B Patel logo.png" class="company-logo" />Desktop Support Engineer — NB Patel</h3><p class="text-sm">Mar 2017 – Mar 2018</p></div>
-        <div class="experience-card"><h3 class="text-lg font-semibold flex items-center gap-2"><img src="LCIT logo.jpg" class="company-logo" />Desktop Support Engineer — LCIT</h3><p class="text-sm">Mar 2015 – Mar 2017</p></div>
-      </div>
-    </div>
-  </section>
+  background:
+    rgba(255,255,255,0.04);
 
+  border:
+    1px solid rgba(255,255,255,0.04);
 
-<section id="automation"
-         class="py-10 relative z-10"
-         data-aos="fade-up">
+  border-radius:
+    18px;
 
-  <div class="container mx-auto px-4 glass-card">
+  padding:
+    24px;
 
-    <h2 class="section-glow text-2xl font-semibold text-white mb-6 text-center">
+  text-align:
+    center;
 
-      Infrastructure Automation Solutions
+  color:
+    #e2e8f0;
 
-    </h2>
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
-    <div class="max-w-3xl mx-auto space-y-6 text-white">
+  backdrop-filter:
+    blur(5px);
+}
 
-      <!-- AI Monitoring -->
-      <div class="experience-card">
+.topology-child:hover {
 
-        <h3 class="text-lg font-semibold flex items-center gap-2">
+  transform:
+    translateY(-3px);
 
-          <img src="https://n8n.io/favicon.ico"
-               class="company-logo" />
+  border-color:
+    rgba(59,130,246,0.4);
 
-          AI Monitoring System
+  box-shadow:
+    0 10px 22px rgba(59,130,246,0.12);
+}
 
-        </h3>
 
-        <p class="text-sm mb-3">
+/* 🔥 STATUS CARDS */
 
-          Automated server monitoring with intelligent alerting using n8n, Slack & Email.
+.status-card {
 
-        </p>
+  background:
+    rgba(255,255,255,0.04);
 
-        <div class="mt-3 flex gap-3 flex-wrap">
+  border:
+    1px solid rgba(255,255,255,0.08);
 
-          <button
-            onclick="openModal('ai-server-monitoring-workflow.png')"
-            class="btn-premium">
+  border-radius:
+    16px;
 
-            👁 View Workflow
+  padding:
+    16px;
 
-          </button>
+  color:
+    #cbd5e1;
 
-        </div>
+  backdrop-filter:
+    blur(6px);
 
-        <div class="text-xs text-gray-400 italic leading-6 mt-3">
+  display:
+    flex;
 
-          🔒 Production-grade workflows are protected under
-          organizational NDA policies and cannot be distributed publicly.
+  flex-direction:
+    column;
 
-          <br><br>
+  gap:
+    8px;
 
-          Custom automation solutions can be architected
-          and tailored based on specific infrastructure
-          and business requirements.
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+.status-card:hover {
 
-        </div>
+  transform:
+    translateY(-2px);
 
-      </div>
+  border-color:
+    rgba(59,130,246,0.5);
 
-      <!-- BlueGuardian -->
-      <div class="experience-card">
+  box-shadow:
+    0 0 25px rgba(59,130,246,0.18);
+}
 
-        <h3 class="text-lg font-semibold flex items-center gap-2">
+.status-card strong {
 
-          <img src="https://cdn-icons-png.flaticon.com/512/2913/2913133.png"
-               class="w-6 h-6" />
+  color:
+    white;
 
-          BlueGuardian Monitoring
+  font-size:
+    18px;
+}
 
-        </h3>
+.status-dot {
 
-        <p class="text-sm">
+  width:
+    10px;
 
-          Automated monitoring system with real-time alerts and system health tracking using n8n workflows.
+  height:
+    10px;
 
-        </p>
+  border-radius:
+    50%;
 
-        <div class="mt-3 flex gap-3 flex-wrap">
+  background:
+    #22c55e;
 
-          <button
-            onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/blueguardian-ai-monitoring-workflow.png')"
-            class="btn-premium">
+  box-shadow:
+    0 0 12px #22c55e;
 
-            👁 View Workflow
+  animation:
+    blink 1.5s infinite;
+}
 
-          </button>
+@keyframes blink {
 
-        </div>
+  0%,100% {
+    opacity: 1;
+  }
 
-        <div class="text-xs text-gray-400 italic leading-6 mt-3">
+  50% {
+    opacity: 0.3;
+  }
+}
 
-          🔒 Production-grade workflows are protected under
-          organizational NDA policies and cannot be distributed publicly.
+     /* 🔥 AUTOMATION FEED */
 
-          <br><br>
+.automation-feed {
 
-          Similar monitoring and automation systems can be
-          customized based on your infrastructure requirements.
+  background:
+    rgba(0,0,0,0.35);
 
-        </div>
+  border:
+    1px solid rgba(59,130,246,0.12);
 
-      </div>
+  border-radius:
+    18px;
 
-      <!-- Global Config -->
-      <div class="experience-card">
+  padding:
+    20px;
 
-        <h3 class="text-lg font-semibold flex items-center gap-2">
+  height:
+    320px;
 
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png"
-               class="w-6 h-6" />
+  overflow:
+    hidden;
 
-          ⚙️ Global Config Automation
+  position:
+    relative;
 
-        </h3>
+  font-family:
+    monospace;
+}
 
-        <p class="text-sm">
+.feed-line {
 
-          Centralized configuration management system to apply global changes across multiple systems automatically.
+  color:
+    #cbd5e1;
 
-        </p>
+  margin-bottom:
+    14px;
 
-        <div class="mt-3 flex gap-3 flex-wrap">
+  opacity:
+    0;
 
-          <button
-            onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/global-config-workflow.png')"
-            class="btn-premium">
+  transform:
+    translateY(10px);
 
-            👁 View Workflow
+  animation:
+    fadeFeed 0.5s forwards;
+}
 
-          </button>
+.feed-time {
 
-        </div>
+  color:
+    #60a5fa;
 
-        <div class="text-xs text-gray-400 italic leading-6 mt-3">
+  margin-right:
+    10px;
+}
 
-          🔒 Workflow architecture and production implementations
-          remain confidential under organizational NDA policies.
+@keyframes fadeFeed {
 
-          <br><br>
+  to {
 
-          Similar centralized automation workflows can be
-          designed for enterprise infrastructure environments.
+    opacity: 1;
 
-        </div>
+    transform:
+      translateY(0);
+  }
+}
 
-      </div>
+/* PREMIUM BUTTON */
 
-      <!-- GCP -->
-      <div class="experience-card">
+/* HERO BUTTONS */
 
-        <h3 class="text-lg font-semibold flex items-center gap-2">
+.hero-btn-primary {
 
-          <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
-               class="w-6 h-6" />
 
-          🌐 GCP Project Automation
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-        </h3>
+  padding: 14px 28px;
 
-        <p class="text-sm">
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #2563eb
+  );
 
-          Automated Google Cloud project setup, resource provisioning, and task execution using n8n workflows.
+  color: white;
 
-        </p>
+  border-radius: 14px;
 
-        <div class="mt-3 flex gap-3 flex-wrap">
+  font-weight: 600;
 
-          <button
-            onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/gcp-project-automation-workflow.png')"
-            class="btn-premium">
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  background 0.3s ease,
+  border-color 0.3s ease;
 
-            👁 View Workflow
+  box-shadow:
+    0 6px 16px rgba(59,130,246,0.16);
 
-          </button>
+  border:
+    1px solid rgba(255,255,255,0.1);
+}
 
-        </div>
+.hero-btn-primary:hover {
 
-        <div class="text-xs text-gray-400 italic leading-6 mt-3">
+  transform: translateY(-2px);
 
-          🔒 Production cloud automation workflows are restricted
-          under enterprise NDA agreements.
+  box-shadow:
+    0 8px 18px rgba(59,130,246,0.18);
 
-          <br><br>
+}
 
-          Cloud provisioning and workflow automation solutions
-          can be developed based on project requirements.
+.hero-btn-secondary {
 
-        </div>
 
-      </div>
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-      <!-- Patch Management -->
-      <div class="experience-card">
+  padding: 14px 24px;
 
-        <h3 class="text-lg font-semibold flex items-center gap-2">
+  background: rgba(255,255,255,0.04);
 
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png"
-               class="w-6 h-6" />
+  border: 1px solid rgba(255,255,255,0.08);
 
-          🛠 Centralized Patch Management System
+  color: white;
 
-        </h3>
+  border-radius: 14px;
 
-        <p class="text-sm">
+  backdrop-filter: blur(5px);
 
-          Automated patch deployment system using Ansible with scheduled execution and real-time Slack notifications.
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  border-color 0.3s ease,
+  background 0.3s ease;
+}
 
-        </p>
+.hero-btn-secondary:hover {
 
-        <div class="mt-3 flex gap-3 flex-wrap">
+  transform: translateY(-2px);
 
-          <button
-            onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/centralized-patch-management-workflow.png')"
-            class="btn-premium">
+  border-color: rgba(59,130,246,0.5);
 
-            👁 View Workflow
+  box-shadow:
+    0 6px 16px rgba(59,130,246,0.14);
 
-          </button>
+}
 
-        </div>
 
-        <div class="text-xs text-gray-400 italic leading-6 mt-3">
+/* 🔥 TERMINAL GLOW */
 
-          🔒 Enterprise deployment workflows and production
-          automation pipelines are protected under NDA policies.
+.terminal-glow {
 
-          <br><br>
+  box-shadow:
+    0 0 40px rgba(59,130,246,0.15),
+    inset 0 0 20px rgba(59,130,246,0.08);
 
-          Similar patch management and reporting systems can be
-          implemented for enterprise environments.
+  transition:
+    box-shadow 0.3s ease;
+}
+.terminal-glow:hover {
 
-        </div>
+  box-shadow:
+    0 0 24px rgba(59,130,246,0.12),
+    inset 0 0 25px rgba(59,130,246,0.12);
+}
 
-      </div>
 
-      <!-- Sophos -->
-      <div class="experience-card">
 
-        <h3 class="text-lg font-semibold flex items-center gap-2">
 
-          <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
-               class="w-6 h-6" />
+@media (max-width: 767px) {
 
-          🚀 Sophos AI Security Report System
+  .hero-btn-primary,
+  .hero-btn-secondary {
 
-        </h3>
+    width: 100%;
+  }
+}
 
-        <p class="text-sm">
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ffffff, #e0e7ff);
+  color: #1e3a8a;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,191,255,0.4);
+  transition:
+  transform 0.3s ease,
+  box-shadow 0.3s ease,
+  background 0.3s ease,
+  color 0.3s ease;
 
-          Automated security report processing using AI with data extraction, risk analysis, and delivery via Email and Slack.
+  min-width: 220px;   /* 👈 change */
+  text-align: center; /* 👈 add */
+}
 
-        </p>
+.btn-premium:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,191,255,0.22);
+  background: linear-gradient(135deg, #ffffff, #dbeafe);
+}
 
-        <div class="mt-3 flex gap-3 flex-wrap">
 
-          <button
-            onclick="openModal('https://raw.githubusercontent.com/akashvicky1/akash-portfolio/main/sophos-ai-security-report-workflow.png')"
-            class="btn-premium">
 
-            👁 View Workflow
+.section-glow {
 
-          </button>
+  text-shadow:
+    0 0 18px rgba(59,130,246,0.35);
+}
 
-        </div>
 
-        <div class="text-xs text-gray-400 italic leading-6 mt-3">
+/* 🔥 FLOATING LIGHT */
 
-          🔒 SOC workflows, security pipelines, and AI automation
-          systems are confidential under enterprise NDA agreements.
+body::after {
 
-          <br><br>
+  content: '';
 
-          Custom AI-powered security automation solutions can be
-          tailored for organizational security operations.
+  position: fixed;
 
-        </div>
+  width: 220px;
+  height: 220px;
 
-      </div>
+  top: -80px;
+  right: -80px;
 
-      <!-- LIVE FEED -->
-      <div class="experience-card mt-10">
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.05),
+      transparent 75%
+    );
 
-        <h3 class="text-xl font-semibold mb-5 flex items-center gap-2">
+  filter: blur(14px);
 
-          <span class="inline-flex items-center gap-2">
+  opacity: 0.16;
 
-            <span class="live-dot"></span>
+  z-index: -6;
 
-            ⚡ Live Automation Activity
+  pointer-events: none;
+}
+.company-logo {
 
-          </span>
+  width: 28px;
+  height: 28px;
 
-        </h3>
+  object-fit: contain;
 
-        <div id="activityFeed"
-             class="automation-feed">
+  border-radius: 8px;
+}
+html {
 
-        </div>
+  scroll-behavior: smooth;
+}
 
-      </div>
+.glass-card,
+.monitor-card,
+.case-card,
+.incident-card,
+.stats-card,
+.hero-btn-primary,
+.hero-btn-secondary,
+.stack-pill,
+.topology-child,
+.topology-node {
+  will-change: transform;
+  transform: translateZ(0);
+}
 
-    </div>
+@media (max-width: 768px) {
 
-  </div>
+  #tsparticles,
+  .network-glow,
+  body::after,
+  .cursor-glow {
+    display: none;
+  }
 
-</section>
+  .glass-card,
+  .monitor-card,
+  .case-card,
+  .incident-card,
+  .soc-panel,
+  .soc-stat,
+  .topology-node,
+  .topology-child,
+  .status-card,
+  .nav-glass {
+    backdrop-filter: none !important;
+  }
 
+}
 
-<section id="contact" class="py-16 relative z-10">
+img {
+  content-visibility: auto;
+}
 
-  <div class="container mx-auto px-4">
+#mobileMenu {
 
-    <div class="glass-card glow-border text-center">
+  transition:
+    all 0.3s ease;
+}
+  .experience-card:hover,
+.case-card:hover,
+.incident-card:hover {
 
-      <h2 class="section-glow text-3xl font-bold text-white mb-6">
+  border-color:
+    rgba(59,130,246,0.25);
 
-        Need IT Infrastructure Support?
+}
 
-      </h2>
+  .live-dot {
 
-      <p class="text-gray-400 mb-8">
+  width: 8px;
+  height: 8px;
 
-        Contact HanuTech Cloud for infrastructure,
-        networking, cloud, automation and AMC services.
+  border-radius: 50%;
 
-      </p>
+  background: #22c55e;
 
-      <div class="flex flex-wrap justify-center gap-4">
+  box-shadow:
+    0 0 8px #22c55e;
 
-        <a href="https://wa.me/919067825687"
-           target="_blank"
-           class="hero-btn-primary">
+}
 
-          💬 WhatsApp
 
-        </a>
+body::before {
 
-        <a href="mailto:support@hanutech.cloud"
-           class="hero-btn-secondary">
+  content: '';
 
-          ✉️ Email
+  position: fixed;
 
-        </a>
+  inset: 0;
 
-      </div>
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
 
-    </div>
+  background-size: 40px 40px;
 
-  </div>
+  z-index: -10;
 
-</section>
+  pointer-events: none;
 
-<!-- 🔥 MODAL POPUP -->
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
-  
-  <div class="relative w-full h-full overflow-auto flex items-center justify-center">
-    
-    <!-- CLOSE BUTTON -->
-    <span onclick="closeModal()" 
-      class="absolute top-2 right-4 text-white text-3xl cursor-pointer">
-      &times;
-    </span>
+}
 
-    <!-- IMAGE -->
-   <img
-  id="modalImage"
-  src=""
-  loading="lazy"
-  decoding="async"
-  style="max-width:95%;"
-    class="rounded-xl shadow-lg h-auto transition-all duration-300" />
-  
-  </div>
-</div>
+@media (max-width: 768px) {
 
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center py-6 mt-10 relative z-10 footer-glow" data-aos="fade-up">
-  <p>&copy; 2026 HanuTech Cloud • Enterprise IT Infrastructure & AMC Solutions • Founded by Akash Prajapati</p>
-</footer>
+  body::before {
 
-  <!-- Scroll to top button -->
-  <button onclick="scrollToTop()" class="scroll-top-btn" id="scrollBtn">↑</button>
+    opacity: 0.35;
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
- <script src="js/main.js"></script>
+  }
 
- <a href="https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20need%20IT%20support."
-   target="_blank"
-   class="fixed bottom-24 right-6 z-50 bg-green-500 hover:bg-green-600 text-white px-5 py-4 rounded-full shadow-2xl text-xl">
+}
 
-  💬
+.experience-card:hover,
+.case-card:hover,
+.incident-card:hover {
 
-</a>
+  border-color:
+    rgba(59,130,246,0.25);
 
-</body>
-</html>
+  transform:
+    translateY(-2px);
+
+}
