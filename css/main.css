@@ -1728,3 +1728,28 @@ body::before {
     translateY(-2px);
 
 }
+
+/* 🔥 SERVICE CARD HOVER */
+
+.service-card {
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  cursor: pointer;
+}
+
+.service-card:hover {
+
+  transform:
+    translateY(-10px);
+
+  border-color:
+    rgba(59,130,246,0.45);
+
+  box-shadow:
+    0 15px 40px rgba(59,130,246,0.18);
+
+}
