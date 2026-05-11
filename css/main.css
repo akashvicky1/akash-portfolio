@@ -1753,3 +1753,37 @@ body::before {
     0 15px 40px rgba(59,130,246,0.18);
 
 }
+
+/* 🔥 PREMIUM AI GLASS EFFECT */
+
+.glass-card {
+
+  background:
+    rgba(15,23,42,0.58);
+
+  border:
+    1px solid rgba(59,130,246,0.14);
+
+  backdrop-filter:
+    blur(10px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+
+  transition:
+    all 0.3s ease;
+}
+
+/* 🔥 HOVER */
+
+.glass-card:hover {
+
+  border-color:
+    rgba(59,130,246,0.28);
+
+  box-shadow:
+    0 15px 45px rgba(59,130,246,0.14);
+
+  transform:
+    translateY(-6px);
+}
