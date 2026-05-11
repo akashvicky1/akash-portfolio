@@ -25,32 +25,7 @@
 }
 
 
-.cursor-glow {
 
-  position: fixed;
-
-  width: 180px;
-  height: 180px;
-
-  opacity: 0.6;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(59,130,246,0.15),
-      transparent 70%
-    );
-
-  pointer-events: none;
-
-  z-index: -1;
-
-  border-radius: 50%;
-
-
-  transition:
-    transform 0.08s linear;
-}
 
 
 /* 🔥 NETWORK GLOW */
@@ -71,9 +46,9 @@
  rgba(59,130,246,0.18),
  transparent 70%);
 
-  filter: blur(18px);
+  filter: blur(40px);
 
-  opacity: 0.22;
+  opacity: 0.38;
 
   z-index: -2;
 
@@ -102,13 +77,6 @@
   }
 
 }
-body {
-      font-family: 'Inter', sans-serif;
-      color: #ffffff;
-      background-color: #0f172a;
-      margin: 0;
-      padding: 0;
-    }
 
     #tsparticles {
   position: fixed;
@@ -1750,27 +1718,9 @@ body::before {
 
 }
 
-/* 🔥 PREMIUM AI GLASS EFFECT */
 
-.glass-card {
 
-  background:
-    rgba(15,23,42,0.58);
-
-  border:
-    1px solid rgba(59,130,246,0.14);
-
-  backdrop-filter:
-    blur(10px);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.25);
-
-  transition:
-    all 0.3s ease;
-}
-
-/* 🔥 HOVER */
+/* 🔥 GLASS HOVER */
 
 .glass-card:hover {
 
@@ -1784,109 +1734,3 @@ body::before {
     translateY(-6px);
 }
 
-/* 🔥 HERO TEXT */
-
-.hero-gradient-text {
-
-  background:
-    linear-gradient(
-      90deg,
-      #60a5fa,
-      #3b82f6,
-      #93c5fd
-    );
-
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-}
-
-/* 🔥 AI BACKGROUND */
-
-body {
-
-  background:
-    radial-gradient(circle at top,
-    rgba(59,130,246,0.12),
-    transparent 35%),
-
-    linear-gradient(
-      135deg,
-      #020617 0%,
-      #081229 40%,
-      #0f172a 100%
-    );
-
-  overflow-x: hidden;
-}
-
-/* 🔥 CYBER GLOW */
-
-body::before {
-
-  content: '';
-
-  position: fixed;
-
-  inset: 0;
-
-  background:
-    radial-gradient(circle at 20% 20%,
-    rgba(59,130,246,0.08),
-    transparent 25%),
-
-    radial-gradient(circle at 80% 30%,
-    rgba(96,165,250,0.08),
-    transparent 30%),
-
-    radial-gradient(circle at 50% 80%,
-    rgba(37,99,235,0.06),
-    transparent 30%);
-
-  z-index: -2;
-
-  pointer-events: none;
-}
-
-/* 🔥 GLASS DEPTH */
-
-.glass-card,
-.nav-glass,
-.monitor-card,
-.experience-card,
-.soc-panel,
-.case-card,
-.incident-card {
-
-  background:
-    rgba(15,23,42,0.52);
-
-  border:
-    1px solid rgba(59,130,246,0.12);
-
-  backdrop-filter:
-    blur(12px);
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.28);
-
-  transition:
-    all 0.3s ease;
-}
-
-/* 🔥 AI HOVER */
-
-.glass-card:hover,
-.monitor-card:hover,
-.experience-card:hover,
-.case-card:hover {
-
-  transform:
-    translateY(-6px);
-
-  border-color:
-    rgba(59,130,246,0.25);
-
-  box-shadow:
-    0 15px 50px rgba(59,130,246,0.12);
-}
