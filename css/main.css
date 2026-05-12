@@ -1797,7 +1797,124 @@ repeat(auto-fit,minmax(160px,1fr));
 }
 
 
+/* 🔥 AI ORB */
 
+.ai-orb{
+
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  width:420px;
+  height:420px;
+
+  transform:
+    translate(-50%,-50%);
+
+  border-radius:50%;
+
+  background:
+
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255,255,255,.35),
+      transparent 18%
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(0,240,255,.18),
+      rgba(139,92,246,.10),
+      transparent 70%
+    );
+
+  filter:blur(10px);
+
+  animation:
+    orbFloat 7s ease-in-out infinite;
+
+  z-index:-1;
+
+  box-shadow:
+
+    0 0 80px rgba(0,240,255,.20),
+
+    0 0 140px rgba(139,92,246,.12);
+}
+
+/* 🔥 ORB RING */
+
+.ai-orb::before{
+
+  content:'';
+
+  position:absolute;
+
+  inset:-30px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(0,240,255,.14);
+
+  animation:
+    orbRotate 12s linear infinite;
+}
+
+.ai-orb::after{
+
+  content:'';
+
+  position:absolute;
+
+  inset:-60px;
+
+  border-radius:50%;
+
+  border:
+    1px dashed rgba(139,92,246,.18);
+
+  animation:
+    orbRotateReverse 18s linear infinite;
+}
+
+@keyframes orbFloat{
+
+  0%,100%{
+    transform:
+      translate(-50%,-50%)
+      scale(1);
+  }
+
+  50%{
+    transform:
+      translate(-50%,-52%)
+      scale(1.05);
+  }
+}
+
+@keyframes orbRotate{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes orbRotateReverse{
+
+  from{
+    transform:rotate(360deg);
+  }
+
+  to{
+    transform:rotate(0deg);
+  }
+}
 
 @media (max-width: 767px) {
 
