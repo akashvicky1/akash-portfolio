@@ -161,8 +161,8 @@
 
   position:fixed;
 
-  width:700px;
-  height:700px;
+  width:500px;
+height:500px;
 
   background:
     radial-gradient(
@@ -178,7 +178,7 @@
 
   z-index:-5;
 
-  filter:blur(60px);
+ filter:blur(30px);
 
   animation:aiPulse 8s ease-in-out infinite;
 }
@@ -344,9 +344,10 @@ h1,h2,h3,.section-glow{
 .status-card:hover{
 
   transform:
-    translateY(-6px)
-    scale(1.01);
-
+  translateY(-8px)
+ rotateX(1.5deg)
+rotateY(-1.5deg)
+  scale(1.02);
   border-color:
     rgba(0,240,255,.45);
 
@@ -405,11 +406,7 @@ h1,h2,h3,.section-glow{
   left:140%;
 }
 
-.glass-card:hover::before {
 
-  top: 100%;
-  left: 100%;
-}
 
     
 
@@ -532,8 +529,8 @@ h1,h2,h3,.section-glow{
   border:
     1px solid rgba(255,255,255,0.06);
 
-  backdrop-filter:
-    blur(4px);
+ backdrop-filter:
+    blur(12px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
@@ -734,76 +731,7 @@ h1,h2,h3,.section-glow{
 }
 
 
-/* 🔥 STATS SECTION */
 
-.stats-card {
-
-  background:
-    rgba(255,255,255,0.04);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  border-radius:
-    20px;
-
-  padding:
-    35px 20px;
-
-  text-align:
-    center;
-
-  backdrop-filter:
-    blur(5px);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    background-color 0.3s ease;
-
-  box-shadow:
-    0 0 20px rgba(0,0,0,0.2);
-}
-
-.stats-card:hover {
-
-  transform:
-    translateY(-3px);
-
-  border-color:
-    rgba(59,130,246,0.5);
-
-  box-shadow:
-    0 10px 24px rgba(59,130,246,0.14);
-}
-
-.stats-card h3 {
-
-  font-size:
-    42px;
-
-  font-weight:
-    700;
-
-  color:
-    #60a5fa;
-
-  margin-bottom:
-    10px;
-}
-
-.stats-card p {
-
-  color:
-    #cbd5e1;
-
-  font-size:
-    15px;
-
-  letter-spacing:
-    0.5px;
-}
 /* 🔥 ENTERPRISE STACK WALL */
 
 .stack-heading {
@@ -1113,108 +1041,7 @@ h1,h2,h3,.section-glow{
     white;
 }
 
-/* 🔥 CASE STUDIES */
 
-.case-card {
-
-  background:
-    rgba(255,255,255,0.04);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  border-radius:
-    22px;
-
-  padding:
-    24px;
-
-  backdrop-filter:
-    blur(5px);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    background-color 0.3s ease;
-}
-.case-card:hover {
-
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(59,130,246,0.45);
-
-  box-shadow:
-    0 0 25px rgba(59,130,246,0.18);
-}
-
-.case-tag {
-
-  display:
-    inline-block;
-
-  background:
-    rgba(59,130,246,0.12);
-
-  color:
-    #93c5fd;
-
-  padding:
-    7px 14px;
-
-  border-radius:
-    999px;
-
-  font-size:
-    13px;
-
-  margin-bottom:
-    18px;
-}
-
-.case-card h3 {
-
-  color:
-    white;
-
-  font-size:
-    22px;
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    20px;
-}
-
-.case-section {
-
-  margin-bottom:
-    18px;
-
-  color:
-    #cbd5e1;
-
-  line-height:
-    1.7;
-}
-
-.case-section span {
-
-  display:
-    block;
-
-  color:
-    white;
-
-  font-weight:
-    600;
-
-  margin-bottom:
-    6px;
-}
 
 /* 🔥 INCIDENT SECTION */
 
@@ -1341,6 +1168,9 @@ h1,h2,h3,.section-glow{
 
 .service-feature{
 
+  transform-style:preserve-3d;
+perspective:1000px;
+
   min-height:260px;
 
   display:flex;
@@ -1383,6 +1213,7 @@ h1,h2,h3,.section-glow{
   .services-grid{
 
     grid-template-columns:1fr;
+    gap:18px;
   }
 
 }
@@ -1855,7 +1686,7 @@ repeat(auto-fit,minmax(160px,1fr));
 .terminal-glow:hover {
 
   box-shadow:
-    0 0 24px rgba(59,130,246,0.12),
+    0 0 40px rgba(59,130,246,0.18),
     inset 0 0 25px rgba(59,130,246,0.12);
 }
 
@@ -1869,8 +1700,8 @@ repeat(auto-fit,minmax(160px,1fr));
   top:50%;
   left:50%;
 
-  width:420px;
-  height:420px;
+  width:520px;
+height:520px;
 
   transform:
     translate(-50%,-50%);
@@ -1892,12 +1723,16 @@ repeat(auto-fit,minmax(160px,1fr));
       transparent 70%
     );
 
-  filter:blur(10px);
+  filter:blur(6px);
 
   animation:
     orbFloat 7s ease-in-out infinite;
 
-  z-index:-1;
+  z-index:0;
+
+opacity:.65;
+
+mix-blend-mode:screen;
 
   box-shadow:
 
@@ -2205,70 +2040,4 @@ body::before {
 
 }
 
-.experience-card:hover,
-.case-card:hover,
-.incident-card:hover {
 
-  border-color:
-    rgba(59,130,246,0.25);
-
-  transform:
-    translateY(-2px);
-
-}
-
-.ai-grid{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-
-  background:
-    linear-gradient(rgba(59,130,246,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,130,246,.07) 1px, transparent 1px);
-
-  background-size:40px 40px;
-
-  mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
-
-  animation:gridMove 20s linear infinite;
-}
-
-@keyframes gridMove{
-  from{
-    transform:translateY(0);
-  }
-  to{
-    transform:translateY(40px);
-  }
-}
-
-.scan-line{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-
-.scan-line::before{
-  content:'';
-  position:absolute;
-  top:-100%;
-  left:0;
-  width:100%;
-  height:200px;
-
-  background:linear-gradient(
-    to bottom,
-    transparent,
-    rgba(59,130,246,.15),
-    transparent
-  );
-
-  animation:scanMove 6s linear infinite;
-}
-
-@keyframes scanMove{
-  to{
-    top:120%;
-  }
-}
