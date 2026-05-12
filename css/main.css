@@ -290,6 +290,121 @@ h1,h2,h3,.section-glow{
 
   pointer-events: none;
 }
+
+/* 🔥 AI CARD STYLE */
+
+.glass-card,
+.monitor-card,
+.stats-card,
+.case-card,
+.incident-card,
+.soc-stat,
+.topology-child,
+.status-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.02)
+    );
+
+  border:
+    1px solid rgba(0,240,255,.12);
+
+  box-shadow:
+
+    0 0 0 1px rgba(255,255,255,.02),
+
+    0 0 25px rgba(0,240,255,.05),
+
+    inset 0 0 30px rgba(255,255,255,.015);
+
+  backdrop-filter:blur(14px);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 🔥 HOVER */
+
+.glass-card:hover,
+.monitor-card:hover,
+.stats-card:hover,
+.case-card:hover,
+.incident-card:hover,
+.soc-stat:hover,
+.topology-child:hover,
+.status-card:hover{
+
+  transform:
+    translateY(-6px)
+    scale(1.01);
+
+  border-color:
+    rgba(0,240,255,.45);
+
+  box-shadow:
+
+    0 0 35px rgba(0,240,255,.18),
+
+    0 0 80px rgba(139,92,246,.10),
+
+    inset 0 0 30px rgba(255,255,255,.03);
+}
+
+/* 🔥 HOLOGRAM LINE */
+
+.glass-card::after,
+.monitor-card::after,
+.stats-card::after,
+.case-card::after,
+.incident-card::after,
+.soc-stat::after,
+.topology-child::after,
+.status-card::after{
+
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:-100%;
+
+  width:60%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.08),
+      transparent
+    );
+
+  transform:skewX(-25deg);
+
+  transition:1s;
+}
+
+.glass-card:hover::after,
+.monitor-card:hover::after,
+.stats-card:hover::after,
+.case-card:hover::after,
+.incident-card:hover::after,
+.soc-stat:hover::after,
+.topology-child:hover::after,
+.status-card:hover::after{
+
+  left:140%;
+}
+
 .glass-card:hover::before {
 
   top: 100%;
