@@ -1325,6 +1325,69 @@ h1,h2,h3,.section-glow{
 
 /* 🔥 TOPOLOGY SECTION */
 
+/* 🔥 AI SERVICES LAYOUT */
+
+.services-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    1.5fr 1fr 1fr;
+
+  gap:24px;
+}
+
+/* 🔥 BIG FEATURE CARD */
+
+.service-feature{
+
+  min-height:260px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  padding:40px !important;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(0,240,255,.08),
+      rgba(139,92,246,.06)
+    );
+
+  border:
+    1px solid rgba(0,240,255,.18);
+}
+
+/* 🔥 NORMAL SERVICE CARDS */
+
+.services-grid .glass-card{
+
+  min-height:260px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+}
+
+/* 🔥 RESPONSIVE */
+
+@media(max-width:1000px){
+
+  .services-grid{
+
+    grid-template-columns:1fr;
+  }
+
+}
+
+
 .topology-wrapper {
 
   display: flex;
@@ -1860,6 +1923,43 @@ repeat(auto-fit,minmax(160px,1fr));
 
   animation:
     orbRotate 12s linear infinite;
+}
+
+/* 🔥 ENERGY CORE */
+
+.ai-orb span{
+
+  position:absolute;
+
+  inset:30px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  animation:
+    orbRotate 10s linear infinite;
+}
+
+.ai-orb span:nth-child(2){
+
+  inset:60px;
+
+  border-color:
+    rgba(0,240,255,.18);
+
+  animation-duration:16s;
+}
+
+.ai-orb span:nth-child(3){
+
+  inset:90px;
+
+  border-color:
+    rgba(139,92,246,.18);
+
+  animation-duration:22s;
 }
 
 .ai-orb::after{
