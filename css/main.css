@@ -104,6 +104,96 @@
   }
 
 }
+
+/* 🔥 AI GRID BACKGROUND */
+
+.ai-grid{
+
+  position:fixed;
+  inset:0;
+
+  z-index:-4;
+
+  background-image:
+
+    linear-gradient(
+      rgba(59,130,246,.08) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(59,130,246,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:50px 50px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black 30%,
+      transparent 90%
+    );
+
+  animation:gridMove 18s linear infinite;
+
+  opacity:.45;
+}
+
+/* 🔥 MOVING GRID */
+
+@keyframes gridMove{
+
+  from{
+    transform:translateY(0);
+  }
+
+  to{
+    transform:translateY(50px);
+  }
+
+}
+
+/* 🔥 BIG AI GLOW */
+
+.ai-glow{
+
+  position:fixed;
+
+  width:700px;
+  height:700px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,.14),
+      transparent 70%
+    );
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+
+  z-index:-5;
+
+  filter:blur(60px);
+
+  animation:aiPulse 8s ease-in-out infinite;
+}
+
+@keyframes aiPulse{
+
+  0%,100%{
+    transform:translate(-50%,-50%) scale(1);
+  }
+
+  50%{
+    transform:translate(-50%,-50%) scale(1.15);
+  }
+
+}
 body {
       font-family: 'Inter', sans-serif;
       color: #ffffff;
