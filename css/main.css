@@ -2174,11 +2174,30 @@ footer{
 
 .nav-glass{
 
-  width:calc(100% - 24px) !important;
+  margin-top:10px;
 
-  min-width:auto !important;
+  width:100%;
 
-  overflow:hidden;
+  max-width:1280px;
+
+  margin-left:auto;
+  margin-right:auto;
+
+  padding:12px 18px;
+
+  border-radius:20px;
+
+  background:
+    rgba(2,6,23,0.75);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 0 30px rgba(0,0,0,0.15);
 }
 
 /* FIX TERMINAL */
@@ -2197,23 +2216,6 @@ footer{
   overflow:hidden;
   pointer-events:none;
 }
-nav{
-
-  width:100%;
-  overflow:hidden;
-}
-
-/* 🔥 PREMIUM AUTO-HIDE SCROLLBAR */
-
-html{
-
-  scrollbar-width:thin;
-
-  scrollbar-color:
-  rgba(37,99,235,.45)
-  transparent;
-}
-
 
 html{
 
