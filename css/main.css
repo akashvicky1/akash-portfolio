@@ -344,10 +344,8 @@ h1,h2,h3,.section-glow{
 .status-card:hover{
 
   transform:
-  translateY(-8px)
- rotateX(1.5deg)
-rotateY(-1.5deg)
-  scale(1.02);
+  translateY(-4px)
+  scale(1.01);
   border-color:
     rgba(0,240,255,.45);
 
@@ -355,7 +353,7 @@ rotateY(-1.5deg)
 
     0 0 35px rgba(0,240,255,.18),
 
-    0 0 80px rgba(139,92,246,.10),
+    0 0 25px rgba(139,92,246,.08),
 
     inset 0 0 30px rgba(255,255,255,.03);
 }
@@ -2040,4 +2038,31 @@ body::before {
 
 }
 
+@media(max-width:768px){
 
+  .ai-grid,
+  .ai-glow,
+  .network-glow,
+  .scan-line{
+    display:none !important;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .glass-card,
+  .monitor-card,
+  .stats-card,
+  .case-card,
+  .incident-card,
+  .soc-stat,
+  .topology-child,
+  .status-card,
+  .nav-glass{
+
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+}
