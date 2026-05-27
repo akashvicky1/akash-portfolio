@@ -2215,32 +2215,7 @@ html{
 }
 
 
-/* CHROME */
+html{
 
-::-webkit-scrollbar{
-
-  width:4px;
-}
-
-::-webkit-scrollbar-track{
-
-  background:#020617;
-}
-
-::-webkit-scrollbar-thumb{
-
-  background:
-  rgba(37,99,235,.35);
-
-  border-radius:20px;
-
-  transition:.3s;
-}
-
-/* HOVER PE BRIGHT */
-
-::-webkit-scrollbar-thumb:hover{
-
-  background:
-  rgba(37,99,235,.75);
+  scroll-behavior:smooth;
 }
