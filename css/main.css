@@ -29,8 +29,8 @@
 
   position: fixed;
 
-  width: 180px;
-  height: 180px;
+  width: min(180px,40vw);
+height: min(180px,40vw);
 
   opacity: 0.6;
 
@@ -161,8 +161,8 @@
 
   position:fixed;
 
-  width:500px;
-height:500px;
+  width:min(500px,90vw);
+height:min(500px,90vw);
 
   background:
     radial-gradient(
@@ -1381,7 +1381,7 @@ perspective:1000px;
     grid;
 
   grid-template-columns:
-repeat(auto-fit,minmax(160px,1fr));
+repeat(auto-fit,minmax(0,1fr));
 
   gap:
     20px;
@@ -2140,4 +2140,60 @@ html, body{
 }
 html{
   scroll-behavior:smooth;
+}
+/* 🔥 FINAL OVERFLOW FIX */
+
+html,
+body{
+
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+
+/* FIX ALL SECTIONS */
+
+section,
+div,
+nav,
+header,
+main,
+footer{
+
+  max-width:100%;
+}
+
+/* FIX PARTICLES */
+
+#tsparticles{
+
+  width:100% !important;
+  overflow:hidden !important;
+}
+
+/* FIX NAVBAR */
+
+.nav-glass{
+
+  width:calc(100% - 24px) !important;
+
+  min-width:auto !important;
+
+  overflow:hidden;
+}
+
+/* FIX TERMINAL */
+
+#terminal{
+
+  overflow-x:auto;
+}
+
+/* FIX LARGE GLOW ELEMENTS */
+
+.ai-glow,
+.network-glow,
+.cursor-glow{
+
+  overflow:hidden;
+  pointer-events:none;
 }
