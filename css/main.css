@@ -2211,3 +2211,46 @@ html{
 
   scroll-behavior:smooth;
 }
+/* 🔥 REMOVE FAKE SECOND SCROLL LINE */
+
+html,
+body{
+
+  overflow-x:hidden;
+}
+
+/* REMOVE RIGHT SIDE GLOW */
+
+body::before,
+body::after{
+
+  display:none !important;
+}
+
+/* REMOVE FIXED ELEMENT GLOW */
+
+.scroll-top-btn,
+.whatsapp-btn,
+.nav-glass{
+
+  box-shadow:none !important;
+}
+
+/* FORCE CLEAN SCROLLBAR */
+
+::-webkit-scrollbar{
+
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+
+  background:#020617;
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:#2563eb;
+
+  border-radius:20px;
+}
