@@ -2066,3 +2066,43 @@ body::before {
   }
 
 }
+
+html, body{
+  overflow-x:hidden !important;
+  width:100%;
+}
+
+@media(max-width:768px){
+
+  .nav-glass{
+    min-width:calc(100% - 20px) !important;
+    padding:12px 14px !important;
+  }
+
+  .topology-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  h1{
+    font-size:42px !important;
+    line-height:1.2 !important;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary{
+    width:100%;
+    justify-content:center;
+  }
+
+  .glass-card,
+  .monitor-card,
+  .incident-card,
+  .case-card{
+    padding:20px !important;
+  }
+
+}
