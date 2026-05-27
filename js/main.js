@@ -144,79 +144,60 @@ function closeModal() {
 }
 
 function downloadWorkflow() {
-  const pass = prompt("Enter password to download workflow:");
-
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Ai%20Monitoring%20System1.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20AI%20Monitoring%20Workflow.",
+    "_blank"
+  );
 }
 
-
 function downloadBlueGuardian() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/BlueGuardian_Monitring1.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20BlueGuardian%20Workflow.",
+    "_blank"
+  );
 }
 
 function downloadGlobalConfig() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GLOBAL_CONFIG1.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20Global%20Config%20Automation.",
+    "_blank"
+  );
 }
 
 function downloadGCPWorkflow() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/GCP_Project_Auto1.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20GCP%20Automation%20Workflow.",
+    "_blank"
+  );
 }
 
 function downloadPatchWorkflow() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Centralized%20Patch%20Management1.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20Patch%20Management%20Workflow.",
+    "_blank"
+  );
 }
 
 function downloadSophosWorkflow() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/Sophos-Auto%20summary1.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20Sophos%20Automation%20Workflow.",
+    "_blank"
+  );
 }
 
 function downloadOffboardingWorkflow() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/exit-user-offboarding-automation-workflow.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20User%20Offboarding%20Workflow.",
+    "_blank"
+  );
 }
 
 function downloadOnboardingWorkflow() {
-  const pass = prompt("Enter password:");
-  if (pass === "akash123") {
-    window.open("https://raw.githubusercontent.com/akashvicky1/akash-portfolio/refs/heads/main/hr-onboarding-automation-workflow.json");
-  } else {
-    alert("Access Denied ❌");
-  }
+  window.open(
+    "https://wa.me/919067825687?text=Hi%20HanuTech%20Cloud,%20I%20want%20access%20to%20the%20HR%20Onboarding%20Workflow.",
+    "_blank"
+  );
 }
-
 document.addEventListener("DOMContentLoaded", function () {
 
   const roles = [
@@ -321,7 +302,7 @@ ${line.output}
 
   lineIndex++;
 
-  setTimeout(typeTerminal, 1500);
+  setTimeout(typeTerminal, 800);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -417,7 +398,7 @@ if (document.getElementById("cpuBar")) {
 
   updateMonitoring();
 
-  setInterval(updateMonitoring, 3500);
+  setInterval(updateMonitoring, 10000);
 
 }
 
@@ -537,7 +518,7 @@ function addSocLog() {
 
 }
 
-setInterval(addSocLog, 3200);
+setInterval(addSocLog, 10000);
 
 addSocLog();
 
