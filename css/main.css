@@ -309,12 +309,12 @@ h1,h2,h3,.section-glow{
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,.04),
-      rgba(255,255,255,.02)
+      rgba(15,23,42,.88),
+      rgba(15,23,42,.65)
     );
 
   border:
-    1px solid rgba(0,240,255,.12);
+    1px solid rgba(255,255,255,.08);
 
   box-shadow:
 
@@ -522,13 +522,14 @@ h1,h2,h3,.section-glow{
     20px;
 
   background:
-    rgba(15,23,42,0.55);
+    rgba(2,6,23,0.75);
 
   border:
     1px solid rgba(255,255,255,0.06);
 
  backdrop-filter:
     blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
