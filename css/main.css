@@ -2150,17 +2150,7 @@ body{
   overflow-x:hidden !important;
 }
 
-/* FIX ALL SECTIONS */
 
-section,
-div,
-nav,
-header,
-main,
-footer{
-
-  max-width:100%;
-}
 
 /* FIX PARTICLES */
 
