@@ -2078,9 +2078,7 @@ body::before {
 html,
 body{
 
-  overflow-x:hidden;
-
-  overflow-y:auto;
+  overflow-x:hidden !important;
 
   width:100%;
 
@@ -2253,4 +2251,10 @@ body::after{
   background:#2563eb;
 
   border-radius:20px;
+}
+body{
+
+  margin:0;
+
+  scrollbar-gutter:stable;
 }
