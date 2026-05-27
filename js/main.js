@@ -603,6 +603,3 @@ Thanks.`
     `mailto:prajapatiakash123@gmail.com?subject=${subject}&body=${body}`;
 
 }
-window.addEventListener("load", () => {
-  document.body.classList.remove("opacity-0");
-});
