@@ -2075,9 +2075,16 @@ body::before {
 
 }
 
-html, body{
-  overflow-x:hidden !important;
+html,
+body{
+
+  overflow-x:hidden;
+
+  overflow-y:auto;
+
   width:100%;
+
+  background:#020617;
 }
 
 @media(max-width:768px){
@@ -2141,14 +2148,7 @@ html, body{
 html{
   scroll-behavior:smooth;
 }
-/* 🔥 FINAL OVERFLOW FIX */
 
-html,
-body{
-
-  max-width:100%;
-  overflow-x:hidden !important;
-}
 
 
 
