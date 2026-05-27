@@ -450,12 +450,17 @@ h1,h2,h3,.section-glow{
 
   background:
     rgba(255,255,255,0.03);
+
+  position:relative;
+
+  overflow:hidden;
 }
 
 .experience-card:hover {
 
   transform:
-    translateY(-2px);
+    translateY(-4px)
+    scale(1.01);
 
   box-shadow:
     0 0 25px rgba(59,130,246,0.12);
