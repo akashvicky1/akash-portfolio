@@ -136,7 +136,7 @@
       transparent 90%
     );
 
-  animation:gridMove 18s linear infinite;
+  animation:gridMove 40s linear infinite;
 
   opacity:.45;
 }
@@ -180,7 +180,7 @@ height:500px;
 
  filter:blur(30px);
 
-  animation:aiPulse 8s ease-in-out infinite;
+  animation:aiPulse 18s ease-in-out infinite;
 }
 
 @keyframes aiPulse{
@@ -197,6 +197,8 @@ height:500px;
 body {
 
   font-family:'Inter',sans-serif;
+
+  scroll-behavior: smooth;
 
   color:#ffffff;
 
@@ -782,7 +784,7 @@ h1,h2,h3,.section-glow{
     transparent
   );
 
-  animation:scanMove 6s linear infinite;
+  animation:scanMove 14s linear infinite;
 }
 
 @keyframes scanMove{
