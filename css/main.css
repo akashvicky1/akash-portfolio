@@ -2202,18 +2202,45 @@ nav{
   width:100%;
   overflow:hidden;
 }
-/* 🔥 HIDE SCROLLBAR */
 
-html,
-body{
+/* 🔥 PREMIUM AUTO-HIDE SCROLLBAR */
 
-  -ms-overflow-style:none;
+html{
 
-  scrollbar-width:none;
+  scrollbar-width:thin;
+
+  scrollbar-color:
+  rgba(37,99,235,.45)
+  transparent;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar{
 
-  display:none;
+/* CHROME */
+
+::-webkit-scrollbar{
+
+  width:6px;
+}
+
+::-webkit-scrollbar-track{
+
+  background:transparent;
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:
+  rgba(37,99,235,.35);
+
+  border-radius:20px;
+
+  transition:.3s;
+}
+
+/* HOVER PE BRIGHT */
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:
+  rgba(37,99,235,.75);
 }
