@@ -225,13 +225,15 @@ body {
   overflow-x:hidden;
 }
 
-h1,h2,h3,.section-glow{
-
+h1,h2{
   font-family:'Orbitron',sans-serif;
+  letter-spacing:.5px;
+}
 
-  letter-spacing:1px;
-
-  text-transform:uppercase;
+h3,
+.section-glow{
+  font-family:'Inter',sans-serif;
+  letter-spacing:.2px;
 }
 
 #fade-text {
@@ -346,7 +348,7 @@ h1,h2,h3,.section-glow{
     rgba(59,130,246,.22);
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,.22);
+0 12px 24px rgba(0,0,0,.18);
 }
 
 /* 🔥 HOLOGRAM LINE */
@@ -380,7 +382,7 @@ h1,h2,h3,.section-glow{
 
   transform:skewX(-25deg);
 
-  transition:1s;
+  transition:1.6s;
 }
 
 .glass-card:hover::after,
@@ -392,7 +394,7 @@ h1,h2,h3,.section-glow{
 .topology-child:hover::after,
 .status-card:hover::after{
 
-  left:140%;
+  left:120%;
 }
 
 
