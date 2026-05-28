@@ -323,12 +323,11 @@ h3,
 
     inset 0 0 30px rgba(255,255,255,.015);
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(6px);
 
   transition:
-    transform .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
+    transform .25s ease,
+    border-color .25s ease;
 }
 
 /* 🔥 HOVER */
@@ -351,51 +350,6 @@ h3,
 0 12px 24px rgba(0,0,0,.18);
 }
 
-/* 🔥 HOLOGRAM LINE */
-
-.glass-card::after,
-.monitor-card::after,
-.stats-card::after,
-.case-card::after,
-.incident-card::after,
-.soc-stat::after,
-.topology-child::after,
-.status-card::after{
-
-  content:'';
-
-  position:absolute;
-
-  top:0;
-  left:-100%;
-
-  width:60%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.08),
-      transparent
-    );
-
-  transform:skewX(-25deg);
-
-  transition:1.6s;
-}
-
-.glass-card:hover::after,
-.monitor-card:hover::after,
-.stats-card:hover::after,
-.case-card:hover::after,
-.incident-card:hover::after,
-.soc-stat:hover::after,
-.topology-child:hover::after,
-.status-card:hover::after{
-
-  left:120%;
-}
 
 
 
@@ -1641,7 +1595,7 @@ repeat(auto-fit,minmax(0,1fr));
 
   border-radius: 14px;
 
-  backdrop-filter: blur(5px);
+  backdrop-filter:none;
 
   transition:
   transform 0.3s ease,
