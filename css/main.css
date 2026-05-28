@@ -117,28 +117,21 @@ height: min(180px,40vw);
   background-image:
 
     linear-gradient(
-      rgba(59,130,246,.08) 1px,
+      rgba(59,130,246,.03) 1px,
       transparent 1px
     ),
 
     linear-gradient(
       90deg,
-      rgba(59,130,246,.08) 1px,
+      rgba(59,130,246,.03) 1px,
       transparent 1px
     );
 
-  background-size:50px 50px;
+  background-size:60px 60px;
 
-  mask-image:
-    radial-gradient(
-      circle at center,
-      black 30%,
-      transparent 90%
-    );
+  opacity:.12;
 
-  animation:gridMove 40s linear infinite;
-
-  opacity:.45;
+  pointer-events:none;
 }
 
 /* 🔥 MOVING GRID */
@@ -161,14 +154,14 @@ height: min(180px,40vw);
 
   position:fixed;
 
-  width:min(500px,90vw);
-height:min(500px,90vw);
+  width:min(420px,80vw);
+  height:min(420px,80vw);
 
   background:
     radial-gradient(
       circle,
-      rgba(59,130,246,.14),
-      transparent 70%
+      rgba(59,130,246,.05),
+      transparent 75%
     );
 
   top:50%;
@@ -178,9 +171,11 @@ height:min(500px,90vw);
 
   z-index:-5;
 
- filter:blur(30px);
+  filter:blur(60px);
 
-  animation:aiPulse 18s ease-in-out infinite;
+  opacity:.45;
+
+  pointer-events:none;
 }
 
 @keyframes aiPulse{
@@ -345,19 +340,13 @@ h1,h2,h3,.section-glow{
 .topology-child:hover,
 .status-card:hover{
 
-  transform:
-  translateY(-4px)
-  scale(1.01);
+  transform:translateY(-4px);
+
   border-color:
-    rgba(0,240,255,.45);
+    rgba(59,130,246,.22);
 
   box-shadow:
-
-    0 0 35px rgba(0,240,255,.18),
-
-    0 0 25px rgba(139,92,246,.08),
-
-    inset 0 0 30px rgba(255,255,255,.03);
+    0 10px 30px rgba(0,0,0,.22);
 }
 
 /* 🔥 HOLOGRAM LINE */
@@ -811,21 +800,14 @@ min-width: auto;
   background:
     linear-gradient(
       90deg,
-      #00f0ff,
-      #8b5cf6,
-      #00ffcc,
-      #00f0ff
+      #ffffff,
+      #93c5fd
     );
-
-  background-size:300% auto;
 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
-  animation:aiGradient 6s linear infinite;
-
-  filter:
-    drop-shadow(0 0 18px rgba(0,240,255,.35));
+  filter:none;
 }
 
 @keyframes aiGradient{
