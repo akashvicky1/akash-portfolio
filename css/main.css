@@ -2240,3 +2240,155 @@ body{
 
   scrollbar-gutter:stable;
 }
+.services-badge{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  background:rgba(59,130,246,0.08);
+
+  border:1px solid rgba(59,130,246,0.18);
+
+  color:#93c5fd;
+
+  font-size:13px;
+
+  letter-spacing:2px;
+
+  font-weight:600;
+}
+
+.services-title{
+
+  font-size:clamp(2.2rem,5vw,4rem);
+
+  line-height:1.1;
+
+  font-weight:800;
+
+  color:white;
+}
+
+.services-subtitle{
+
+  color:#94a3b8;
+
+  line-height:1.9;
+
+  font-size:1.05rem;
+}
+
+.service-card-new{
+
+  padding:34px;
+
+  min-height:260px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:flex-start;
+
+  transition:all .35s ease;
+}
+
+.service-card-new h3{
+
+  margin-top:24px;
+
+  color:white;
+
+  font-size:1.35rem;
+
+  font-weight:700;
+}
+
+.service-card-new p{
+
+  margin-top:16px;
+
+  color:#94a3b8;
+
+  line-height:1.8;
+}
+
+.service-icon-large{
+
+  width:74px;
+
+  height:74px;
+
+  border-radius:22px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:32px;
+
+  margin-bottom:28px;
+
+  background:linear-gradient(
+    135deg,
+    rgba(59,130,246,.18),
+    rgba(96,165,250,.08)
+  );
+
+  border:1px solid rgba(59,130,246,.2);
+}
+
+.service-heading{
+
+  font-size:2rem;
+
+  line-height:1.3;
+
+  color:white;
+
+  font-weight:700;
+}
+
+.service-text{
+
+  margin-top:20px;
+
+  color:#94a3b8;
+
+  line-height:1.9;
+
+  font-size:1rem;
+}
+
+.service-tags{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:12px;
+
+  margin-top:28px;
+}
+
+.service-tags span{
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  color:#cbd5e1;
+
+  font-size:.9rem;
+}
