@@ -2265,6 +2265,23 @@ body{
   font-weight:600;
 }
 
+.tech-pill{
+  padding:12px 22px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(59,130,246,0.25);
+  color:#dbeafe;
+  font-size:14px;
+  transition:0.3s ease;
+  backdrop-filter:blur(10px);
+}
+
+.tech-pill:hover{
+  transform:translateY(-3px);
+  border-color:#3b82f6;
+  box-shadow:0 0 20px rgba(59,130,246,0.25);
+}
+
 .services-title{
 
   font-size:clamp(2.2rem,5vw,4rem);
