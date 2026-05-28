@@ -303,42 +303,14 @@ function randomValue(min, max) {
   ) + min;
 }
 
-function updateMonitoring() {
 
-  const cpu =
-    randomValue(30, 70);
-
-  const ram =
-    randomValue(40, 85);
-
-  const net =
-    randomValue(50, 95);
-
-  document.getElementById("cpuValue").innerText =
-    cpu + "%";
-
-  document.getElementById("ramValue").innerText =
-    ram + "%";
-
-  document.getElementById("netValue").innerText =
-    net + "%";
-
-  document.getElementById("cpuBar").style.width =
-    cpu + "%";
-
-  document.getElementById("ramBar").style.width =
-    ram + "%";
-
-  document.getElementById("netBar").style.width =
-    net + "%";
-}
 
 
 if (document.getElementById("cpuBar")) {
 
   updateMonitoring();
 
-  setInterval(updateMonitoring, 10000);
+ 
 
 }
 
@@ -362,37 +334,8 @@ const feedMessages = [
 const activityFeed =
   document.getElementById("activityFeed");
 
-function addFeedLine() {
 
-  const line =
-    document.createElement("div");
 
-  line.classList.add("feed-line");
-
-  const now =
-    new Date().toLocaleTimeString();
-
-  const randomMessage =
-    feedMessages[
-      Math.floor(Math.random() * feedMessages.length)
-    ];
-
-  line.innerHTML = `
-    <span class="feed-time">[${now}]</span>
-    ${randomMessage}
-  `;
-
-  activityFeed.prepend(line);
-
-  if (activityFeed.children.length > 12) {
-
-    activityFeed.removeChild(
-      activityFeed.lastChild
-    );
-  }
-}
-
-setInterval(addFeedLine, 3000);
 
 addFeedLine();
 
@@ -416,34 +359,9 @@ const socMessages = [
 const socLogs =
   document.getElementById("socLogs");
 
-function addSocLog() {
 
-  const line =
-    document.createElement("div");
 
-  line.classList.add("soc-line");
 
-  const now =
-    new Date().toLocaleTimeString();
-
-  const randomMessage =
-    socMessages[
-      Math.floor(Math.random() * socMessages.length)
-    ];
-
-  line.innerHTML = `
-    <span class="soc-time">[${now}]</span>
-    ${randomMessage}
-  `;
-
-  socLogs.prepend(line);
-
-  if (socLogs.children.length > 14) {
-
-    socLogs.removeChild(
-      socLogs.lastChild
-    );
-  }
 
   // RANDOM COUNTERS
 
@@ -458,7 +376,7 @@ function addSocLog() {
 
 }
 
-setInterval(addSocLog, 10000);
+
 
 addSocLog();
 
