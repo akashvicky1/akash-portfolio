@@ -25,9 +25,67 @@
 }
 
 
+.cursor-glow {
+
+  position: fixed;
+
+  width: min(180px,40vw);
+height: min(180px,40vw);
+
+  opacity: 0.6;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.15),
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  border-radius: 50%;
 
 
+  transition:
+    transform 0.08s linear;
+}
 
+
+/* 🔥 NETWORK GLOW */
+
+.network-glow {
+
+  position: fixed;
+
+  inset: 50% auto auto 50%;
+
+  width: 280px;
+  height: 280px;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.06),
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  opacity: 0.22;
+
+  z-index: -2;
+
+  animation:
+    pulseGlow 18s ease-in-out infinite;
+
+  pointer-events: none;
+
+  will-change: transform;
+}
 
 @keyframes pulseGlow {
 
@@ -47,6 +105,41 @@
 
 }
 
+/* 🔥 AI GRID BACKGROUND */
+
+.ai-grid{
+
+  position:fixed;
+  inset:0;
+
+  z-index:-4;
+
+  background-image:
+
+    linear-gradient(
+      rgba(59,130,246,.08) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(59,130,246,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:50px 50px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black 30%,
+      transparent 90%
+    );
+
+  animation:gridMove 40s linear infinite;
+
+  opacity:.45;
+}
 
 /* 🔥 MOVING GRID */
 
@@ -64,6 +157,31 @@
 
 /* 🔥 BIG AI GLOW */
 
+.ai-glow{
+
+  position:fixed;
+
+  width:min(500px,90vw);
+height:min(500px,90vw);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,.14),
+      transparent 70%
+    );
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+
+  z-index:-5;
+
+ filter:blur(30px);
+
+  animation:aiPulse 18s ease-in-out infinite;
+}
 
 @keyframes aiPulse{
 
@@ -208,7 +326,7 @@ h1,h2,h3,.section-glow{
 
     inset 0 0 30px rgba(255,255,255,.015);
 
-  backdrop-filter:none;none;
+  backdrop-filter:blur(14px);
 
   transition:
     transform .35s ease,
@@ -235,7 +353,7 @@ h1,h2,h3,.section-glow{
 
   box-shadow:
 
-    0 0 12px rgba(0,240,255,.18),
+    0 0 35px rgba(0,240,255,.18),
 
     0 0 25px rgba(139,92,246,.08),
 
@@ -327,7 +445,7 @@ h1,h2,h3,.section-glow{
   padding:
     20px;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(4px);
 
   background:
@@ -340,7 +458,9 @@ h1,h2,h3,.section-glow{
 
 .experience-card:hover {
 
-  transform:translateY(-2px);
+  transform:
+    translateY(-4px)
+    scale(1.01);
 
   box-shadow:
     0 0 25px rgba(59,130,246,0.12);
@@ -414,9 +534,9 @@ min-width: auto;
   border:
     1px solid rgba(255,255,255,0.06);
 
- backdrop-filter:none;
+ backdrop-filter:
     blur(12px);
-  -webkit-backdrop-filter:none;blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
@@ -513,7 +633,7 @@ min-width: auto;
   padding:
     24px;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 
   transition:
@@ -595,7 +715,7 @@ min-width: auto;
   color:
     #e2e8f0;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 
   transition:
@@ -643,6 +763,13 @@ min-width: auto;
 
 /* 🔥 AI SCAN EFFECT */
 
+.scan-line{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
 
 .scan-line::before{
   content:'';
@@ -757,7 +884,7 @@ min-width: auto;
   font-weight:
     500;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(6px);
 
   transition:
@@ -802,7 +929,7 @@ min-width: auto;
   padding:
     24px;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 }
 
@@ -883,7 +1010,7 @@ min-width: auto;
     border-color 0.3s ease,
     background-color 0.3s ease;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 }
 
@@ -944,7 +1071,7 @@ min-width: auto;
     border-color 0.3s ease,
     background-color 0.3s ease;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 
   position:
@@ -962,7 +1089,7 @@ min-width: auto;
     rgba(59,130,246,0.4);
 
   box-shadow:
-    0 0 12px rgba(59,130,246,0.18);
+    0 0 35px rgba(59,130,246,0.18);
 
 }
 
@@ -1123,7 +1250,7 @@ perspective:1000px;
   color:
     white;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 
   border:
@@ -1292,7 +1419,7 @@ repeat(auto-fit,minmax(0,1fr));
     border-color 0.3s ease,
     background-color 0.3s ease;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(5px);
 }
 
@@ -1328,7 +1455,7 @@ repeat(auto-fit,minmax(0,1fr));
   color:
     #cbd5e1;
 
-  backdrop-filter:none;
+  backdrop-filter:
     blur(6px);
 
   display:
@@ -1530,7 +1657,7 @@ repeat(auto-fit,minmax(0,1fr));
 
   border-radius: 14px;
 
-  backdrop-filter:none; blur(5px);
+  backdrop-filter: blur(5px);
 
   transition:
   transform 0.3s ease,
@@ -1556,7 +1683,7 @@ repeat(auto-fit,minmax(0,1fr));
 .terminal-glow {
 
   box-shadow:
-    0 0 15px rgba(59,130,246,0.15),
+    0 0 40px rgba(59,130,246,0.15),
     inset 0 0 20px rgba(59,130,246,0.08);
 
   transition:
@@ -1565,7 +1692,7 @@ repeat(auto-fit,minmax(0,1fr));
 .terminal-glow:hover {
 
   box-shadow:
-    0 0 15px rgba(59,130,246,0.18),
+    0 0 40px rgba(59,130,246,0.18),
     inset 0 0 25px rgba(59,130,246,0.12);
 }
 
@@ -1851,7 +1978,7 @@ html {
   .topology-child,
   .status-card,
   .nav-glass {
-    backdrop-filter:none; none !important;
+    backdrop-filter: none !important;
   }
 
 }
@@ -1942,8 +2069,8 @@ body::before {
   .status-card,
   .nav-glass{
 
-    backdrop-filter:none;none !important;
-    -webkit-backdrop-filter:none;none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
   }
 
 }
@@ -2054,8 +2181,8 @@ html{
   border:
     1px solid rgba(255,255,255,0.06);
 
-  backdrop-filter:none;blur(12px);
-  -webkit-backdrop-filter:none;blur(12px);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
@@ -2130,15 +2257,4 @@ body{
   margin:0;
 
   scrollbar-gutter:stable;
-}
-*{
-  backface-visibility:hidden;
-}
-
-.glass-card,
-.monitor-card,
-.case-card,
-.incident-card,
-.topology-child{
-  transform:translateZ(0);
 }
