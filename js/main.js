@@ -416,52 +416,67 @@ const socMessages = [
 const socLogs =
   document.getElementById("socLogs");
 
-function addSocLog() {
+if (socLogs) {
 
-  const line =
-    document.createElement("div");
+  function addSocLog() {
 
-  line.classList.add("soc-line");
+    const line =
+      document.createElement("div");
 
-  const now =
-    new Date().toLocaleTimeString();
+    line.classList.add("soc-line");
 
-  const randomMessage =
-    socMessages[
-      Math.floor(Math.random() * socMessages.length)
-    ];
+    const now =
+      new Date().toLocaleTimeString();
 
-  line.innerHTML = `
-    <span class="soc-time">[${now}]</span>
-    ${randomMessage}
-  `;
+    const randomMessage =
+      socMessages[
+        Math.floor(Math.random() * socMessages.length)
+      ];
 
-  socLogs.prepend(line);
+    line.innerHTML = `
+      <span class="soc-time">[${now}]</span>
+      ${randomMessage}
+    `;
 
-  if (socLogs.children.length > 14) {
+    socLogs.prepend(line);
 
-    socLogs.removeChild(
-      socLogs.lastChild
-    );
+    if (socLogs.children.length > 14) {
+
+      socLogs.removeChild(
+        socLogs.lastChild
+      );
+    }
+
+    // RANDOM COUNTERS
+
+    const mediumAlerts =
+      document.getElementById("mediumAlerts");
+
+    const blockedIPs =
+      document.getElementById("blockedIPs");
+
+    const failedSSH =
+      document.getElementById("failedSSH");
+
+    if (mediumAlerts)
+      mediumAlerts.innerText =
+        Math.floor(Math.random() * 6);
+
+    if (blockedIPs)
+      blockedIPs.innerText =
+        Math.floor(Math.random() * 40);
+
+    if (failedSSH)
+      failedSSH.innerText =
+        Math.floor(Math.random() * 15);
+
   }
 
-  // RANDOM COUNTERS
+  setInterval(addSocLog, 10000);
 
-  document.getElementById("mediumAlerts").innerText =
-    Math.floor(Math.random() * 6);
-
-  document.getElementById("blockedIPs").innerText =
-    Math.floor(Math.random() * 40);
-
-  document.getElementById("failedSSH").innerText =
-    Math.floor(Math.random() * 15);
+  addSocLog();
 
 }
-
-setInterval(addSocLog, 10000);
-
-addSocLog();
-
 
 // 🔥 COUNTER ANIMATION
 
