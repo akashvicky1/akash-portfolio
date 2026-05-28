@@ -735,7 +735,7 @@ Remote and onsite support available across Ahmedabad.
 
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
 
       <!-- GRAFANA -->
 
@@ -1139,98 +1139,7 @@ HanuTech Cloud provides enterprise-grade IT infrastructure, networking, cloud, a
 
  
 
-<!-- 🔥 SECURITY OPERATIONS CENTER -->
 
-<section class="relative z-10 py-10">
-
-  <div class="container mx-auto px-4">
-
-    <div class="glass-card glow-border">
-
-      <h2 class="section-glow text-3xl font-bold text-center text-white mb-10">
-
-         Security Operations Center
-
-      </h2>
-
-      <div class="grid lg:grid-cols-2 gap-6">
-
-        <!-- LEFT -->
-
-        <div class="soc-panel">
-
-          <h3 class="soc-title">
-             Threat Monitoring
-          </h3>
-
-          <div id="socLogs"
-               class="soc-logs">
-
-          </div>
-
-        </div>
-
-        <!-- RIGHT -->
-
-        <div class="grid grid-cols-2 gap-4">
-
-          <div class="soc-stat">
-
-            <h4>🟢 Firewall</h4>
-
-            <p>Operational</p>
-
-          </div>
-
-          <div class="soc-stat">
-
-            <h4>🛡 Wazuh</h4>
-
-            <p>Connected</p>
-
-          </div>
-
-          <div class="soc-stat">
-
-            <h4>⚠ Medium Alerts</h4>
-
-            <p id="mediumAlerts">3</p>
-
-          </div>
-
-          <div class="soc-stat">
-
-            <h4> Blocked IPs</h4>
-
-            <p id="blockedIPs">17</p>
-
-          </div>
-
-          <div class="soc-stat">
-
-            <h4> Failed SSH</h4>
-
-            <p id="failedSSH">9</p>
-
-          </div>
-
-          <div class="soc-stat">
-
-            <h4>☁ Cloud Sync</h4>
-
-            <p>Healthy</p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
 
 
 <!-- 🔥 INCIDENT RESPONSE SECTION -->
@@ -1964,6 +1873,101 @@ network infrastructure, firewall security and automation systems.
 
 </section>
 
+
+  <!-- INFRASTRUCTURE ARCHITECTURE -->
+
+<section class="py-20 relative z-10">
+
+  <div class="container mx-auto px-4">
+
+    <div class="text-center mb-14">
+
+      <span class="services-badge">
+        ENTERPRISE NETWORK DESIGN
+      </span>
+
+      <h2 class="section-glow text-4xl font-bold text-white mt-5">
+
+        Infrastructure Architecture & VPN Flow
+
+      </h2>
+
+      <p class="text-gray-400 mt-5 max-w-3xl mx-auto leading-8">
+
+        Secure multi-ISP connectivity,
+        full tunnel VPN architecture,
+        firewall segmentation and
+        enterprise infrastructure deployment flow.
+
+      </p>
+
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+
+      <!-- VPN ARCHITECTURE -->
+
+      <div class="glass-card overflow-hidden">
+
+        <img src="images/full-tunnel-vpn-architecture.png"
+             alt="Full Tunnel VPN Architecture"
+             class="w-full h-[260px] md:h-[420px] object-cover cursor-pointer transition duration-500 hover:scale-[1.02]"
+             onclick="openModal(this.src)">
+
+        <div class="p-6">
+
+          <h3 class="text-2xl font-semibold text-white mb-4">
+
+            Full Tunnel VPN Architecture
+
+          </h3>
+
+          <p class="text-gray-400 leading-8">
+
+            Multi-ISP office connectivity routed
+            through Sophos firewall infrastructure
+            using secure IPSec full tunnel VPN deployment.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- INFRA FLOW -->
+
+      <div class="glass-card overflow-hidden">
+
+        <img src="images/vpn-infrastructure-flow.png"
+             alt="Infrastructure Flow"
+             class="w-full h-[260px] md:h-[420px] object-cover cursor-pointer transition duration-500 hover:scale-[1.02]"
+             onclick="openModal(this.src)">
+
+        <div class="p-6">
+
+          <h3 class="text-2xl font-semibold text-white mb-4">
+
+            Infrastructure & LAN Flow
+
+          </h3>
+
+          <p class="text-gray-400 leading-8">
+
+            Sophos firewall segmentation,
+            office switching, wireless access points,
+            CCTV integration and internal LAN architecture.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <section id="contact" class="py-16 relative z-10">
 
