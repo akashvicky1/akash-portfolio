@@ -22,67 +22,7 @@ if (
 
 }
 
-// 🔥 PARTICLES
 
-if (window.innerWidth > 1024) {
-
-  tsParticles.load("tsparticles", {
-
-    fullScreen: {
-  enable: false
-},
-
-    particles: {
-
-      number: {
-
-        value: 28
-
-      },
-
-      size: {
-
-        value: 3
-
-      },
-
-      color: {
-
-        value: "#00bfff"
-
-      },
-
-      links: {
-
-        enable: true,
-
-        distance: 90,
-
-        color: "#00bfff",
-
-        opacity: 0.2
-
-      },
-
-      move: {
-
-        enable: true,
-
-        speed: 1
-
-      }
-
-    },
-
-    background: {
-
-      color: "#0f172a"
-
-    }
-
-  });
-
-}
 
 
 // 🔥 SCROLL BUTTON
