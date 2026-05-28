@@ -235,7 +235,7 @@ h1,h2,h3,.section-glow{
 
   box-shadow:
 
-    0 0 35px rgba(0,240,255,.18),
+    0 0 12px rgba(0,240,255,.18),
 
     0 0 25px rgba(139,92,246,.08),
 
@@ -340,9 +340,7 @@ h1,h2,h3,.section-glow{
 
 .experience-card:hover {
 
-  transform:
-    translateY(-4px)
-    scale(1.01);
+  transform:translateY(-2px);
 
   box-shadow:
     0 0 25px rgba(59,130,246,0.12);
@@ -964,7 +962,7 @@ min-width: auto;
     rgba(59,130,246,0.4);
 
   box-shadow:
-    0 0 35px rgba(59,130,246,0.18);
+    0 0 12px rgba(59,130,246,0.18);
 
 }
 
@@ -1558,7 +1556,7 @@ repeat(auto-fit,minmax(0,1fr));
 .terminal-glow {
 
   box-shadow:
-    0 0 40px rgba(59,130,246,0.15),
+    0 0 15px rgba(59,130,246,0.15),
     inset 0 0 20px rgba(59,130,246,0.08);
 
   transition:
@@ -1567,7 +1565,7 @@ repeat(auto-fit,minmax(0,1fr));
 .terminal-glow:hover {
 
   box-shadow:
-    0 0 40px rgba(59,130,246,0.18),
+    0 0 15px rgba(59,130,246,0.18),
     inset 0 0 25px rgba(59,130,246,0.12);
 }
 
@@ -2132,4 +2130,15 @@ body{
   margin:0;
 
   scrollbar-gutter:stable;
+}
+*{
+  backface-visibility:hidden;
+}
+
+.glass-card,
+.monitor-card,
+.case-card,
+.incident-card,
+.topology-child{
+  transform:translateZ(0);
 }
