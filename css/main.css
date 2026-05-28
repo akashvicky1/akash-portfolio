@@ -208,7 +208,7 @@ h1,h2,h3,.section-glow{
 
     inset 0 0 30px rgba(255,255,255,.015);
 
-  backdrop-filter:none;
+  backdrop-filter:none;none;
 
   transition:
     transform .35s ease,
@@ -327,7 +327,7 @@ h1,h2,h3,.section-glow{
   padding:
     20px;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(4px);
 
   background:
@@ -416,9 +416,9 @@ min-width: auto;
   border:
     1px solid rgba(255,255,255,0.06);
 
- backdrop-filter:
+ backdrop-filter:none;
     blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:none;blur(12px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
@@ -515,7 +515,7 @@ min-width: auto;
   padding:
     24px;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 
   transition:
@@ -597,7 +597,7 @@ min-width: auto;
   color:
     #e2e8f0;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 
   transition:
@@ -759,7 +759,7 @@ min-width: auto;
   font-weight:
     500;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(6px);
 
   transition:
@@ -804,7 +804,7 @@ min-width: auto;
   padding:
     24px;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 }
 
@@ -885,7 +885,7 @@ min-width: auto;
     border-color 0.3s ease,
     background-color 0.3s ease;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 }
 
@@ -946,7 +946,7 @@ min-width: auto;
     border-color 0.3s ease,
     background-color 0.3s ease;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 
   position:
@@ -1125,7 +1125,7 @@ perspective:1000px;
   color:
     white;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 
   border:
@@ -1294,7 +1294,7 @@ repeat(auto-fit,minmax(0,1fr));
     border-color 0.3s ease,
     background-color 0.3s ease;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(5px);
 }
 
@@ -1330,7 +1330,7 @@ repeat(auto-fit,minmax(0,1fr));
   color:
     #cbd5e1;
 
-  backdrop-filter:
+  backdrop-filter:none;
     blur(6px);
 
   display:
@@ -1532,7 +1532,7 @@ repeat(auto-fit,minmax(0,1fr));
 
   border-radius: 14px;
 
-  backdrop-filter: blur(5px);
+  backdrop-filter:none; blur(5px);
 
   transition:
   transform 0.3s ease,
@@ -1853,7 +1853,7 @@ html {
   .topology-child,
   .status-card,
   .nav-glass {
-    backdrop-filter: none !important;
+    backdrop-filter:none; none !important;
   }
 
 }
@@ -1944,8 +1944,8 @@ body::before {
   .status-card,
   .nav-glass{
 
-    backdrop-filter:none !important;
-    -webkit-backdrop-filter:none !important;
+    backdrop-filter:none;none !important;
+    -webkit-backdrop-filter:none;none !important;
   }
 
 }
@@ -2056,8 +2056,8 @@ html{
   border:
     1px solid rgba(255,255,255,0.06);
 
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:none;blur(12px);
+  -webkit-backdrop-filter:none;blur(12px);
 
   box-shadow:
     0 0 30px rgba(0,0,0,0.15);
