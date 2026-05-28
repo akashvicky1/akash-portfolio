@@ -25,67 +25,9 @@
 }
 
 
-.cursor-glow {
-
-  position: fixed;
-
-  width: min(180px,40vw);
-height: min(180px,40vw);
-
-  opacity: 0.6;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(59,130,246,0.15),
-      transparent 70%
-    );
-
-  pointer-events: none;
-
-  z-index: -1;
-
-  border-radius: 50%;
 
 
-  transition:
-    transform 0.08s linear;
-}
 
-
-/* 🔥 NETWORK GLOW */
-
-.network-glow {
-
-  position: fixed;
-
-  inset: 50% auto auto 50%;
-
-  width: 280px;
-  height: 280px;
-
-  transform: translate(-50%, -50%);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(59,130,246,0.06),
-      transparent 72%
-    );
-
-  filter: blur(18px);
-
-  opacity: 0.22;
-
-  z-index: -2;
-
-  animation:
-    pulseGlow 18s ease-in-out infinite;
-
-  pointer-events: none;
-
-  will-change: transform;
-}
 
 @keyframes pulseGlow {
 
@@ -105,41 +47,6 @@ height: min(180px,40vw);
 
 }
 
-/* 🔥 AI GRID BACKGROUND */
-
-.ai-grid{
-
-  position:fixed;
-  inset:0;
-
-  z-index:-4;
-
-  background-image:
-
-    linear-gradient(
-      rgba(59,130,246,.08) 1px,
-      transparent 1px
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(59,130,246,.08) 1px,
-      transparent 1px
-    );
-
-  background-size:50px 50px;
-
-  mask-image:
-    radial-gradient(
-      circle at center,
-      black 30%,
-      transparent 90%
-    );
-
-  animation:gridMove 40s linear infinite;
-
-  opacity:.45;
-}
 
 /* 🔥 MOVING GRID */
 
@@ -157,31 +64,6 @@ height: min(180px,40vw);
 
 /* 🔥 BIG AI GLOW */
 
-.ai-glow{
-
-  position:fixed;
-
-  width:min(500px,90vw);
-height:min(500px,90vw);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(59,130,246,.14),
-      transparent 70%
-    );
-
-  top:50%;
-  left:50%;
-
-  transform:translate(-50%,-50%);
-
-  z-index:-5;
-
- filter:blur(30px);
-
-  animation:aiPulse 18s ease-in-out infinite;
-}
 
 @keyframes aiPulse{
 
@@ -326,7 +208,7 @@ h1,h2,h3,.section-glow{
 
     inset 0 0 30px rgba(255,255,255,.015);
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:none;
 
   transition:
     transform .35s ease,
@@ -763,13 +645,6 @@ min-width: auto;
 
 /* 🔥 AI SCAN EFFECT */
 
-.scan-line{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:1;
-}
 
 .scan-line::before{
   content:'';
