@@ -1925,7 +1925,8 @@ body::after {
   border-radius: 8px;
 }
 html {
-
+scroll-behavior:smooth;
+-webkit-font-smoothing:antialiased;
   scroll-behavior: smooth;
 }
 
