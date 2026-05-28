@@ -2394,3 +2394,44 @@ body{
 
   font-size:.9rem;
 }
+.case-subtitle{
+
+  text-align:center;
+
+  color:#94a3b8;
+
+  max-width:720px;
+
+  margin:0 auto 50px;
+
+  line-height:1.9;
+
+  font-size:1rem;
+}
+.trust-bar{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:14px;
+
+  margin-top:26px;
+}
+
+.trust-bar span{
+
+  padding:12px 18px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  color:#cbd5e1;
+
+  font-size:.92rem;
+
+  backdrop-filter:blur(8px);
+}
