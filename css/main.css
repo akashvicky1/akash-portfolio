@@ -2307,7 +2307,8 @@ body{
   backdrop-filter:blur(8px);
 }
 .emergency-support{
-
+min-height: 44px;
+padding: 12px 18px;
   position:fixed;
 
   right:20px;
